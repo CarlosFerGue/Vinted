@@ -12,6 +12,11 @@ public class LstPelicula2Activity extends AppCompatActivity
     //Activity es la pantalla que muestras
 
     private LstMoviesPresenter lstMoviesPresenter;
+
+    public void onCreate(Bundle savedInstanceState){
+
+    }
+
     @Override
     public void successMovies(ArrayList<Pelicula> lstPelicula) {
 
