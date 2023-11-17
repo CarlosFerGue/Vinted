@@ -1,24 +1,47 @@
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.ParserConfigurationException;
+import controller.action.LoginAction;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-public class Controller {
-    public static void ejecutar(String tabla, String action) throws SQLException, ParserConfigurationException, IOException, SAXException {
-        switch (tabla){
-            case "ARTICULOS":
-                new ArticulosDAO().ejecutar(action);
+@WebServlet(name = "Controller", urlPatterns = {"/Controller"})
+public class Controller extends HttpServlet {
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/plain;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        String action = request.getParameter("ACTION");
+        String[] arrayAction = action.split("\\.");
+
+        switch (arrayAction[0]) {
+            case "PRODUCTOS":
+                out.print(new ProductoAction().execute(request, response));
                 break;
-            case "PARTICULARES":
-                new ParticularesDAO().ejecutar(action);
+            case "LOGIN":
+                out.print(new LoginAction().execute(request, response));
                 break;
-            case "TICKETS":
-                new TicketsDAO().ejecutar(action);
-                break;
-            case "DIRECCIONES":
-                new DireccionesDAO().ejecutar(action);
+            case "CART":
+                out.print(new CartAction().execute(request, response));
                 break;
         }
     }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }
+
 }
