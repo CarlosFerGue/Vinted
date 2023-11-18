@@ -24,9 +24,9 @@ public class LoginAction implements IAction {
             case "LOGIN_USUARIO":
                 cadDestino = findAllUsers(request, response);
                 break;
-            case "LOGIN_STAFF":
-                cadDestino = findAllStaff(request, response);
-                break;
+//            case "LOGIN_STAFF":
+//                cadDestino = findAllStaff(request, response);
+//                break;
             case "REGISTER":
                 add(request, response);
                 break;
@@ -46,19 +46,22 @@ public class LoginAction implements IAction {
         return Usuario.toArrayJSon(usuarios);
     }
 
-    private String findAllStaff(HttpServletRequest request, HttpServletResponse response) {
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        ArrayList<Usuario> usuarios = usuarioDAO.findAllStaff(null);
-        return Usuario.toArrayJSon(usuarios);
-    }
+//    private String findAllStaff(HttpServletRequest request, HttpServletResponse response) {
+//        UsuarioDAO usuarioDAO = new UsuarioDAO();
+//        ArrayList<Usuario> usuarios = usuarioDAO.findAllStaff(null);
+//        return Usuario.toArrayJSon(usuarios);
+//    }
 
     private void add(HttpServletRequest request, HttpServletResponse response) {
         String nombre = request.getParameter("NOMBRE");
         String correo = request.getParameter("CORREO");
         String contrasena = request.getParameter("CONTRASENA");
         String idString = request.getParameter("ID");
+        String apellido1 = request.getParameter("APELLIDO1");
+        String apellido2 = request.getParameter("APELLIDO2");
+        String user = request.getParameter("USER");
         int id = Integer.parseInt(idString);
-        Usuario usuario = new Usuario(id, nombre, correo, contrasena, "usuario");
+        Usuario usuario = new Usuario(id, nombre, correo, contrasena, apellido1, apellido2, user);
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.add(usuario);
     }

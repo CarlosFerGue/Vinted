@@ -57,13 +57,44 @@ public class ProductoDAO implements DAO<Producto, Integer> {
             while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
                 Producto producto = new Producto(
                         rs.getInt("ID_PRODUCTO"),
-                        rs.getInt("STOCK"),
-                        rs.getString("NOMBRE"),
+                        rs.getString("MARCA"),
+                        rs.getString("ESTADO"),
+                        rs.getString("FECHA"),
                         rs.getString("DESCRIPCION"),
-                        rs.getString("URL"),
-                        rs.getFloat("PRECIO"),
-                        rs.getString("TIPO"),
-                        rs.getInt("VALORACION")
+                        rs.getString("NOMBRE"),
+                        rs.getString("IMAGEN"),
+                        rs.getFloat("PRECIO")
+                );
+                productos.add(producto);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            motorSql.desconectar();
+        }
+        return productos;
+    }
+
+    public ArrayList<Producto> upload(String tipo) throws SQLException {
+        ArrayList<Producto> productos = new ArrayList<>();
+        String sql = "SELECT * FROM PRODUCTOS WHERE TIPO='" + tipo +"'";
+        try {
+            //1º)
+            motorSql.conectar();
+
+            System.out.println(sql);
+            ResultSet rs = motorSql.consultar(sql);
+
+            while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
+                Producto producto = new Producto(
+                        rs.getInt("ID_PRODUCTO"),
+                        rs.getString("MARCA"),
+                        rs.getString("ESTADO"),
+                        rs.getString("FECHA"),
+                        rs.getString("DESCRIPCION"),
+                        rs.getString("NOMBRE"),
+                        rs.getString("IMAGEN"),
+                        rs.getFloat("PRECIO")
                 );
                 productos.add(producto);
             }

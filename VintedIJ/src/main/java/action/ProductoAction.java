@@ -1,5 +1,6 @@
 package action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,7 +10,7 @@ import model.ProductoDAO;
 public class ProductoAction implements IAction {
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String cadDestino = "";
         String action = (String) request.getParameter("ACTION");
         String[] arrayAction = action.split("\\.");
@@ -21,7 +22,7 @@ public class ProductoAction implements IAction {
                 cadDestino = findByFilter(request, response);
                 break;
             case "DAR_ALTA": //Subes tus productos
-                cadDestino = findByFilter(request, response);
+                cadDestino = upload(request, response);
                 break;
 //            case "FILTER":
 //                cadDestino = findByFilter(request, response);
@@ -33,20 +34,20 @@ public class ProductoAction implements IAction {
         return cadDestino;
     }
 
-    private String findAll(HttpServletRequest request, HttpServletResponse response) {
+    private String findAll(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ProductoDAO productoDAO = new ProductoDAO();
         ArrayList<Producto> productos = productoDAO.findAll(null);
         return Producto.toArrayJSon(productos);
     }
 
-    private String findByFilter(HttpServletRequest request, HttpServletResponse response) {
+    private String findByFilter(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ProductoDAO productoDAO = new ProductoDAO();
         String tipo = request.getParameter("FILTRO");
         ArrayList<Producto> productos = productoDAO.filterType(tipo);
         return Producto.toArrayJSon(productos);
     }
 
-    private String findByPrice(HttpServletRequest request, HttpServletResponse response) {
+    private String upload(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ProductoDAO productoDAO = new ProductoDAO();
         String tipo = request.getParameter("RANGO");
         ArrayList<Producto> productos = productoDAO.filterType(tipo);
