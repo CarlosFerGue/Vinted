@@ -50,7 +50,7 @@ public class Main {
 //                break;
         }
 
-        Controller.ejecutar(tabla,accionUsuario);
+//        Controller.ejecutar(tabla,accionUsuario);
 
     }
 }

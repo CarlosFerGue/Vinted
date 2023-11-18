@@ -103,10 +103,10 @@ INSERT INTO `favoritos` (`id_favoritos`, `id_usuario`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Estructura de tabla para la tabla `articulos`
 --
 
-CREATE TABLE `productos` (
+CREATE TABLE `articulos` (
   `id_producto` int(11) NOT NULL,
   `marca_producto` varchar(20) NOT NULL,
   `precio_producto` varchar(20) NOT NULL,
@@ -119,10 +119,10 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `productos`
+-- Volcado de datos para la tabla `articulos`
 --
 
-INSERT INTO `productos` (`id_producto`, `marca_producto`, `precio_producto`, `imagen_producto`, `nombre_producto`, `descripcion_producto`, `fecha_subida_producto`, `estado`, `id_usuario`) VALUES
+INSERT INTO `articulos` (`id_producto`, `marca_producto`, `precio_producto`, `imagen_producto`, `nombre_producto`, `descripcion_producto`, `fecha_subida_producto`, `estado`, `id_usuario`) VALUES
 (1, 'Brand X', '79.99', 'product_x.jpg', 'Product X', 'Description X', '2023-03-01', 'Active', 1),
 (2, 'Brand Y', '129.99', 'product_y.jpg', 'Product Y', 'Description Y', '2023-03-05', 'Active', 2),
 (3, 'Brand X', '79.99', 'product_x.jpg', 'Product X', 'Description X', '2023-03-01', 'Active', 1),
@@ -267,9 +267,9 @@ ALTER TABLE `favoritos`
   ADD KEY `id_usuario` (`id_usuario`);
 
 --
--- Indices de la tabla `productos`
+-- Indices de la tabla `articulos`
 --
-ALTER TABLE `productos`
+ALTER TABLE `articulos`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_usuario` (`id_usuario`);
 
@@ -339,9 +339,9 @@ ALTER TABLE `favoritos`
   MODIFY `id_favoritos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de la tabla `productos`
+-- AUTO_INCREMENT de la tabla `articulos`
 --
-ALTER TABLE `productos`
+ALTER TABLE `articulos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -391,23 +391,23 @@ ALTER TABLE `favoritos`
   ADD CONSTRAINT `favoritos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
--- Filtros para la tabla `productos`
+-- Filtros para la tabla `articulos`
 --
-ALTER TABLE `productos`
+ALTER TABLE `articulos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `producto_categoria`
 --
 ALTER TABLE `producto_categoria`
-  ADD CONSTRAINT `producto_categoria_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
+  ADD CONSTRAINT `producto_categoria_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `articulos` (`id_producto`),
   ADD CONSTRAINT `producto_categoria_ibfk_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
 
 --
 -- Filtros para la tabla `producto_color`
 --
 ALTER TABLE `producto_color`
-  ADD CONSTRAINT `producto_color_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`),
+  ADD CONSTRAINT `producto_color_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `articulos` (`id_producto`),
   ADD CONSTRAINT `producto_color_ibfk_2` FOREIGN KEY (`id_color`) REFERENCES `color` (`id_color`);
 
 --

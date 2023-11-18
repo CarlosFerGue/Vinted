@@ -1,19 +1,18 @@
 package controller.action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.IAction;
-import model.Producto;
-import model.ProductoDAO;
 import model.Usuario;
 import model.UsuarioDAO;
 
 public class LoginAction implements IAction {
 
     @Override
-    public String execute(HttpServletRequest request, HttpServletResponse response) {
+    public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String cadDestino = "";
         String action = (String) request.getParameter("ACTION");
         String[] arrayAction = action.split("\\.");
@@ -34,13 +33,13 @@ public class LoginAction implements IAction {
         return cadDestino;
     }
 
-    private String findAll(HttpServletRequest request, HttpServletResponse response) {
+    private String findAll(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         ArrayList<Usuario> usuarios = usuarioDAO.findAll(null);
         return Usuario.toArrayJSon(usuarios);
     }
 
-    private String findAllUsers(HttpServletRequest request, HttpServletResponse response) {
+    private String findAllUsers(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         ArrayList<Usuario> usuarios = usuarioDAO.findAllUsers(null);
         return Usuario.toArrayJSon(usuarios);
@@ -52,8 +51,8 @@ public class LoginAction implements IAction {
 //        return Usuario.toArrayJSon(usuarios);
 //    }
 
-    private void add(HttpServletRequest request, HttpServletResponse response) {
-        String nombre = request.getParameter("NOMBRE");
+    private void add(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String nombre = request.getParameter("NOMBRE"); //en verde el nombre de la tabla SQL
         String correo = request.getParameter("CORREO");
         String contrasena = request.getParameter("CONTRASENA");
         String idString = request.getParameter("ID");

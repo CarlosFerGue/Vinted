@@ -1,7 +1,6 @@
 package model;
 
 import java.sql.*;
-import java.util.ResourceBundle;
 
 public class MotorSQL {
 
@@ -23,8 +22,10 @@ public class MotorSQL {
         return rs;
     }
 
-    public void modificar(String sentenciaSQL) throws SQLException {
-        st.executeUpdate(sentenciaSQL);
+    public int modificar(String sentenciaSQL) throws SQLException {
+        int resp = 0;
+        resp = st.executeUpdate(sentenciaSQL);
+        return resp;
     }
 
     public void desconectar() throws SQLException {

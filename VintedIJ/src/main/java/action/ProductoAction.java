@@ -4,8 +4,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Producto;
-import model.ProductoDAO;
+
+import model.Articulo;
+import model.ArticuloDAO;
 
 public class ProductoAction implements IAction {
 
@@ -35,22 +36,22 @@ public class ProductoAction implements IAction {
     }
 
     private String findAll(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        ProductoDAO productoDAO = new ProductoDAO();
-        ArrayList<Producto> productos = productoDAO.findAll(null);
-        return Producto.toArrayJSon(productos);
+        ArticuloDAO articuloDAO = new ArticuloDAO();
+        ArrayList<Articulo> articulos = articuloDAO.findAll(null);
+        return Articulo.toArrayJSon(articulos);
     }
 
     private String findByFilter(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        ProductoDAO productoDAO = new ProductoDAO();
+        ArticuloDAO articuloDAO = new ArticuloDAO();
         String tipo = request.getParameter("FILTRO");
-        ArrayList<Producto> productos = productoDAO.filterType(tipo);
-        return Producto.toArrayJSon(productos);
+        ArrayList<Articulo> articulos = articuloDAO.filterType(tipo);
+        return Articulo.toArrayJSon(articulos);
     }
 
     private String upload(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        ProductoDAO productoDAO = new ProductoDAO();
+        ArticuloDAO articuloDAO = new ArticuloDAO();
         String tipo = request.getParameter("RANGO");
-        ArrayList<Producto> productos = productoDAO.filterType(tipo);
-        return Producto.toArrayJSon(productos);
+        ArrayList<Articulo> articulos = articuloDAO.filterType(tipo);
+        return Articulo.toArrayJSon(articulos);
     }
 }
