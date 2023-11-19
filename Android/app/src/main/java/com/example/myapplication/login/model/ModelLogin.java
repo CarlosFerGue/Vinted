@@ -29,7 +29,7 @@ public class ModelLogin implements ContractLogin.Model {
     @Override
     public void loginAPI(Usuario usuario, onLoginUserListener onLoginUserListener) {
 
-        APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/app/").create(APIService.class);
+        APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/").create(APIService.class);
 
         Call<MyLoginData> call = apiService.getLogin("USUARIO.LOGIN", usuario.getEmail(), usuario.getPass());
         call.enqueue(new Callback<MyLoginData>() {
