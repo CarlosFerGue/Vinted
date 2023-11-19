@@ -4,15 +4,16 @@ import java.sql.*;
 
 public class MotorSQL {
 
-    private String url = "jdbc:mysql://localhost:3306/Vinted";
+    private String url = "jdbc:mysql://localhost:3306/vinted";
     private String user = "root";
-    private String pass = "";
+    private String pass = "1234";
 
     private Statement st;
     private Connection conn;
     private ResultSet rs;
 
-    public void conectar() throws SQLException {
+    public void conectar() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
         conn = DriverManager.getConnection(url,user,pass);
         st = conn.createStatement();
     }

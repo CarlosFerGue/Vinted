@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "Controller", urlPatterns = {"/Controller"})
 public class Controller extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/plain;charset=UTF-8");
         PrintWriter out = response.getWriter();
         String action = request.getParameter("ACTION");
@@ -20,10 +21,18 @@ public class Controller extends HttpServlet {
 
         switch (arrayAction[0]) {
             case "PRODUCTOS":
-                out.print(new ProductoAction().execute(request, response));
+                try {
+                    out.print(new ProductoAction().execute(request, response));
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
             case "LOGIN":
-                out.print(new LoginAction().execute(request, response));
+                try {
+                    out.print(new LoginAction().execute(request, response));
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
 //            case "CART":
 //                out.print(new CartAction().execute(request, response));
@@ -31,5 +40,13 @@ public class Controller extends HttpServlet {
         }
     }
 
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        super.doGet(req, resp);
+//    }
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp);
+    }
 }

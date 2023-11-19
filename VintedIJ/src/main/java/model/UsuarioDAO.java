@@ -37,6 +37,8 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             motorSql.desconectar();
         }
@@ -65,6 +67,8 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
             }
         } catch (SQLException e) {
             System.out.println(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         } finally {
             motorSql.desconectar();
         }
