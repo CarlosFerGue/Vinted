@@ -45,9 +45,10 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
         return usuarios;
     }
 
-    public ArrayList<Usuario> findAllUsers(Usuario entity) throws SQLException {
+    public ArrayList<Usuario> login(Usuario entity) throws SQLException {
         ArrayList<Usuario> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM usuario WHERE TIPO = 'usuario'";
+        String sql = "SELECT * FROM usuario\n" +
+                "WHERE email = '" + entity.getEmail() + "' AND password = '" + entity.getContrasena() + "';";
         try {
             motorSql.conectar();
             System.out.println(sql);
@@ -55,13 +56,13 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
 
             while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
                 Usuario usuario = new Usuario(
-                        rs.getInt("id_usuario"),
-                        rs.getString("nombre"),
-                        rs.getString("email"),
-                        rs.getString("password"),
-                        rs.getString("apellido_1"),
-                        rs.getString("apellido_2"),
-                        rs.getString("usuario")
+                        rs.getInt("id_usuario")
+//                        rs.getString("nombre"),
+//                        rs.getString("email"),
+//                        rs.getString("password"),
+//                        rs.getString("apellido_1"),
+//                        rs.getString("apellido_2"),
+//                        rs.getString("usuario")
                 );
                 usuarios.add(usuario);
             }

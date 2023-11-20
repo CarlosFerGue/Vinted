@@ -31,7 +31,8 @@ public class ModelLogin implements ContractLogin.Model {
 
         APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/").create(APIService.class);
 
-        Call<MyLoginData> call = apiService.getLogin("USUARIO.LOGIN", usuario.getEmail(), usuario.getPass());
+        Call<MyLoginData> call = apiService.getLogin("LOGIN.LOGIN", usuario.getEmail(), usuario.getPass());
+        //http://localhost:8080/Controller?ACTION=LOGIN.LOGIN&EMAIL=alice.j@example.com&PASS=pass123
         call.enqueue(new Callback<MyLoginData>() {
             @Override
             public void onResponse(Call<MyLoginData> call, Response<MyLoginData> response) {

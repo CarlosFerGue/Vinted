@@ -1,5 +1,5 @@
 import action.ProductoAction;
-import controller.action.LoginAction;
+import action.LoginAction;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;

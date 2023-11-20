@@ -1,4 +1,4 @@
-package controller.action;
+package action;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,10 +18,12 @@ public class LoginAction implements IAction {
         String[] arrayAction = action.split("\\.");
         switch (arrayAction[1]) {
             case "FIND_ALL":
+                //http://localhost:8080/Controller?ACTION=LOGIN.FIND_ALL
                 cadDestino = findAll(request, response);
                 break;
-            case "LOGIN_USUARIO":
-                cadDestino = findAllUsers(request, response);
+            case "LOGIN":
+                //http://localhost:8080/Controller?ACTION=LOGIN.LOGIN&EMAIL=&PASS=
+                cadDestino = login(request, response);
                 break;
 //            case "LOGIN_STAFF":
 //                cadDestino = findAllStaff(request, response);
@@ -39,9 +41,13 @@ public class LoginAction implements IAction {
         return Usuario.toArrayJSon(usuarios);
     }
 
-    private String findAllUsers(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private String login(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        ArrayList<Usuario> usuarios = usuarioDAO.findAllUsers(null);
+        String email = request.getParameter("EMAIL");
+        String pass = request.getParameter("PASS");
+        Usuario usuario = new Usuario(email,pass);
+        ArrayList<Usuario> usuarios = usuarioDAO.login(usuario);
+        System.out.println(usuario.getId() );
         return Usuario.toArrayJSon(usuarios);
     }
 

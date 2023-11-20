@@ -9,6 +9,14 @@ public class Usuario {
     private int id;
     private String nombre, email, contrasena, apellido1, apellido2, user;
 
+    public Usuario(String email, String contrasena) {
+        this.email = email;
+        this.contrasena = contrasena;
+    }
+
+    public Usuario(int id) {
+        this.id = id;
+    }
 
     public Usuario(int id, String nombre, String email, String contrasena, String apellido1, String apellido2, String user) {
         this.id = id;

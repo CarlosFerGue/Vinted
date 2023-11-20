@@ -6,7 +6,7 @@ public class MotorSQL {
 
     private String url = "jdbc:mysql://localhost:3306/vinted";
     private String user = "root";
-    private String pass = "1234";
+    private String pass = ""; //1234
 
     private Statement st;
     private Connection conn;
