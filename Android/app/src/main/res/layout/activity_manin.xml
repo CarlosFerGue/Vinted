@@ -8,20 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <Button
-
-            android:id="@+id/button"
-            android:layout_width="292dp"
-            android:layout_height="74dp"
-            android:layout_marginTop="88dp"
-            android:text="Button"
-            app:iconTint="#007780"
-            app:rippleColor="#007780"
-            app:strokeColor="#007780"
-            tools:ignore="MissingConstraints" />
-    </LinearLayout>
+        android:orientation="vertical"/>
 
     <ImageView
         android:id="@+id/imageView"
