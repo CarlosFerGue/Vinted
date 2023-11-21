@@ -6,14 +6,9 @@ import java.util.ArrayList;
 
 public class Articulo {
     private int id;
-    private String marca, estado, fecha, descripcion, nombre, imagen;
-    private float precio;
+    private String marca, estado, fecha, descripcion, nombre, imagen, precio;
 
-
-    public Articulo() {
-    }
-
-    public Articulo(int id, String marca, String estado, String fecha, String descripcion, String nombre, String imagen, float precio) {
+    public Articulo(int id, String marca, String estado, String fecha, String descripcion, String nombre, String imagen, String precio) {
         this.id = id;
         this.marca = marca;
         this.estado = estado;
@@ -80,11 +75,11 @@ public class Articulo {
         this.imagen = imagen;
     }
 
-    public float getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 

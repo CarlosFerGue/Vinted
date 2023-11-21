@@ -31,7 +31,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                         rs.getString("descripcion_producto"),
                         rs.getString("nombre_producto"),
                         rs.getString("imagen_producto"),
-                        rs.getFloat("precio_producto")
+                        rs.getString("precio_producto")
                 );
                 articulos.add(articulo);
             }
@@ -65,7 +65,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                         rs.getString("DESCRIPCION"),
                         rs.getString("NOMBRE"),
                         rs.getString("IMAGEN"),
-                        rs.getFloat("PRECIO")
+                        rs.getString("PRECIO")
                 );
                 articulos.add(articulo);
             }
@@ -98,7 +98,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                         rs.getString("DESCRIPCION"),
                         rs.getString("NOMBRE"),
                         rs.getString("IMAGEN"),
-                        rs.getFloat("PRECIO")
+                        rs.getString("PRECIO")
                 );
                 articulos.add(articulo);
             }
@@ -112,6 +112,8 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         return articulos;
     }
 
+
+
     /*
     public static void main(String[] args) {
 
@@ -122,8 +124,29 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
     }*/
 
     @Override
-    public int add(Articulo entity) {
-        return 0;
+    public int add(Articulo entity) throws SQLException {
+        int resp = 0;
+        try {
+            motorSql.conectar();
+            String sql = "INSERT INTO `articulos`(`id_producto`, `marca_producto`, `precio_producto`, `imagen_producto`, `nombre_producto`, `descripcion_producto`, `fecha_subida_producto`, `estado`, `id_usuario`) VALUES" + "("
+                    + entity.getId() + ", '"
+                    + entity.getMarca() + "', '"
+                    + entity.getPrecio() + "', '"
+                    + entity.getImagen() + "', '"
+                    + entity.getNombre() + "', '"
+                    + entity.getDescripcion() + "', '"
+                    + entity.getFecha() + "', '"
+                    + entity.getEstado() + "')";
+            resp = motorSql.modificar(sql);
+        } catch (Exception e) {
+            System.out.println("No se inserto con exito");
+        } finally {
+            motorSql.desconectar();
+        }
+        if (resp > 0) {
+            System.out.println("Articulo insertado con exito.");
+        }
+        return resp;
     }
 
     @Override

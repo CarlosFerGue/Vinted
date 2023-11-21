@@ -57,12 +57,6 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
             while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
                 Usuario usuario = new Usuario(
                         rs.getInt("id_usuario")
-//                        rs.getString("nombre"),
-//                        rs.getString("email"),
-//                        rs.getString("password"),
-//                        rs.getString("apellido_1"),
-//                        rs.getString("apellido_2"),
-//                        rs.getString("usuario")
                 );
                 usuariosArray.add(usuario);
             }
@@ -75,32 +69,6 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
         }
         return usuariosArray;
     }
-
-//    public ArrayList<Usuario> findAllStaff(Usuario entity) {
-//        ArrayList<Usuario> usuarios = new ArrayList<>();
-//        String sql = "SELECT * FROM USUARIOS WHERE TIPO = 'staff'";
-//        try {
-//            motorSql.conectar();
-//            System.out.println(sql);
-//            ResultSet rs = motorSql.consultar(sql);
-//
-//            while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
-//                Usuario usuario = new Usuario(
-//                        rs.getInt("ID_USUARIO"),
-//                        rs.getString("NOMBRE"),
-//                        rs.getString("EMAIL"),
-//                        rs.getString("CONTRASENA"),
-//                        rs.getString("TIPO")
-//                );
-//                usuarios.add(usuario);
-//            }
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        } finally {
-//            motorSql.desconectar();
-//        }
-//        return usuarios;
-//    }
 
     @Override
     public int add(Usuario entity) throws SQLException {

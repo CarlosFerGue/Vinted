@@ -23,14 +23,8 @@ public class ProductoAction implements IAction {
                 cadDestino = findByFilter(request, response);
                 break;
             case "DAR_ALTA": //Subes tus productos
-                cadDestino = upload(request, response);
+                upload(request, response);
                 break;
-//            case "FILTER":
-//                cadDestino = findByFilter(request, response);
-//                break;
-//            case "PRICE":
-//                cadDestino = findByPrice(request, response);
-//                break;
         }
         return cadDestino;
     }
@@ -47,11 +41,21 @@ public class ProductoAction implements IAction {
         ArrayList<Articulo> articulos = articuloDAO.filterType(tipo);
         return Articulo.toArrayJSon(articulos);
     }
-
-    private String upload(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        ArticuloDAO articuloDAO = new ArticuloDAO();
-        String tipo = request.getParameter("RANGO");
-        ArrayList<Articulo> articulos = articuloDAO.filterType(tipo);
-        return Articulo.toArrayJSon(articulos);
+//http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=53&PRECIO=12&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN
+    private void upload(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String nombre = request.getParameter("NOMBRE"); //en verde el nombre de la tabla URL
+        String marca = request.getParameter("MARCA");
+        String idString = request.getParameter("ID");
+        String precioString = request.getParameter("PRECIO");
+        String imagen = request.getParameter("IMAGEN");
+        String descripcion = request.getParameter("DESCRIPCION");
+        String fecha = request.getParameter("FECHA");
+        String estado = request.getParameter("ESTADO");
+//        String idUsuario = request.getParameter("ID_USUARIO");
+        int id = Integer.parseInt(idString);
+//        int precio = Integer.parseInt(precioString);
+        Articulo articulo = new Articulo(id, marca, estado, fecha, descripcion, nombre, imagen, precioString);
+        ArticuloDAO ariticuloDAO = new ArticuloDAO();
+        ariticuloDAO.add(articulo);
     }
 }

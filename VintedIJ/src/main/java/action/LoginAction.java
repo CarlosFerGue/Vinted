@@ -77,7 +77,7 @@ public class LoginAction implements IAction {
 
 
     private void add(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        String nombre = request.getParameter("NOMBRE"); //en verde el nombre de la tabla SQL
+        String nombre = request.getParameter("NOMBRE"); //en verde el nombre de la URL
         String correo = request.getParameter("CORREO");
         String contrasena = request.getParameter("CONTRASENA");
         String idString = request.getParameter("ID");
