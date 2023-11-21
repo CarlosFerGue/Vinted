@@ -668,3 +668,16 @@
 21-Nov-2023 12:58:32.811 INFORMACIÓN [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\S2-PC00\Desktop\Vinted\Vinted-Grado-DAM\VintedIJ\conf\Catalina\localhost\ROOT.xml] has finished in [837] ms
 21-Nov-2023 12:58:32.814 INFORMACIÓN [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 21-Nov-2023 12:58:32.856 INFORMACIÓN [main] org.apache.catalina.startup.Catalina.start Server startup in [963] milliseconds
+21-Nov-2023 13:00:25.076 INFORMACIÓN [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+21-Nov-2023 13:00:25.083 INFORMACIÓN [Thread-1] org.apache.catalina.core.StandardService.stopInternal Parando servicio [Catalina]
+21-Nov-2023 13:00:25.084 INFORMACIÓN [Thread-1] org.apache.catalina.core.StandardWrapper.unload Esperando por [1] instancia(s) para recuperar su espacio reservado
+21-Nov-2023 13:00:25.188 ADVERTENCIA [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc La aplicación web [ROOT] registró el conductor JDBC [com.mysql.cj.jdbc.Driver] pero falló al anular el registro mientras la aplicación web estaba parada. Para prevenir un fallo de memoria, se ha anulado el registro del conductor JDBC por la fuerza.
+21-Nov-2023 13:00:25.189 ADVERTENCIA [Thread-1] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ROOT] appears to have started a thread named [mysql-cj-abandoned-connection-cleanup] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.7/java.lang.Object.wait(Native Method)
+ java.base@17.0.7/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+ com.mysql.cj.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:91)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base@17.0.7/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.7/java.lang.Thread.run(Thread.java:833)
+21-Nov-2023 13:00:25.193 INFORMACIÓN [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+21-Nov-2023 13:00:25.211 INFORMACIÓN [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
