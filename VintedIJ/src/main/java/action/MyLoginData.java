@@ -1,8 +1,6 @@
-package com.example.myapplication.login.data;
+package action;
 
-import com.example.myapplication.beans.Usuario;
-
-import java.util.ArrayList;
+import model.Usuario;
 
 public class MyLoginData {
     int idUsuario;

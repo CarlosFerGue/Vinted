@@ -41,7 +41,7 @@ public class ModelLogin implements ContractLogin.Model {
                     System.out.println("Ha devuelto esto: " + response.body());
                     MyLoginData myLoginData = response.body();
 
-                    if (myLoginData.getId() == null) {
+                    if (myLoginData.getId() == 0) {
                         onLoginUserListener.onFailure("Error");
 
                     } else {

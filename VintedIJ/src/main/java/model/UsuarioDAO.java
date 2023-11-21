@@ -46,8 +46,8 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
     }
 
     public ArrayList<Usuario> login(Usuario entity) throws SQLException {
-        ArrayList<Usuario> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM usuario\n" +
+        ArrayList<Usuario> usuariosArray = new ArrayList<>();
+        String sql = "SELECT id_usuario FROM usuario\n" +
                 "WHERE email = '" + entity.getEmail() + "' AND password = '" + entity.getContrasena() + "';";
         try {
             motorSql.conectar();
@@ -64,7 +64,7 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
 //                        rs.getString("apellido_2"),
 //                        rs.getString("usuario")
                 );
-                usuarios.add(usuario);
+                usuariosArray.add(usuario);
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -73,7 +73,7 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
         } finally {
             motorSql.desconectar();
         }
-        return usuarios;
+        return usuariosArray;
     }
 
 //    public ArrayList<Usuario> findAllStaff(Usuario entity) {

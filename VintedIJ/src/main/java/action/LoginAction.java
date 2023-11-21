@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import action.IAction;
+import com.google.gson.Gson;
 import model.Usuario;
 import model.UsuarioDAO;
 
@@ -23,7 +24,7 @@ public class LoginAction implements IAction {
                 break;
             case "LOGIN":
                 //http://localhost:8080/Controller?ACTION=LOGIN.LOGIN&EMAIL=&PASS=
-                cadDestino = login(request, response);
+                cadDestino = login(request);
                 break;
 //            case "LOGIN_STAFF":
 //                cadDestino = findAllStaff(request, response);
@@ -41,21 +42,39 @@ public class LoginAction implements IAction {
         return Usuario.toArrayJSon(usuarios);
     }
 
-    private String login(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        UsuarioDAO usuarioDAO = new UsuarioDAO();
-        String email = request.getParameter("EMAIL");
-        String pass = request.getParameter("PASS");
-        Usuario usuario = new Usuario(email,pass);
-        ArrayList<Usuario> usuarios = usuarioDAO.login(usuario);
-        System.out.println(usuario.getId() );
-        return Usuario.toArrayJSon(usuarios);
-    }
-
-//    private String findAllStaff(HttpServletRequest request, HttpServletResponse response) {
+//    private String login(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 //        UsuarioDAO usuarioDAO = new UsuarioDAO();
-//        ArrayList<Usuario> usuarios = usuarioDAO.findAllStaff(null);
+//        String email = request.getParameter("EMAIL");
+//        String pass = request.getParameter("PASS");
+//        Usuario usuario = new Usuario(email,pass);
+//        ArrayList<Usuario> usuarios = usuarioDAO.login(usuario);
+//        System.out.println(usuarios);
 //        return Usuario.toArrayJSon(usuarios);
 //    }
+
+    public String login(HttpServletRequest req) throws SQLException {
+        String json = "";
+        String email = req.getParameter("EMAIL");
+        String password = req.getParameter("PASS");
+        Usuario usuario = new Usuario(email, password);
+        MyLoginData myloginData = new MyLoginData();
+        ArrayList<Usuario> lstUsuario = new UsuarioDAO().login(usuario);
+
+        Gson gson = new Gson();
+        if (!lstUsuario.isEmpty()) {
+            Usuario loggedInUser = lstUsuario.get(0);
+            myloginData.setUsuario(loggedInUser);
+            myloginData.setIdUsuario(loggedInUser.getId()); // Asegúrate de que exista un método getId() en la clase Usuario
+            System.out.println(Usuario.toArrayJSon(lstUsuario));
+            System.out.println(loggedInUser);
+            return gson.toJson(myloginData);
+        } else {
+            // Manejar el caso en el que no se encontró un usuario válido
+            // Puedes devolver un mensaje de error o algo adecuado a tu aplicación.
+            return gson.toJson("Usuario no válido");
+        }
+    }
+
 
     private void add(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String nombre = request.getParameter("NOMBRE"); //en verde el nombre de la tabla SQL
