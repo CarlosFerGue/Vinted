@@ -46,9 +46,9 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
     }
 
 
-    public ArrayList<Articulo> filterType(String tipo) throws SQLException {
+    public ArrayList<Articulo> filterType(String id_usuario) throws SQLException {
         ArrayList<Articulo> articulos = new ArrayList<>();
-        String sql = "SELECT * FROM articulos WHERE TIPO='" + tipo +"'";
+        String sql = "SELECT * FROM articulos WHERE id_usuario='" + id_usuario +"'";
         try {
             //1º)
             motorSql.conectar();
@@ -58,14 +58,14 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
 
             while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
                 Articulo articulo = new Articulo(
-                        rs.getInt("ID_PRODUCTO"),
-                        rs.getString("MARCA"),
-                        rs.getString("ESTADO"),
-                        rs.getString("FECHA"),
-                        rs.getString("DESCRIPCION"),
-                        rs.getString("NOMBRE"),
-                        rs.getString("IMAGEN"),
-                        rs.getString("PRECIO")
+                        rs.getInt("id_producto"),
+                        rs.getString("marca_producto"),
+                        rs.getString("estado"),
+                        rs.getString("fecha_subida_producto"),
+                        rs.getString("descripcion_producto"),
+                        rs.getString("nombre_producto"),
+                        rs.getString("imagen_producto"),
+                        rs.getString("precio_producto")
                 );
                 articulos.add(articulo);
             }

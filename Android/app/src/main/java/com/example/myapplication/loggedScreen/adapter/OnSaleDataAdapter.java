@@ -26,7 +26,7 @@ public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.Vi
     @NonNull
     @Override
     public OnSaleDataAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.sale_data_card, parent, false);
+        View view = inflater.inflate(R.layout.sale_data_carta, parent, false);
         return new ViewHolder(view);
     }
 

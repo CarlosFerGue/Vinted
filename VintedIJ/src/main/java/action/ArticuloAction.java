@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.Articulo;
 import model.ArticuloDAO;
 
-public class ProductoAction implements IAction {
+public class ArticuloAction implements IAction {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
@@ -37,10 +37,12 @@ public class ProductoAction implements IAction {
 
     private String findByFilter(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ArticuloDAO articuloDAO = new ArticuloDAO();
-        String tipo = request.getParameter("FILTRO");
-        ArrayList<Articulo> articulos = articuloDAO.filterType(tipo);
+        String id_usuario = request.getParameter("ID_USUARIO");
+        ArrayList<Articulo> articulos = articuloDAO.filterType(id_usuario);
         return Articulo.toArrayJSon(articulos);
     }
+
+
 //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=53&PRECIO=12&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN
     private void upload(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String nombre = request.getParameter("NOMBRE"); //en verde el nombre de la tabla URL

@@ -1,4 +1,4 @@
-import action.ProductoAction;
+import action.ArticuloAction;
 import action.LoginAction;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,7 +22,7 @@ public class Controller extends HttpServlet {
         switch (arrayAction[0]) {
             case "PRODUCTOS":
                 try {
-                    out.print(new ProductoAction().execute(request, response));
+                    out.print(new ArticuloAction().execute(request, response));
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
