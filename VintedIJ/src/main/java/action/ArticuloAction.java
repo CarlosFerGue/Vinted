@@ -53,9 +53,9 @@ public class ArticuloAction implements IAction {
         String descripcion = request.getParameter("DESCRIPCION");
         String fecha = request.getParameter("FECHA");
         String estado = request.getParameter("ESTADO");
-//        String idUsuario = request.getParameter("ID_USUARIO");
+        String idUsuario = request.getParameter("ID_USUARIO");
         int id = Integer.parseInt(idString);
-//        int precio = Integer.parseInt(precioString);
+        int precio = Integer.parseInt(precioString);
         Articulo articulo = new Articulo(id, marca, estado, fecha, descripcion, nombre, imagen, precioString);
         ArticuloDAO ariticuloDAO = new ArticuloDAO();
         ariticuloDAO.add(articulo);

@@ -24,7 +24,7 @@ public class AddProductModel implements ContractAddProduct.Model{
 
     @Override
     public void addProductAPI(Producto producto, AddProductListener addProductListener) {
-        APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/app/").create(APIService.class);
+        APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/").create(APIService.class);
         Call<AddProductData> call = apiService.getMySales("PRODUCTO.ADD",producto.getUsuarioId(),
                 producto.getMarca(),
                 producto.getPrecio(),
