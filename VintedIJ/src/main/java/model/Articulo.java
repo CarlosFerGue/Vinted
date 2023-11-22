@@ -8,6 +8,16 @@ public class Articulo {
     private int id;
     private String marca, estado, fecha, descripcion, nombre, imagen, precio;
 
+    public Articulo(String marca, String estado, String fecha, String descripcion, String nombre, String imagen, String precio) {
+        this.marca = marca;
+        this.estado = estado;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.precio = precio;
+    }
+
     public Articulo(int id, String marca, String estado, String fecha, String descripcion, String nombre, String imagen, String precio) {
         this.id = id;
         this.marca = marca;

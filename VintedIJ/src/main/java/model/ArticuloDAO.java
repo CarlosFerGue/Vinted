@@ -128,16 +128,17 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         int resp = 0;
         try {
             motorSql.conectar();
-            String sql = "INSERT INTO `articulos`(`id_producto`, `marca_producto`, `precio_producto`, `imagen_producto`, `nombre_producto`, `descripcion_producto`, `fecha_subida_producto`, `estado`, `id_usuario`) VALUES" + "("
-                    + entity.getId() + ", '"
+            String sql = "INSERT INTO `articulos`(`marca_producto`, `precio_producto`, `imagen_producto`, `nombre_producto`, `descripcion_producto`, `fecha_subida_producto`, `estado`, `id_usuario`) VALUES ("
                     + entity.getMarca() + "', '"
                     + entity.getPrecio() + "', '"
                     + entity.getImagen() + "', '"
                     + entity.getNombre() + "', '"
                     + entity.getDescripcion() + "', '"
                     + entity.getFecha() + "', '"
-                    + entity.getEstado() + "')";
+                    + entity.getEstado() + "', '"
+                    + entity.getId() + "')";
             resp = motorSql.modificar(sql);
+            System.out.println(sql);
         } catch (Exception e) {
             System.out.println("No se inserto con exito");
         } finally {

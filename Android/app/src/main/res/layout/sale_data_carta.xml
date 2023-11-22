@@ -24,6 +24,7 @@
             android:textColor="@color/azul"
             android:textStyle="bold"
             android:text="Nombre"
+            android:backgroundTint="@color/white"
             />
 
         <LinearLayout
