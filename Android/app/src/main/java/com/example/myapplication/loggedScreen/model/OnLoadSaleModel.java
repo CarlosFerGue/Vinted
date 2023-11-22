@@ -26,7 +26,7 @@ public class OnLoadSaleModel implements ContractLoggedScreen.Model{
     public void loadOnSaleAPI(int userId, loadOnSaleListener loadOnSaleListener) {
         APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/app/").create(APIService.class);
 
-        Call<ArrayList<OnLoadSaleData>> call = apiService.getMySales("PRODUCTO.FIND_ALL", userId);
+        Call<ArrayList<OnLoadSaleData>> call = apiService.getMySales("PRODUCTOS.FIND_ALL", userId);
         call.enqueue(new Callback<ArrayList<OnLoadSaleData>>() {
             @Override
             public void onResponse(Call<ArrayList<OnLoadSaleData>> call, Response<ArrayList<OnLoadSaleData>> response) {
