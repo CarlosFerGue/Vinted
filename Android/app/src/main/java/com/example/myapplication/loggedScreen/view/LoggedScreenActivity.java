@@ -58,14 +58,6 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
                 EditText addColor = findViewById(R.id.addColor); //Color
 
                 //Almacenamos los valores en variables , las variables las llamamos add porque tal
-//                String addNameStr = String.valueOf(addName.getText()); //Nombre
-//                String addBrandStr = String.valueOf(addBrand.getText()); //Marca
-//                //Double addPriceStr = Double.parseDouble(String.valueOf(addPrice.getText())); //Precio
-//                String addPriceStr = String.valueOf(addPrice);
-//                String addDescStr = String.valueOf(addDesc.getText()); //Descripcion
-//                String addStateStr = String.valueOf(addState.getText()); //Estado
-//                String addColorStr = String.valueOf(addColor.getText()); //Color
-
                 String addMarcaStr = String.valueOf(addBrand.getText());
                 String addPrecioStr = String.valueOf(addPrice.getText());
                 String addImageStr = String.valueOf(addBrand.getText()); //Las que pone add brand es porque no estan aun en el front
@@ -105,6 +97,8 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     @Override
     public void onSuccessAddProduct(AddProductData addProductData) {
 
+        String mensaje = "Producto añadido correctamente";
+        Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT).show();
     }
 
     @Override

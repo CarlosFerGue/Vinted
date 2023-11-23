@@ -26,7 +26,7 @@ public class AddProductModel implements ContractAddProduct.Model{
     public void addProductAPI(Producto producto, AddProductListener addProductListener) {
 
         APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/").create(APIService.class);
-        System.out.println("Voy a hacer la call");
+        System.out.println("Voy a hacer la call desde productos dar alta");
         Call<AddProductData> call = apiService.getMySales("PRODUCTOS.DAR_ALTA",
                 producto.getId_usuario(),
                 producto.getMarca(),

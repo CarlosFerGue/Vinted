@@ -38,7 +38,7 @@ public class ArticuloAction implements IAction {
 
     private String findByFilter(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ArticuloDAO articuloDAO = new ArticuloDAO();
-        String id_usuario = request.getParameter("ID_USUARIO");
+        String id_usuario = request.getParameter("ID");
         ArrayList<Articulo> articulos = articuloDAO.filterType(id_usuario);
         return Articulo.toArrayJSon(articulos);
     }

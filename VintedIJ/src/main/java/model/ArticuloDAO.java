@@ -161,7 +161,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         if (resp > 0) {
             System.out.println("Articulo insertado con exito.");
         }
-        return resp;
+            return resp;
     }
 
     @Override
