@@ -25,6 +25,8 @@ public class OnLoadSalePresenter implements ContractLoggedScreen.Presenter, Cont
     view.successLoadOnSale(lstSales); //Si sale bien te da el array ya montado
     }
 
+
+
     @Override
     public void onFailure(String err) {
         view.failureLoadOnSale(err);

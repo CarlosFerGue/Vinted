@@ -18,6 +18,7 @@ import com.example.myapplication.beans.Producto;
 import com.example.myapplication.beans.Usuario;
 import com.example.myapplication.loggedScreen.ContractLoggedScreen;
 import com.example.myapplication.loggedScreen.adapter.OnSaleDataAdapter;
+import com.example.myapplication.loggedScreen.adapter.OnUser10Adapter;
 import com.example.myapplication.loggedScreen.data.OnClick10Usuarios;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.loggedScreen.presenter.OnLoadSalePresenter;
@@ -30,6 +31,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     private AddProductPresenter addProductPresenter = new AddProductPresenter(this);
     private static LoggedScreenActivity mainActivity = null;
     public OnSaleDataAdapter onSaleDataAdapter;
+    public OnUser10Adapter onUser10Adapter;
     private ArrayList<OnLoadSaleData> lstSales;
     private ArrayList<OnClick10Usuarios> lstUsuarios;
 
@@ -43,6 +45,9 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logged_screen); //la vista que te devuelve
         initComponents(); //Llama al init components
+
+
+        
 
     }
 
@@ -88,12 +93,13 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     //Funcion para ver top 10 usuarios
     public void buscar10Users(ArrayList<OnClick10Usuarios> lstUsuarios) {
         Button buscarUsuarios = findViewById(R.id.buscar10Usuarios);
+
+
         this.lstUsuarios = lstUsuarios;
         RecyclerView recyclerView = findViewById(R.id.userRecycleView);
         recyclerView.setLayoutManager((new LinearLayoutManager(this)));
-
-
-
+        onUser10Adapter = new OnUser10Adapter(this, lstUsuarios);
+        recyclerView.setAdapter(onUser10Adapter);
     }
 
 
