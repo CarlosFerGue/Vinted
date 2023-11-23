@@ -42,6 +42,7 @@ public class OnLoadSaleModel implements ContractLoggedScreen.Model{
                     if (lstSales.isEmpty()){
                         loadOnSaleListener.onFailure("No tienes productos a la venta");
                     }else{
+                        System.out.println("Has entrado en el onFinish de FILTER_USUARIO");
                         loadOnSaleListener.onFinished(lstSales);
 
                     }
