@@ -105,9 +105,27 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/productRecycleView"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/userRecycleView"
+                android:layout_width="match_parent"
                 android:layout_height="318dp">
 
             </androidx.recyclerview.widget.RecyclerView>
+            <!-- Otras vistas adicionales aquí -->
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!-- Tu encabezado u otras vistas aquí -->
             <!-- Otras vistas adicionales aquí -->
         </LinearLayout>
 

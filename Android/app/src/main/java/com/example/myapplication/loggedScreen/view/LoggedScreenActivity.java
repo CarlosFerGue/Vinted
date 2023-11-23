@@ -89,7 +89,8 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     public void buscar10Users(ArrayList<OnClick10Usuarios> lstUsuarios) {
         Button buscarUsuarios = findViewById(R.id.buscar10Usuarios);
         this.lstUsuarios = lstUsuarios;
-        RecyclerView recyclerView = findViewById(R.id.)
+        RecyclerView recyclerView = findViewById(R.id.userRecycleView);
+        recyclerView.setLayoutManager((new LinearLayoutManager(this)));
 
 
 
