@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.ViewHolder> {
     private ArrayList<OnLoadSaleData> lstSales;
     private LayoutInflater inflater;
+
     public OnSaleDataAdapter(Context context, ArrayList<OnLoadSaleData> lstSales){
         this.lstSales = lstSales;
         this.inflater = LayoutInflater.from(context);
