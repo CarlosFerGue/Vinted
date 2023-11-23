@@ -15,6 +15,7 @@ import com.example.myapplication.addProduct.ContractAddProduct;
 import com.example.myapplication.addProduct.data.AddProductData;
 import com.example.myapplication.addProduct.presenter.AddProductPresenter;
 import com.example.myapplication.beans.Producto;
+import com.example.myapplication.beans.Usuario;
 import com.example.myapplication.loggedScreen.ContractLoggedScreen;
 import com.example.myapplication.loggedScreen.adapter.OnSaleDataAdapter;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
@@ -82,6 +83,15 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     }
 
     //Funcion para ver top 10 usuarios
+    public void initComponentsUsuarios() {
+        Button buscarUsuarios = findViewById(R.id.buscar10Usuarios);
+        buscarUsuarios.setOnClickListener(setContentView(R.layout.activity_logged_screen)
+
+
+    }
+
+
+
 //    public void initComponents() {
 //        Bundle extras = getIntent().getExtras();
 //        System.out.println("El id que has cogido es: " + extras.getInt("id"));
