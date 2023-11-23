@@ -18,9 +18,11 @@ import com.example.myapplication.beans.Producto;
 import com.example.myapplication.beans.Usuario;
 import com.example.myapplication.loggedScreen.ContractLoggedScreen;
 import com.example.myapplication.loggedScreen.adapter.OnSaleDataAdapter;
+import com.example.myapplication.loggedScreen.data.OnClick10Usuarios;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.loggedScreen.presenter.OnLoadSalePresenter;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class LoggedScreenActivity extends AppCompatActivity implements ContractLoggedScreen.View, ContractAddProduct.View {
@@ -29,6 +31,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     private static LoggedScreenActivity mainActivity = null;
     public OnSaleDataAdapter onSaleDataAdapter;
     private ArrayList<OnLoadSaleData> lstSales;
+    private ArrayList<OnClick10Usuarios> lstUsuarios;
 
     public static LoggedScreenActivity getInstance() {
         return mainActivity;
@@ -83,52 +86,16 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     }
 
     //Funcion para ver top 10 usuarios
-    public void initComponentsUsuarios() {
+    public void buscar10Users(ArrayList<OnClick10Usuarios> lstUsuarios) {
         Button buscarUsuarios = findViewById(R.id.buscar10Usuarios);
-        buscarUsuarios.setOnClickListener(setContentView(R.layout.activity_logged_screen)
+        this.lstUsuarios = lstUsuarios;
+        RecyclerView recyclerView = findViewById(R.id.)
+
 
 
     }
 
 
-
-//    public void initComponents() {
-//        Bundle extras = getIntent().getExtras();
-//        System.out.println("El id que has cogido es: " + extras.getInt("id"));
-//        presenter.LoadOnSale(extras.getInt("id"));
-//        Button button = findViewById(R.id.addProductButton); //con este boton llamamos a la funcion de anadir productos y ya va la cosa rodada
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //Obtenemos las variables del front
-//                EditText addName = findViewById(R.id.addName); //Nombre
-//                EditText addBrand = findViewById(R.id.addBrand); //Marca
-//                EditText addPrice = findViewById(R.id.addPrice); //Precio
-//                EditText addDesc = findViewById(R.id.addDesc); //Descripcion
-//                EditText addState = findViewById(R.id.addState); //Estado
-//                EditText addColor = findViewById(R.id.addColor); //Color
-//
-//                //Almacenamos los valores en variables , las variables las llamamos add porque tal
-//                String addMarcaStr = String.valueOf(addBrand.getText());
-//                String addPrecioStr = String.valueOf(addPrice.getText());
-//                String addImageStr = String.valueOf(addBrand.getText()); //Las que pone add brand es porque no estan aun en el front
-//                String addNombreStr = String.valueOf(addName.getText());
-//                String addDescripcionStr = String.valueOf(addDesc.getText());
-//                String addFechaStr = String.valueOf(addBrand.getText());
-//                String addEstadoStr = String.valueOf(addState.getText());
-//                int addIdtStr = extras.getInt("id"); //Id usuario
-//                System.out.println(addIdtStr);
-//
-//                Producto producto = new Producto(addIdtStr, addMarcaStr, addPrecioStr,
-//                        addImageStr, addNombreStr, addDescripcionStr, addFechaStr,
-//                        addEstadoStr);
-//                addProductPresenter.addProduct(producto);
-//
-//            }
-//        });
-//
-//
-//    }
 
     //Si le sale bien el cargar el login te lleva a esta funcion
     @Override
