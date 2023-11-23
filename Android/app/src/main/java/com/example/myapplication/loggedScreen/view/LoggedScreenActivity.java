@@ -20,6 +20,7 @@ import com.example.myapplication.loggedScreen.adapter.OnSaleDataAdapter;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.loggedScreen.presenter.OnLoadSalePresenter;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class LoggedScreenActivity extends AppCompatActivity implements ContractLoggedScreen.View, ContractAddProduct.View {
@@ -66,9 +67,8 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
                 String addFechaStr = String.valueOf(addBrand.getText());
                 String addEstadoStr = String.valueOf(addState.getText());
                 int addIdtStr = extras.getInt("id"); //Id usuario
+                System.out.println(addIdtStr);
 
-//                Producto producto = new Producto(/*extras.getInt("id")*/ addIdtStr, addBrandStr,
-//                        addStateStr, /*addFechaStr,*/ addDescStr, addNameStr, addPriceStr);
                 Producto producto = new Producto(addIdtStr, addMarcaStr, addPrecioStr,
                         addImageStr, addNombreStr, addDescripcionStr, addFechaStr,
                         addEstadoStr);

@@ -28,7 +28,7 @@ public interface APIService {
     Call<MyLoginData> getLogin(@Query("ACTION") String action, @Query("EMAIL") String nombre, @Query("PASS") String pass);
 
     @GET("Controller")
-    Call<ArrayList<OnLoadSaleData>> getMySales(@Query("ACTION") String action, @Query("ID_USUARIO") Integer userId);
+    Call<ArrayList<OnLoadSaleData>> getMySales(@Query("ACTION") String action, @Query("ID") Integer userId);
 
 //    Añadir productos
     @GET("Controller")

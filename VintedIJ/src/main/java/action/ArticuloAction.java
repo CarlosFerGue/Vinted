@@ -64,7 +64,7 @@ public class ArticuloAction implements IAction {
         }else{
             int idUsuarioInt = Integer.parseInt(idUsuario);
         }
-        int idUsuarioInt = 1;
+        int idUsuarioInt = 1; //hay que fixear esta mierda
 
         String marca = request.getParameter("MARCA");
         String precio = request.getParameter("PRECIO");
