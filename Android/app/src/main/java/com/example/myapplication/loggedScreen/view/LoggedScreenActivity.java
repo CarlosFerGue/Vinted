@@ -20,7 +20,6 @@ import com.example.myapplication.loggedScreen.adapter.OnSaleDataAdapter;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.loggedScreen.presenter.OnLoadSalePresenter;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class LoggedScreenActivity extends AppCompatActivity implements ContractLoggedScreen.View, ContractAddProduct.View {
@@ -37,7 +36,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logged_screensss);
+        setContentView(R.layout.activity_logged_screen);
         initComponents();
 
     }

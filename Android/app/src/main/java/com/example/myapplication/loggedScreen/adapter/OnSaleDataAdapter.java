@@ -34,12 +34,6 @@ public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.Vi
     public void onBindViewHolder(@NonNull OnSaleDataAdapter.ViewHolder holder, int position) {
         OnLoadSaleData sale = lstSales.get(position);
         // RELLENAR CON LOS DATOS
-//        holder.productName.setText(lstSales.get(position).getNombre());
-//        holder.productBrand.setText(lstSales.get(position).getMarca());
-//        holder.productPrice.setText(String.valueOf(lstSales.get(position).getPrecio()));
-//        holder.productDesc.setText(lstSales.get(position).getDescripcion());
-//        holder.productState.setText(lstSales.get(position).getEstado());
-//        holder.productColor.setText(lstSales.get(position).getColor());
         holder.productName.setText(lstSales.get(position).getNombre());
         holder.productBrand.setText(lstSales.get(position).getMarca());
         holder.productPrice.setText(lstSales.get(position).getPrecio());

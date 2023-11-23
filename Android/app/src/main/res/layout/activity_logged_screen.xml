@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".loggedScreen.view.LoggedScreenActivity"
-    
+
     >
 
 
@@ -87,20 +87,33 @@
             android:layout_height="wrap_content"
             android:text="Añadir artículo" />
 
+        <Button
+            android:id="@+id/buscar10Usuarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top 10 usuarios con mas ventas" />
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <!-- Tu encabezado u otras vistas aquí -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/productRecycleView"
+                android:layout_width="match_parent"
+                android:layout_height="318dp">
+
+            </androidx.recyclerview.widget.RecyclerView>
+            <!-- Otras vistas adicionales aquí -->
+        </LinearLayout>
 
 
 
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productRecycleView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="368dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
-
-    </androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
