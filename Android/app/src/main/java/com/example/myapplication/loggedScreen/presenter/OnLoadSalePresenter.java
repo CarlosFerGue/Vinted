@@ -22,7 +22,7 @@ public class OnLoadSalePresenter implements ContractLoggedScreen.Presenter, Cont
 
     @Override
     public void onFinished(ArrayList<OnLoadSaleData> lstSales) {
-    view.successLoadOnSale(lstSales);
+    view.successLoadOnSale(lstSales); //Si sale bien te da el array ya montado
     }
 
     @Override

@@ -120,12 +120,13 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
 //
 //    }
 
+    //Si le sale bien el cargar el login te lleva a esta funcion
     @Override
-    public void successLoadOnSale(ArrayList<OnLoadSaleData> lstSales) {
+    public void successLoadOnSale(ArrayList<OnLoadSaleData> lstSales) { //Aqui te llama al array de las cosas que tenga subidas como vendedor
         this.lstSales = lstSales;
-        RecyclerView recyclerView = findViewById(R.id.productRecycleView);
+        RecyclerView recyclerView = findViewById(R.id.productRecycleView); //Esto es un recycleView que esta en el activity_logged_Screen y es para hacer el listado
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        onSaleDataAdapter = new OnSaleDataAdapter(this, lstSales);
+        onSaleDataAdapter = new OnSaleDataAdapter(this, lstSales); //El data adapter es para meter la info dentro de las cards, asignar el nombre al id nombre y todo eso
         recyclerView.setAdapter(onSaleDataAdapter);
     }
 
