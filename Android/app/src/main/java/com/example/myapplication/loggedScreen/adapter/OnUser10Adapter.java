@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.loggedScreen.data.OnClick10Usuarios;
 
 import java.util.ArrayList;
 
@@ -31,7 +32,10 @@ public class OnUser10Adapter extends RecyclerView.Adapter<OnUser10Adapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull OnUser10Adapter.ViewHolder holder, int position) {
-        
+        OnClick10Usuarios usuario = lstUsers.get(position);
+
+        //Rellenamos con los datos la carta
+        holder.userName.setText(lstUsers.get(position).get());
     }
 
     @Override

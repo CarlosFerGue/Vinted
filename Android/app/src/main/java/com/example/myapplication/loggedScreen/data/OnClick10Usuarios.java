@@ -1,21 +1,49 @@
 package com.example.myapplication.loggedScreen.data;
 
 public class OnClick10Usuarios {
-    private String nombre, email, user;
 
-    public OnClick10Usuarios(String nombre, String email, String user) {
+    private int id;
+    private String nombre, email, contrasena, apellido1, apellido2, user;
+
+    public OnClick10Usuarios(String email, String contrasena) {
+        this.email = email;
+        this.contrasena = contrasena;
+    }
+
+    public OnClick10Usuarios() {
+
+    }
+
+    public OnClick10Usuarios(int id, String nombre, String email, String contrasena, String apellido1, String apellido2, String user) {
+        this.id = id;
         this.nombre = nombre;
         this.email = email;
+        this.contrasena = contrasena;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
         this.user = user;
     }
 
+
     @Override
     public String toString(){
-        return "OnClick10Usuarios{"+
-                "nombre=" + nombre +
-                ", email='" + email + '\'' +
+        return "OnLoadSaleData{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", email=" + email +
+                ", contrasena='" + contrasena + '\'' +
+                ", apellido1='" + apellido1 + '\'' +
+                ", apellido2='" + apellido2 + '\'' +
                 ", user='" + user + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -32,6 +60,30 @@ public class OnClick10Usuarios {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public String getApellido1() {
+        return apellido1;
+    }
+
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
+    }
+
+    public String getApellido2() {
+        return apellido2;
+    }
+
+    public void setApellido2(String apellido2) {
+        this.apellido2 = apellido2;
     }
 
     public String getUser() {
