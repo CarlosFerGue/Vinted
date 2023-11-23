@@ -36,7 +36,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logged_screen);
+        setContentView(R.layout.activity_logged_screensss);
         initComponents();
 
     }

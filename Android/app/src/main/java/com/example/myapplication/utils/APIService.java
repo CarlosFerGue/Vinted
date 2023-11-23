@@ -17,6 +17,7 @@ public interface APIService {
             "Accept: application/json",
             "Content-Type: application/json"
     })
+
     @GET("Controller")
     Call<MyLoginData> getDataUsers(@Query("ACTION") String action);
 
@@ -29,6 +30,7 @@ public interface APIService {
     @GET("Controller")
     Call<ArrayList<OnLoadSaleData>> getMySales(@Query("ACTION") String action, @Query("ID_USUARIO") Integer userId);
 
+//    Añadir productos
     @GET("Controller")
     Call<AddProductData> getMySales(@Query("ACTION") String action,
                                     @Query("USUARIOID") Integer userId,
