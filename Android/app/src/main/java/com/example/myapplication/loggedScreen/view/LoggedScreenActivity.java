@@ -49,19 +49,25 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText addName = findViewById(R.id.addName);
-                EditText addBrand = findViewById(R.id.addBrand);
-                EditText addPrice = findViewById(R.id.addPrice);
-                EditText addDesc = findViewById(R.id.addDesc);
-                EditText addState = findViewById(R.id.addState);
-                EditText addColor = findViewById(R.id.addColor);
-                String addNameStr = String.valueOf(addName.getText());
-                String addBrandStr = String.valueOf(addBrand.getText());
-                Double addPriceStr = Double.parseDouble(String.valueOf(addPrice.getText()));
-                String addDescStr = String.valueOf(addDesc.getText());
-                String addStateStr = String.valueOf(addState.getText());
-                String addColorStr = String.valueOf(addColor.getText());
-                Producto producto = new Producto(extras.getInt("id"),addBrandStr, addPriceStr, addDescStr, addNameStr, addStateStr, addColorStr);
+                //Obtenemos las variables del front
+                EditText addName = findViewById(R.id.addName); //Nombre
+                EditText addBrand = findViewById(R.id.addBrand); //Marca
+                EditText addPrice = findViewById(R.id.addPrice); //Precio
+                EditText addDesc = findViewById(R.id.addDesc); //Descripcion
+                EditText addState = findViewById(R.id.addState); //Estado
+                EditText addColor = findViewById(R.id.addColor); //Color
+
+                //Almacenamos los valores en variables , las variables las llamamos add porque tal
+                String addNameStr = String.valueOf(addName.getText()); //Nombre
+                String addBrandStr = String.valueOf(addBrand.getText()); //Marca
+                //Double addPriceStr = Double.parseDouble(String.valueOf(addPrice.getText())); //Precio
+                String addPriceStr = String.valueOf(addPrice);
+                String addDescStr = String.valueOf(addDesc.getText()); //Descripcion
+                String addStateStr = String.valueOf(addState.getText()); //Estado
+                String addColorStr = String.valueOf(addColor.getText()); //Color
+                int addIdtStr = extras.getInt("id"); //Id usuario
+                Producto producto = new Producto(/*extras.getInt("id")*/ addIdtStr, addBrandStr,
+                        addStateStr, /*addFechaStr,*/ addDescStr, addNameStr, addPriceStr);
                 addProductPresenter.addProduct(producto);
 
             }

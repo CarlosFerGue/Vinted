@@ -33,14 +33,15 @@ public interface APIService {
 //    Añadir productos
     @GET("Controller")
     Call<AddProductData> getMySales(@Query("ACTION") String action,
-                                    @Query("USUARIOID") Integer userId,
+                                    @Query("USUARIOID") int userId,
                                     @Query("MARCA") String marca,
-                                    @Query("PRECIO") Double precio,
+                                    @Query("PRECIO") String precio,
                                     @Query("DESCRIPCION") String descripcion,
                                     @Query("NOMBRE") String nombre,
                                     @Query("IMAGEN") String imagen,
                                     @Query("ESTADO") String estado,
-                                    @Query("COLOR") String color);
+                                    @Query("FECHA") String fecha);
+                                   // @Query("COLOR") String color);
 
 
 }

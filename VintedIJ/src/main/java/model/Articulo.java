@@ -5,10 +5,10 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 
 public class Articulo {
-    private int id;
-    private String marca, estado, fecha, descripcion, nombre, imagen, precio, id_user;
+    private int id, id_user;
+    private String marca, estado, fecha, descripcion, nombre, imagen, precio;
 
-    public Articulo(String id_user, String marca, String estado, String fecha, String descripcion, String nombre, String imagen, String precio) {
+    public Articulo(String marca, int id_user, String estado, String fecha, String descripcion, String nombre, String imagen, String precio) {
         this.id_user = id_user;
         this.marca = marca;
         this.estado = estado;
@@ -94,11 +94,11 @@ public class Articulo {
         this.precio = precio;
     }
 
-    public String getId_user() {
+    public int getId_user() {
         return id_user;
     }
 
-    public void setId_user(String id_user) {
+    public void setId_user(int id_user) {
         this.id_user = id_user;
     }
 

@@ -125,6 +125,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
 
     @Override
     public int add(Articulo entity) throws SQLException {
+        System.out.println("Sexyyy");
         int resp = 0;
         try {
             motorSql.conectar();
@@ -139,6 +140,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                     + entity.getId_user() + "')";
             resp = motorSql.modificar(sql);
             System.out.println(sql);
+            //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=1&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN&PRECIO=12
         } catch (Exception e) {
             System.out.println("No se inserto con exito");
         } finally {

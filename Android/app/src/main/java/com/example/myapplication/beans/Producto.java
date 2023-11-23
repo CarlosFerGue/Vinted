@@ -1,38 +1,45 @@
 package com.example.myapplication.beans;
 
-import java.sql.Date;
-
 public class Producto {
-    // ATRIBUTOS
-    private Integer usuarioId;
-    private String marca;
-    private Double precio;
-    private String descripcion;
-    private String nombre;
-    private String imagen;
-    private String estado;
-    private String color;
+    private int id, id_user;
+    private String marca, estado, fecha, descripcion, nombre, imagen, precio;
 
-    // CONSTRUCTOR
-    public Producto() {
-    }
 
-    public Producto(Integer usuarioId, String marca, Double precio, String descripcion, String nombre, String estado, String color) {
-        this.usuarioId = usuarioId;
+    public Producto(String marca, String estado, String descripcion, String nombre, String precio, int id_user) {
         this.marca = marca;
-        this.precio = precio;
+        this.estado = estado;
         this.descripcion = descripcion;
         this.nombre = nombre;
+        this.precio = precio;
+        this.id_user = id_user;
+    }
+
+    public Producto(int id_user, String marca, String estado, String descripcion, String nombre,String precio) {
+        this.id_user = id_user;
+        this.marca = marca;
         this.estado = estado;
-        this.color = color;
+        this.descripcion = descripcion;
+        this.nombre = nombre;
+        this.precio = precio;
     }
 
-    public Integer getUsuarioId() {
-        return usuarioId;
+    public Producto(String marca, int id, String estado, String fecha, String descripcion, String nombre, String imagen, String precio) {
+        this.id = id;
+        this.marca = marca;
+        this.estado = estado;
+        this.fecha = fecha;
+        this.descripcion = descripcion;
+        this.nombre = nombre;
+        this.imagen = imagen;
+        this.precio = precio;
     }
 
-    public void setUsuarioId(Integer usuarioId) {
-        this.usuarioId = usuarioId;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getMarca() {
@@ -43,12 +50,20 @@ public class Producto {
         this.marca = marca;
     }
 
-    public Double getPrecio() {
-        return precio;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setPrecio(Double precio) {
-        this.precio = precio;
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public String getDescripcion() {
@@ -75,24 +90,21 @@ public class Producto {
         this.imagen = imagen;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getPrecio() {
+        return precio;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setPrecio(String precio) {
+        this.precio = precio;
     }
 
-    public String getColor() {
-        return color;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
-
-
-    // METODOS
 
 
 }
