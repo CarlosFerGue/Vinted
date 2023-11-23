@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,7 +33,7 @@ public class OnUser10Adapter extends RecyclerView.Adapter<OnUser10Adapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OnUser10Adapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         OnClick10Usuarios usuario = lstUsers.get(position);
         //Rellenamos con los datos la carta
         holder.userName.setText(lstUsers.get(position).getNombre());
@@ -47,9 +48,9 @@ public class OnUser10Adapter extends RecyclerView.Adapter<OnUser10Adapter.ViewHo
     }
 
     public class ViewHolder extends  RecyclerView.ViewHolder{
-        TextureView userName;
-        TextureView userUser;
-        TextureView userEmail;
+        TextView userName;
+        TextView userUser;
+        TextView userEmail;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
