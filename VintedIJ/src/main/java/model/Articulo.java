@@ -6,9 +6,10 @@ import java.util.ArrayList;
 
 public class Articulo {
     private int id;
-    private String marca, estado, fecha, descripcion, nombre, imagen, precio;
+    private String marca, estado, fecha, descripcion, nombre, imagen, precio, id_user;
 
-    public Articulo(String marca, String estado, String fecha, String descripcion, String nombre, String imagen, String precio) {
+    public Articulo(String id_user, String marca, String estado, String fecha, String descripcion, String nombre, String imagen, String precio) {
+        this.id_user = id_user;
         this.marca = marca;
         this.estado = estado;
         this.fecha = fecha;
@@ -91,6 +92,14 @@ public class Articulo {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public String getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(String id_user) {
+        this.id_user = id_user;
     }
 
     public static String toArrayJSon(ArrayList<Articulo> articulos) {

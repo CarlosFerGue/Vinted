@@ -91,7 +91,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
 
             while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
                 Articulo articulo = new Articulo(
-                        rs.getInt("ID_PRODUCTO"),
+                        rs.getString("ID"), //String del usuario no del producto que es autonum
                         rs.getString("MARCA"),
                         rs.getString("ESTADO"),
                         rs.getString("FECHA"),
@@ -128,7 +128,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         int resp = 0;
         try {
             motorSql.conectar();
-            String sql = "INSERT INTO `articulos`(`marca_producto`, `precio_producto`, `imagen_producto`, `nombre_producto`, `descripcion_producto`, `fecha_subida_producto`, `estado`, `id_usuario`) VALUES ("
+            String sql = "INSERT INTO `articulos`(`marca_producto`, `precio_producto`, `imagen_producto`, `nombre_producto`, `descripcion_producto`, `fecha_subida_producto`, `estado`, `id_usuario`) VALUES ('"
                     + entity.getMarca() + "', '"
                     + entity.getPrecio() + "', '"
                     + entity.getImagen() + "', '"
@@ -136,7 +136,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                     + entity.getDescripcion() + "', '"
                     + entity.getFecha() + "', '"
                     + entity.getEstado() + "', '"
-                    + entity.getId() + "')";
+                    + entity.getId_user() + "')";
             resp = motorSql.modificar(sql);
             System.out.println(sql);
         } catch (Exception e) {
