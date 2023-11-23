@@ -89,16 +89,28 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
             System.out.println(sql);
             ResultSet rs = motorSql.consultar(sql);
 
-            while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
+//            while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
+//                Articulo articulo = new Articulo(
+//                        rs.getString("ID"), //String del usuario no del producto que es autonum
+//                        rs.getString("MARCA"),
+//                        rs.getString("ESTADO"),
+//                        rs.getString("FECHA"),
+//                        rs.getString("DESCRIPCION"),
+//                        rs.getString("NOMBRE"),
+//                        rs.getString("IMAGEN"),
+//                        rs.getString("PRECIO")
+//                );
+
+            while (rs.next()) {
                 Articulo articulo = new Articulo(
-                        rs.getString("ID"), //String del usuario no del producto que es autonum
+                        rs.getInt("ID"),
                         rs.getString("MARCA"),
-                        rs.getString("ESTADO"),
-                        rs.getString("FECHA"),
-                        rs.getString("DESCRIPCION"),
-                        rs.getString("NOMBRE"),
+                        rs.getString("PRECIO"),
                         rs.getString("IMAGEN"),
-                        rs.getString("PRECIO")
+                        rs.getString("NOMBRE"),
+                        rs.getString("DESCRIPCION"),
+                        rs.getString("FECHA"),
+                        rs.getString("ESTADO")
                 );
                 articulos.add(articulo);
             }
@@ -137,7 +149,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                     + entity.getDescripcion() + "', '"
                     + entity.getFecha() + "', '"
                     + entity.getEstado() + "', '"
-                    + entity.getId_user() + "')";
+                    + entity.getId_usuario() + "')";
             resp = motorSql.modificar(sql);
             System.out.println(sql);
             //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=1&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN&PRECIO=12
