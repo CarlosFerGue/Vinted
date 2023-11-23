@@ -58,16 +58,28 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
                 EditText addColor = findViewById(R.id.addColor); //Color
 
                 //Almacenamos los valores en variables , las variables las llamamos add porque tal
-                String addNameStr = String.valueOf(addName.getText()); //Nombre
-                String addBrandStr = String.valueOf(addBrand.getText()); //Marca
-                //Double addPriceStr = Double.parseDouble(String.valueOf(addPrice.getText())); //Precio
-                String addPriceStr = String.valueOf(addPrice);
-                String addDescStr = String.valueOf(addDesc.getText()); //Descripcion
-                String addStateStr = String.valueOf(addState.getText()); //Estado
-                String addColorStr = String.valueOf(addColor.getText()); //Color
+//                String addNameStr = String.valueOf(addName.getText()); //Nombre
+//                String addBrandStr = String.valueOf(addBrand.getText()); //Marca
+//                //Double addPriceStr = Double.parseDouble(String.valueOf(addPrice.getText())); //Precio
+//                String addPriceStr = String.valueOf(addPrice);
+//                String addDescStr = String.valueOf(addDesc.getText()); //Descripcion
+//                String addStateStr = String.valueOf(addState.getText()); //Estado
+//                String addColorStr = String.valueOf(addColor.getText()); //Color
+
+                String addMarcaStr = String.valueOf(addBrand.getText());
+                String addPrecioStr = String.valueOf(addPrice.getText());
+                String addImageStr = String.valueOf(addBrand.getText()); //Las que pone add brand es porque no estan aun en el front
+                String addNombreStr = String.valueOf(addName.getText());
+                String addDescripcionStr = String.valueOf(addDesc.getText());
+                String addFechaStr = String.valueOf(addBrand.getText());
+                String addEstadoStr = String.valueOf(addState.getText());
                 int addIdtStr = extras.getInt("id"); //Id usuario
-                Producto producto = new Producto(/*extras.getInt("id")*/ addIdtStr, addBrandStr,
-                        addStateStr, /*addFechaStr,*/ addDescStr, addNameStr, addPriceStr);
+
+//                Producto producto = new Producto(/*extras.getInt("id")*/ addIdtStr, addBrandStr,
+//                        addStateStr, /*addFechaStr,*/ addDescStr, addNameStr, addPriceStr);
+                Producto producto = new Producto(addIdtStr, addMarcaStr, addPrecioStr,
+                        addImageStr, addNombreStr, addDescripcionStr, addFechaStr,
+                        addEstadoStr);
                 addProductPresenter.addProduct(producto);
 
             }

@@ -21,13 +21,14 @@ public class AddProductModel implements ContractAddProduct.Model{
     public AddProductModel(ContractAddProduct.Presenter presenter) {
         this.presenter = presenter;
     }
-    //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=1&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN&PRECIO=12
+    //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&MARCA=lAL&PRECIO=23&IMAGEN=SDA&NOMBRE=lila&DESCRIPCION=fasfsafasfasfa&FECHA=12&ESTADO=bein&ID=1
     @Override
     public void addProductAPI(Producto producto, AddProductListener addProductListener) {
 
         APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/").create(APIService.class);
         System.out.println("Voy a hacer la call");
-        Call<AddProductData> call = apiService.getMySales("PRODUCTOS.DAR_ALTA",producto.getId_user(),
+        Call<AddProductData> call = apiService.getMySales("PRODUCTOS.DAR_ALTA",
+                producto.getId_usuario(),
                 producto.getMarca(),
                 producto.getPrecio(),
                 producto.getDescripcion(),
@@ -35,8 +36,6 @@ public class AddProductModel implements ContractAddProduct.Model{
                 producto.getImagen(),
                 producto.getEstado(),
                 producto.getFecha());
-
-            //    producto.getColor());
 
         call.enqueue(new Callback<AddProductData>() {
             @Override

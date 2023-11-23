@@ -59,8 +59,13 @@ public class ArticuloAction implements IAction {
 //        int idUsuarioInt = Integer.parseInt(idUsuario);
         String idUsuario = request.getParameter("ID");
 
+        if (idUsuario == null) {
+            int idUsuarioInt = 1;
+        }else{
+            int idUsuarioInt = Integer.parseInt(idUsuario);
+        }
+        int idUsuarioInt = 1;
 
-        int idUsuarioInt = Integer.parseInt(idUsuario);
         String marca = request.getParameter("MARCA");
         String precio = request.getParameter("PRECIO");
         String imagen = request.getParameter("IMAGEN");
