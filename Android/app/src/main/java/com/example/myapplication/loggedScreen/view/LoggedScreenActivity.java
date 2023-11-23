@@ -47,7 +47,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
         initComponents(); //Llama al init components
 
 
-        
+
 
     }
 
