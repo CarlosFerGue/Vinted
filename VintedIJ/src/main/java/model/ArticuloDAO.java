@@ -31,7 +31,8 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                         rs.getString("descripcion_producto"),
                         rs.getString("nombre_producto"),
                         rs.getString("imagen_producto"),
-                        rs.getString("precio_producto")
+                        rs.getString("precio_producto"),
+                        rs.getString("valoracion")
                 );
                 articulos.add(articulo);
             }
@@ -65,7 +66,8 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                         rs.getString("descripcion_producto"),
                         rs.getString("nombre_producto"),
                         rs.getString("imagen_producto"),
-                        rs.getString("precio_producto")
+                        rs.getString("precio_producto"),
+                        rs.getString("valoracion")
                 );
                 articulos.add(articulo);
             }
@@ -110,7 +112,8 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                         rs.getString("NOMBRE"),
                         rs.getString("DESCRIPCION"),
                         rs.getString("FECHA"),
-                        rs.getString("ESTADO")
+                        rs.getString("ESTADO"),
+                        rs.getString("VALORACION")
                 );
                 articulos.add(articulo);
             }

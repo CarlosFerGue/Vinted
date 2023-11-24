@@ -32,7 +32,7 @@ public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OnSaleDataAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         OnLoadSaleData sale = lstSales.get(position);
         // RELLENAR CON LOS DATOS
         holder.productName.setText(lstSales.get(position).getNombre());
@@ -40,6 +40,7 @@ public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.Vi
         holder.productPrice.setText(lstSales.get(position).getPrecio());
         holder.productState.setText(lstSales.get(position).getEstado());
         holder.productDesc.setText(lstSales.get(position).getDescripcion());
+        holder.productRate.setText(lstSales.get(position).getValoracion());
 
 
     }
@@ -56,6 +57,7 @@ public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.Vi
         TextView productDesc;
         TextView productState;
         TextView productColor;
+        TextView productRate;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -66,6 +68,7 @@ public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.Vi
             productDesc = itemView.findViewById(R.id.productDesc);
             productState = itemView.findViewById(R.id.productState);
             productColor = itemView.findViewById(R.id.productColor);
+            productRate = itemView.findViewById(R.id.productRate);
 
 
         }

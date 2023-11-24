@@ -23,7 +23,6 @@ public class ArticuloAction implements IAction {
                 cadDestino = findByFilter(request, response);
                 break;
             case "DAR_ALTA": //Subes tus productos
-                System.out.println("Voy a entrar olii");
                 upload(request, response);
                 break;
         }
@@ -46,16 +45,6 @@ public class ArticuloAction implements IAction {
 
     //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=53&PRECIO=12&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN
     private int upload(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-//        String nombre = request.getParameter("NOMBRE"); //en verde el nombre de la tabla URL
-//        String marca = request.getParameter("MARCA");
-//        String precioString = request.getParameter("PRECIO");
-//        String imagen = request.getParameter("IMAGEN");
-//        String descripcion = request.getParameter("DESCRIPCION");
-//        String fecha = request.getParameter("FECHA");
-//        String estado = request.getParameter("ESTADO");
-//        String idUsuario = request.getParameter("ID");
-//        int precio = Integer.parseInt(precioString);
-//        int idUsuarioInt = Integer.parseInt(idUsuario);
         String idUsuario = request.getParameter("ID");
 
         if (idUsuario == null) {
@@ -72,8 +61,9 @@ public class ArticuloAction implements IAction {
         String descripcion = request.getParameter("DESCRIPCION");
         String fecha = request.getParameter("FECHA");
         String estado = request.getParameter("ESTADO");
+        String valoracion = request.getParameter("VALORACION");
         Articulo articulo = new Articulo(idUsuarioInt, marca,
-        precio, imagen, nombre, descripcion, fecha, estado);
+        precio, imagen, nombre, descripcion, fecha, estado, valoracion);
         ArticuloDAO ariticuloDAO = new ArticuloDAO();
         return ariticuloDAO.add(articulo);
     }

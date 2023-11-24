@@ -4,14 +4,14 @@ public class OnLoadSaleData {
     // ATRIBUTOS
     private int id_producto, id_usuario;
 
-    private String marca, precio, imagen, nombre, descripcion, fecha, estado;
+    private String marca, precio, imagen, nombre, descripcion, fecha, estado, valoracion;
 
 
     // CONSTRUCTOR
     public OnLoadSaleData() {
     }
 
-    public OnLoadSaleData(int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado) {
+    public OnLoadSaleData(int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado, String valoracion) {
         this.id_usuario = id_usuario;
         this.marca = marca;
         this.precio = precio;
@@ -20,6 +20,7 @@ public class OnLoadSaleData {
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.estado = estado;
+        this.valoracion = valoracion;
     }
 
     @Override
@@ -32,6 +33,7 @@ public class OnLoadSaleData {
                 ", nombre='" + nombre + '\'' +
                 ", imagen='" + imagen + '\'' +
                 ", estado='" + estado + '\'' +
+                ", valoracion='" + valoracion + '\'' +
                 '}';
     }
 
@@ -86,6 +88,14 @@ public class OnLoadSaleData {
 
     public String getDescripcion() {
         return descripcion;
+    }
+
+    public String getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(String valoracion) {
+        this.valoracion = valoracion;
     }
 
     public void setDescripcion(String descripcion) {

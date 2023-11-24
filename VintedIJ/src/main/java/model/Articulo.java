@@ -7,11 +7,11 @@ import java.util.ArrayList;
 public class Articulo {
     private int id_producto, id_usuario;
 
-    private String marca, precio, imagen, nombre, descripcion, fecha, estado;
+    private String marca, precio, imagen, nombre, descripcion, fecha, estado, valoracion;
 
 
 
-    public Articulo(int id_producto, int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado) {
+    public Articulo(int id_producto, int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado, String valoracion) {
         this.id_producto = id_producto;
         this.id_usuario = id_usuario;
         this.marca = marca;
@@ -21,9 +21,10 @@ public class Articulo {
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.estado = estado;
+        this.valoracion = valoracion;
     }
 
-    public Articulo(int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado) {
+    public Articulo(int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado, String valoracion) {
         this.id_usuario = id_usuario;
         this.marca = marca;
         this.precio = precio;
@@ -32,6 +33,7 @@ public class Articulo {
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.estado = estado;
+        this.valoracion = valoracion;
     }
 
     public int getId_producto() {
@@ -104,6 +106,14 @@ public class Articulo {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(String valoracion) {
+        this.valoracion = valoracion;
     }
 
     public static String toArrayJSon(ArrayList<Articulo> articulos) {
