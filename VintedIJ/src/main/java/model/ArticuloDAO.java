@@ -47,10 +47,53 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
     }
 
     @Override
-    public int update(Articulo entity) {
-        
-        return articulos;
+    public int update(Articulo entity) throws SQLException {
+        int resp = 0;
+        try {
+            motorSql.conectar();
+            String sql = "UPDATE `articulos` SET `valoracion` = '" + entity.getValoracion() + "' " + "WHERE `id_producto` = '" + entity.getId_producto() + "';";
+            resp = motorSql.modificar(sql);
+            System.out.println(sql);
+            //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=1&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN&PRECIO=12
+        } catch (Exception e) {
+            System.out.println("No se inserto con exito");
+        } finally {
+            motorSql.desconectar();
+        }
+        if (resp > 0) {
+            System.out.println("Articulo insertado con exito.");
+        }
+        return resp;
     }
+
+    @Override
+    public int add(Articulo entity) throws SQLException {
+        int resp = 0;
+        try {
+            motorSql.conectar();
+            String sql = "INSERT INTO `articulos`(`marca_producto`, `precio_producto`, `imagen_producto`, `nombre_producto`, `descripcion_producto`, `fecha_subida_producto`, `estado`, `id_usuario`) VALUES ('"
+                    + entity.getMarca() + "', '"
+                    + entity.getPrecio() + "', '"
+                    + entity.getImagen() + "', '"
+                    + entity.getNombre() + "', '"
+                    + entity.getDescripcion() + "', '"
+                    + entity.getFecha() + "', '"
+                    + entity.getEstado() + "', '"
+                    + entity.getId_usuario() + "')";
+            resp = motorSql.modificar(sql);
+            System.out.println(sql);
+            //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=1&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN&PRECIO=12
+        } catch (Exception e) {
+            System.out.println("No se inserto con exito");
+        } finally {
+            motorSql.desconectar();
+        }
+        if (resp > 0) {
+            System.out.println("Articulo insertado con exito.");
+        }
+        return resp;
+    }
+
 
 
     public ArrayList<Articulo> filterType(String id_usuario) throws SQLException {
@@ -121,33 +164,6 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         return articulos;
     }
 
-    @Override
-    public int add(Articulo entity) throws SQLException {
-        int resp = 0;
-        try {
-            motorSql.conectar();
-            String sql = "INSERT INTO `articulos`(`marca_producto`, `precio_producto`, `imagen_producto`, `nombre_producto`, `descripcion_producto`, `fecha_subida_producto`, `estado`, `id_usuario`) VALUES ('"
-                    + entity.getMarca() + "', '"
-                    + entity.getPrecio() + "', '"
-                    + entity.getImagen() + "', '"
-                    + entity.getNombre() + "', '"
-                    + entity.getDescripcion() + "', '"
-                    + entity.getFecha() + "', '"
-                    + entity.getEstado() + "', '"
-                    + entity.getId_usuario() + "')";
-            resp = motorSql.modificar(sql);
-            System.out.println(sql);
-            //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=1&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN&PRECIO=12
-        } catch (Exception e) {
-            System.out.println("No se inserto con exito");
-        } finally {
-            motorSql.desconectar();
-        }
-        if (resp > 0) {
-            System.out.println("Articulo insertado con exito.");
-        }
-        return resp;
-    }
 
 
     @Override
