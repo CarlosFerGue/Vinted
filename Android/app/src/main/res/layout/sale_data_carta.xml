@@ -14,17 +14,6 @@
         android:padding="16dp"
         >
 
-        <!-- Nombre -->
-        <View
-            android:id="@+id/view3"
-            android:layout_width="match_parent"
-            android:layout_height="9dp"
-            android:layout_marginVertical="10dp"
-            android:background="@color/azul"
-            app:cardCornerRadius="20dp" >
-
-
-        </View>
 
         <EditText
             android:id="@+id/textProductView"
