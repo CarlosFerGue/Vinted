@@ -36,7 +36,7 @@ public class User10Activity extends AppCompatActivity implements Contract10Usuar
 
 
     public void initComponents(){
-        
+        presenter.onFinished(lstUsuarios);
     };
 
     @Override
