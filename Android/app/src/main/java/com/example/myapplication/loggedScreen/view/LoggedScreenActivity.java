@@ -29,11 +29,11 @@ import java.util.ArrayList;
 public class LoggedScreenActivity extends AppCompatActivity implements ContractLoggedScreen.View, ContractAddProduct.View {
     private OnLoadSalePresenter presenter = new OnLoadSalePresenter(this);
     private AddProductPresenter addProductPresenter = new AddProductPresenter(this);
+
     private static LoggedScreenActivity mainActivity = null;
+
     public OnSaleDataAdapter onSaleDataAdapter;
-    public OnUser10Adapter onUser10Adapter;
     private ArrayList<OnLoadSaleData> lstSales;
-    private ArrayList<OnUser10Data> lstUsuarios;
     private Button buscarUsuarios;
 
     public static LoggedScreenActivity getInstance() {
@@ -55,6 +55,12 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
                 openListado10Users();
             }
         });
+    }
+
+    //Te lleva a la pantalla de los 10 usuarios con mas ventas
+    public void openListado10Users(){
+        Intent intent = new Intent(this, User10Activity.class);
+        startActivity(intent);
     }
 
     //Funcion para añadir productos
@@ -95,20 +101,6 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
 
 
     }
-
-    //Funcion para ver top 10 usuarios
-    public void buscar10Users(ArrayList<OnUser10Data> lstUsuarios) {
-//        Button buscarUsuarios = findViewById(R.id.buscar10Usuarios);
-
-
-        this.lstUsuarios = lstUsuarios;
-        RecyclerView recyclerView = findViewById(R.id.userRecycleView);
-        recyclerView.setLayoutManager((new LinearLayoutManager(this)));
-        onUser10Adapter = new OnUser10Adapter(this, lstUsuarios);
-        recyclerView.setAdapter(onUser10Adapter);
-    }
-
-
 
     //Si le sale bien el cargar el login te lleva a esta funcion
     @Override
