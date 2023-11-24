@@ -10,8 +10,8 @@ public class OnLoad10UserPresenter implements ContractLoggedScreen.Presenter, Co
     ContractLoggedScreen.Model model;
 
     public OnLoad10UserPresenter(ContractLoggedScreen.View view){
-        this.view;
-        model = new OnLoad10UserPresenter()
+//        this.view;
+//        model = new OnLoad10UserPresenter()
     }
 
 

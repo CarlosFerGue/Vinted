@@ -95,6 +95,39 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
         return resp;
     }
 
+    public ArrayList<Usuario> find10(Usuario entity) throws SQLException {
+        ArrayList<Usuario> usuarios = new ArrayList<>();
+        String sql = "SELECT * FROM usuario";
+
+        try {
+            motorSql.conectar();
+
+            System.out.println(sql);
+            ResultSet rs = motorSql.consultar(sql);
+
+            while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
+                Usuario usuario = new Usuario(
+                        rs.getInt("id_usuario"),
+                        rs.getString("nombre"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getString("apellido_1"),
+                        rs.getString("apellido_2"),
+                        rs.getString("usuario")
+                );
+                usuarios.add(usuario);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            motorSql.desconectar();
+        }
+        return usuarios;
+    }
+
+
     @Override
     public int delete(Integer e) {
         throw new UnsupportedOperationException("Not supported yet.");

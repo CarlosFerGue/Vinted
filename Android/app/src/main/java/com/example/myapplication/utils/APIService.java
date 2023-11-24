@@ -47,7 +47,7 @@ public interface APIService {
 
     //  Busacr a los 10 usuarios con mas ventas
     @GET("Controller")
-    Call<OnClick10UsuariosData> getLogin(@Query("ACTION") String action);
+    Call<ArrayList<OnClick10UsuariosData>> get10Users(@Query("ACTION") String action);
 }
 
 

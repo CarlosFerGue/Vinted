@@ -5,12 +5,11 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import action.IAction;
 import com.google.gson.Gson;
 import model.Usuario;
 import model.UsuarioDAO;
 
-public class LoginAction implements IAction {
+public class UsuarioAction implements IAction {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws SQLException {
@@ -32,6 +31,8 @@ public class LoginAction implements IAction {
             case "REGISTER":
                 add(request, response);
                 break;
+            case"TOP10":
+                cadDestino = find10(request,response);
         }
         return cadDestino;
     }
@@ -88,6 +89,12 @@ public class LoginAction implements IAction {
         Usuario usuario = new Usuario(id, nombre, correo, contrasena, apellido1, apellido2, user);
         UsuarioDAO usuarioDAO = new UsuarioDAO();
         usuarioDAO.add(usuario);
+    }
+
+    private String find10(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+        ArrayList<Usuario> usuarios = usuarioDAO.find10(null);
+        return Usuario.toArrayJSon(usuarios);
     }
 }
 

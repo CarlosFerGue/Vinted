@@ -1,5 +1,5 @@
 import action.ArticuloAction;
-import action.LoginAction;
+import action.UsuarioAction;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -27,9 +27,9 @@ public class Controller extends HttpServlet {
                     throw new RuntimeException(e);
                 }
                 break;
-            case "LOGIN":
+            case "USUARIO":
                 try {
-                    out.print(new LoginAction().execute(request, response));
+                    out.print(new UsuarioAction().execute(request, response));
                 } catch (SQLException e) {
                     throw new RuntimeException(e);
                 }
