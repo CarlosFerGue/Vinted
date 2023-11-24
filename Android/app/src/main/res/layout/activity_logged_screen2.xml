@@ -10,125 +10,117 @@
 
 
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/poppins_bold"
-            android:text="¡Dar de alta un producto!"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/addName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Nombre"
-            android:inputType="text"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/addBrand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Marca"
-            android:inputType="text"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/addDesc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Descripción"
-            android:inputType="text"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/addState"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Estado"
-            android:inputType="text"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/addColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Color"
-            android:inputType="text"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/addPrice"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:ems="10"
-            android:hint="Precio"
-            android:inputType="numberDecimal" />
-
-        <Button
-            android:id="@+id/addProductButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Añadir artículo" />
-
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="MissingConstraints"
+            android:layout_marginBottom="7dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="¡Dar de alta un producto!"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/addColor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Color"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/addPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Precio"
+                    android:inputType="numberDecimal"
+                    android:textSize="20sp"/>
+
+                <EditText
+                    android:id="@+id/addName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Nombre"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/addState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Estado"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/addBrand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Marca"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/addDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Descripción"
+                    android:inputType="text"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addProductButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Añadir artículo" />
+
+
+            <Button
+                android:id="@+id/buscar10UsuariosBoton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Top 10 usuarios con mas ventas" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
-            <!-- Tu encabezado u otras vistas aquí -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/productRecycleView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             </androidx.recyclerview.widget.RecyclerView>
-
-
-
         </LinearLayout>
-
-        <LinearLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <!-- Tu encabezado u otras vistas aquí -->
-            <!-- Otras vistas adicionales aquí -->
-        </LinearLayout>
-
-
-
     </LinearLayout>
-
-    <Button
-        android:id="@+id/buscar10UsuariosBoton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Top 10 usuarios con mas ventas"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="562dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
