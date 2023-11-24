@@ -10,6 +10,10 @@ public class Articulo {
     private String marca, precio, imagen, nombre, descripcion, fecha, estado, valoracion;
 
 
+    public Articulo(int id_producto, String valoracion) {
+        this.id_producto = id_producto;
+        this.valoracion = valoracion;
+    }
 
     public Articulo(int id_producto, int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado, String valoracion) {
         this.id_producto = id_producto;

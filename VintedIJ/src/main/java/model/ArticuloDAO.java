@@ -48,8 +48,8 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
 
     @Override
     public int update(Articulo entity) {
-
-        return 0;
+        
+        return articulos;
     }
 
 
@@ -123,7 +123,6 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
 
     @Override
     public int add(Articulo entity) throws SQLException {
-        System.out.println("Sexyyy");
         int resp = 0;
         try {
             motorSql.conectar();

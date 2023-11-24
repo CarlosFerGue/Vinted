@@ -35,9 +35,14 @@ public class ArticuloAction implements IAction {
     private int puntuar(HttpServletRequest request, HttpServletResponse response){
         ArticuloDAO articuloDAO = new ArticuloDAO();
 
+        String idArticulo = request.getParameter("ID");
+        int idInt = Integer.parseInt(idArticulo);
         String valoracion = request.getParameter("VALORACION");
 
-        return articuloDAO.update(articulo);
+
+        Articulo articulo = new Articulo(idInt,valoracion);
+        ArticuloDAO ariticuloDAO = new ArticuloDAO();
+        return ariticuloDAO.update(articulo);
     }
 
     private String findAll(HttpServletRequest request, HttpServletResponse response) throws SQLException {
