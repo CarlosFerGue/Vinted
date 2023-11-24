@@ -6,19 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".top10Users.view.User10Activity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="activity 2"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
-    </TextView>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/userRecycleView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="318dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:background="@color/azul"
+            android:orientation="vertical"
+            android:padding="11dp"
+            android:gravity="center"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Top 10 usuarios con mas ventas"
+                android:textColor="@color/white"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/userRecycleView"
+            android:layout_width="match_parent"
+            android:layout_height="655dp"></androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
 </RelativeLayout>
