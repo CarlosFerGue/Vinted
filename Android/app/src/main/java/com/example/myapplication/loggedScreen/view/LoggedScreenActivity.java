@@ -103,6 +103,11 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
             }
         });
 
+
+
+
+
+
     }
 
     //Si le sale bien el cargar el login te lleva a esta funcion

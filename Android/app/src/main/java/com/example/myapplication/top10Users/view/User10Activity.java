@@ -27,13 +27,17 @@ public class User10Activity extends AppCompatActivity implements Contract10Usuar
         return mainActivity;
     }
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_listado10_users);
-//        ini
-//    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_listado10_users);
+        initComponents();
+    }
 
+
+    public void initComponents(){
+        
+    };
 
     @Override
     public void successLoad10Usuarios(ArrayList<OnUser10Data> lstUsuarios) {
