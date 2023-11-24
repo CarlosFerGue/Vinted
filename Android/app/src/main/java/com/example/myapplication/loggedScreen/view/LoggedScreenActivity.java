@@ -44,7 +44,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logged_screen); //la vista que te devuelve
+        setContentView(R.layout.activity_logged_screen2); //la vista que te devuelve
         initComponents(); //Llama al init components
 
         //De aqui para abajo es donde empieza el desarrollo del listado de 10 usuarios

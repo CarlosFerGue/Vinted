@@ -128,6 +128,10 @@ INSERT INTO `articulos` (`id_producto`, `marca_producto`, `precio_producto`, `im
 (3, 'Brand X', '79.99', 'product_x.jpg', 'Product X', 'Description X', '2023-03-01', 'Active', 1),
 (4, 'Brand Y', '129.99', 'product_y.jpg', 'Product Y', 'Description Y', '2023-03-05', 'Active', 2);
 
+ALTER TABLE `articulos`
+ADD COLUMN `valoracion` INT CHECK (`valoracion` >= 1 AND `valoracion` <= 10);
+
+
 -- --------------------------------------------------------
 
 --

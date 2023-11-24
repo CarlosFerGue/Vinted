@@ -46,7 +46,6 @@ public class ArticuloAction implements IAction {
 
     //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=53&PRECIO=12&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN
     private int upload(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        System.out.println("He entrado xddd");
 //        String nombre = request.getParameter("NOMBRE"); //en verde el nombre de la tabla URL
 //        String marca = request.getParameter("MARCA");
 //        String precioString = request.getParameter("PRECIO");
