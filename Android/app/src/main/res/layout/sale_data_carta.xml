@@ -4,72 +4,93 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    app:cardCornerRadius="20dp"
     app:cardElevation="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        >
 
         <!-- Nombre -->
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="9dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/azul"
+
+            app:cardCornerRadius="20dp" >
+
+
+        </View>
+
         <EditText
             android:id="@+id/textProductView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textColor="@color/azul"
-            android:textStyle="bold"
-            android:text="Nombre"
             android:backgroundTint="@color/white"
-            />
+            android:gravity="center"
+            android:text="Nombre"
+            android:textAlignment="center"
+            android:textColor="@color/azul"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:orientation="horizontal"
-            android:weightSum="3"
-            android:layout_marginTop="8dp">
+            android:weightSum="3">
 
             <EditText
                 android:id="@+id/productBrand"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="45dp"
-                android:layout_weight="1"
                 android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_bg"
                 android:padding="8dp"
                 android:text="Marca"
-                android:textAlignment="center"
-                android:background="@drawable/edittext_bg"/>
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/productState"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginEnd="4dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_bg"
                 android:padding="8dp"
                 android:text="Activo"
-                android:textAlignment="center"
-                android:background="@drawable/edittext_bg"/>
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/productColor"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/edittext_bg"
                 android:padding="8dp"
                 android:text="Color"
-                android:textAlignment="center"
-                android:background="@drawable/edittext_bg"/>
+                android:textAlignment="center" />
+
         </LinearLayout>
 
         <!-- Descripcion -->
 
         <!-- Precio -->
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="9dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/azul"
+
+            app:cardCornerRadius="20dp" />
+
         <EditText
             android:id="@+id/productDesc"
             android:layout_width="match_parent"
@@ -79,6 +100,13 @@
             android:padding="8dp"
             android:text="Descripcion" />
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="9dp"
+            android:layout_marginVertical="10dp"
+            android:background="@color/azul" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -86,9 +114,8 @@
 
             <EditText
                 android:id="@+id/productPrice"
-                android:layout_width="174dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_width="121dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/edittext_bg"
                 android:hint="Precio"
                 android:inputType="numberDecimal"
@@ -96,14 +123,20 @@
 
             <EditText
                 android:id="@+id/productRate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_width="79dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/edittext_bg"
                 android:hint="Rate"
                 android:inputType="numberDecimal"
                 android:padding="8dp"
-                android:textAlignment="textEnd"/>
+                android:textAlignment="textStart" />
+
+            <Button
+                android:id="@+id/botonValoracion"
+                android:layout_width="71dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Puntuar" />
         </LinearLayout>
 
     </LinearLayout>
