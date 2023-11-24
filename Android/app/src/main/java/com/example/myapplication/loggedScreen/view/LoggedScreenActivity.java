@@ -57,6 +57,10 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
         });
     }
 
+
+
+
+
     //Te lleva a la pantalla de los 10 usuarios con mas ventas
     public void openListado10Users(){
         Intent intent = new Intent(this, User10Activity.class);
@@ -99,7 +103,6 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
             }
         });
 
-
     }
 
     //Si le sale bien el cargar el login te lleva a esta funcion
@@ -110,6 +113,9 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         onSaleDataAdapter = new OnSaleDataAdapter(this, lstSales); //El data adapter es para meter la info dentro de las cards, asignar el nombre al id nombre y todo eso
         recyclerView.setAdapter(onSaleDataAdapter);
+
+
+
     }
 
     @Override

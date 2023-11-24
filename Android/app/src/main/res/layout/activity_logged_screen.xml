@@ -87,12 +87,6 @@
             android:layout_height="wrap_content"
             android:text="Añadir artículo" />
 
-        <Button
-            android:id="@+id/buscar10UsuariosBoton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Top 10 usuarios con mas ventas" />
-
 
         <LinearLayout
 
@@ -127,6 +121,14 @@
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buscar10UsuariosBoton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Top 10 usuarios con mas ventas"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="562dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
