@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class OnLoadSalePresenter implements ContractLoggedScreen.Presenter, ContractLoggedScreen.Model.loadOnSaleListener {
     ContractLoggedScreen.View view;
     ContractLoggedScreen.Model model;
+
     public OnLoadSalePresenter(ContractLoggedScreen.View view ){
         this.view = view;
         model = new OnLoadSaleModel(this);

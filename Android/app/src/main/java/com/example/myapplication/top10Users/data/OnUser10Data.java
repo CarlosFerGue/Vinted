@@ -27,7 +27,7 @@ public class OnUser10Data {
 
     @Override
     public String toString(){
-        return "OnLoadSaleData{" +
+        return "User10Activity{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", email=" + email +

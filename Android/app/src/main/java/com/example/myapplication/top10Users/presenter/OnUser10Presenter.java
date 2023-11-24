@@ -6,9 +6,10 @@ import com.example.myapplication.top10Users.model.OnUser10Model;
 
 import java.util.ArrayList;
 
-public class OnUser10Presenter implements Contract10Usuarios.Model.loadOn10UserListener {
+public class OnUser10Presenter implements Contract10Usuarios.Model.loadOn10UserListener, Contract10Usuarios.Presenter{
     Contract10Usuarios.View view;
     Contract10Usuarios.Model model;
+
     public OnUser10Presenter(Contract10Usuarios.View view){
         this.view = view;
         model = new OnUser10Model(this);

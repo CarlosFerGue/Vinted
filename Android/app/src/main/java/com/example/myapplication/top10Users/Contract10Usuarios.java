@@ -11,10 +11,10 @@ public interface Contract10Usuarios {
         public void failureLoad10Usuarios(String err);
     }
 
-//      public interface Presenter {
-//          public void LoadOnUser(int userId);
-//
-//      }
+    public interface Presenter {
+        public void LoadOnUser(int userId);
+
+    }
 
     public interface Model {
         public void load10UserAPI(loadOn10UserListener loadOn10UserListener);

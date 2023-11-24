@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import com.example.myapplication.R;
+import com.example.myapplication.loggedScreen.presenter.OnLoadSalePresenter;
 import com.example.myapplication.top10Users.Contract10Usuarios;
 import com.example.myapplication.top10Users.adapter.OnUser10Adapter;
 import com.example.myapplication.top10Users.data.OnUser10Data;
@@ -36,7 +37,7 @@ public class User10Activity extends AppCompatActivity implements Contract10Usuar
 
 
     public void initComponents(){
-        presenter.onFinished(lstUsuarios);
+
     };
 
     @Override
