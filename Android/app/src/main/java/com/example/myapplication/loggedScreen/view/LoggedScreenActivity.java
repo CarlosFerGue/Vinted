@@ -73,7 +73,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
         System.out.println("El id que has cogido es: " + extras.getInt("id"));
 
         presenter.LoadOnSale(extras.getInt("id"));
-        
+
         Button button = findViewById(R.id.addProductButton); //con este boton llamamos a la funcion de anadir productos y ya va la cosa rodada
         button.setOnClickListener(new View.OnClickListener() {
             @Override

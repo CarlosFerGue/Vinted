@@ -15,6 +15,10 @@ public class OnUser10Presenter implements Contract10Usuarios.Model.loadOn10UserL
         model = new OnUser10Model(this);
     }
 
+    @Override
+    public void LoadOnUser() {
+        model.load10UserAPI( this);
+    }
 
     @Override
     public void onFinished(ArrayList<OnUser10Data> lst10Users) {
@@ -25,4 +29,6 @@ public class OnUser10Presenter implements Contract10Usuarios.Model.loadOn10UserL
     public void onFailure(String err) {
         view.failureLoad10Usuarios(err);
     }
+
+
 }

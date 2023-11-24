@@ -12,8 +12,7 @@ public interface Contract10Usuarios {
     }
 
     public interface Presenter {
-        public void LoadOnUser(int userId);
-
+        public void LoadOnUser();
     }
 
     public interface Model {
