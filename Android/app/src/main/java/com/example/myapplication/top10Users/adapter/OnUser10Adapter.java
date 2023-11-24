@@ -32,7 +32,7 @@ public class OnUser10Adapter extends RecyclerView.Adapter<OnUser10Adapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull  OnUser10Adapter.ViewHolder holder, int position) {
         OnUser10Data usuario = lstUsers.get(position);
         //Rellenamos con los datos la carta
         holder.userName.setText(lstUsers.get(position).getNombre());

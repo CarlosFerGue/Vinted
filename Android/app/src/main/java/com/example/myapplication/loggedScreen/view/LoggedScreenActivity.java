@@ -57,12 +57,6 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
         });
     }
 
-    //Te lleva a la pantalla de los 10 usuarios con mas ventas
-    public void openListado10Users(){
-        Intent intent = new Intent(this, User10Activity.class);
-        startActivity(intent);
-    }
-
     //Funcion para añadir productos
     public void initComponents() {
         Bundle extras = getIntent().getExtras();
