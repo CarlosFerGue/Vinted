@@ -54,14 +54,14 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
             String sql = "UPDATE `articulos` SET `valoracion` = '" + entity.getValoracion() + "' " + "WHERE `id_producto` = '" + entity.getId_producto() + "';";
             resp = motorSql.modificar(sql);
             System.out.println(sql);
-            //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=1&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN&PRECIO=12
+
         } catch (Exception e) {
-            System.out.println("No se inserto con exito");
+            System.out.println("No se actualizo con exito");
         } finally {
             motorSql.desconectar();
         }
         if (resp > 0) {
-            System.out.println("Articulo insertado con exito.");
+            System.out.println("Valoracion actualizada con exito.");
         }
         return resp;
     }

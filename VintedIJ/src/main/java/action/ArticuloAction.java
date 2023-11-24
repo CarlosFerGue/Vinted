@@ -32,7 +32,7 @@ public class ArticuloAction implements IAction {
         return cadDestino;
     }
 
-    private int puntuar(HttpServletRequest request, HttpServletResponse response){
+    private int puntuar(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ArticuloDAO articuloDAO = new ArticuloDAO();
 
         String idArticulo = request.getParameter("ID");
