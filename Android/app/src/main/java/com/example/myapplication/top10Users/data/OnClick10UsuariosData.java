@@ -1,20 +1,20 @@
-package com.example.myapplication.loggedScreen.data;
+package com.example.myapplication.top10Users.data;
 
-public class OnClick10Usuarios {
+public class OnClick10UsuariosData {
 
     private int id;
     private String nombre, email, contrasena, apellido1, apellido2, user;
 
-    public OnClick10Usuarios(String email, String contrasena) {
+    public OnClick10UsuariosData(String email, String contrasena) {
         this.email = email;
         this.contrasena = contrasena;
     }
 
-    public OnClick10Usuarios() {
+    public OnClick10UsuariosData() {
 
     }
 
-    public OnClick10Usuarios(int id, String nombre, String email, String contrasena, String apellido1, String apellido2, String user) {
+    public OnClick10UsuariosData(int id, String nombre, String email, String contrasena, String apellido1, String apellido2, String user) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;

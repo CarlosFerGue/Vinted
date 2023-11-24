@@ -59,4 +59,6 @@ public class OnLoadSaleModel implements ContractLoggedScreen.Model{
         });
 
     }
+
+
 }

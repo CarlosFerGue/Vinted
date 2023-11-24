@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".loggedScreen.view.Listado10UsersActivity"
+            android:name=".top10Users.view.Listado10UsersActivity"
             android:exported="false" />
         <activity
             android:name=".loggedScreen.view.LoggedScreenActivity"

@@ -1,4 +1,4 @@
-package com.example.myapplication.loggedScreen.view;
+package com.example.myapplication.top10Users.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -1,7 +1,7 @@
 package com.example.myapplication.utils;
 
 import com.example.myapplication.addProduct.data.AddProductData;
-import com.example.myapplication.beans.Usuario;
+import com.example.myapplication.top10Users.data.OnClick10UsuariosData;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.login.data.MyLoginData;
 
@@ -24,13 +24,14 @@ public interface APIService {
     @GET("Controller")
     Call<MyLoginData> getDataMovies(@Query("ACTION") String action);
 
+    //      Login
     @GET("Controller")
     Call<MyLoginData> getLogin(@Query("ACTION") String action, @Query("EMAIL") String nombre, @Query("PASS") String pass);
 
     @GET("Controller")
     Call<ArrayList<OnLoadSaleData>> getMySales(@Query("ACTION") String action, @Query("ID") Integer userId);
 
-//    Añadir productos
+    //    Añadir productos
     @GET("Controller")
     Call<AddProductData> getMySales(@Query("ACTION") String action,
                                     @Query("USUARIOID") int userId,
@@ -41,7 +42,13 @@ public interface APIService {
                                     @Query("IMAGEN") String imagen,
                                     @Query("ESTADO") String estado,
                                     @Query("FECHA") String fecha);
-                                   // @Query("COLOR") String color);
+    // @Query("COLOR") String color);
 
 
+    //  Busacr a los 10 usuarios con mas ventas
+    @GET("Controller")
+    Call<OnClick10UsuariosData> getLogin(@Query("ACTION") String action);
 }
+
+
+
