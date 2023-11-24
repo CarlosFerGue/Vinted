@@ -46,10 +46,16 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         return articulos;
     }
 
+    @Override
+    public int update(Articulo entity) {
+
+        return 0;
+    }
+
 
     public ArrayList<Articulo> filterType(String id_usuario) throws SQLException {
         ArrayList<Articulo> articulos = new ArrayList<>();
-        String sql = "SELECT * FROM articulos WHERE id_usuario='" + id_usuario +"'";
+        String sql = "SELECT * FROM articulos WHERE id_usuario='" + id_usuario + "'";
         try {
             //1º)
             motorSql.conectar();
@@ -83,25 +89,13 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
 
     public ArrayList<Articulo> upload(String tipo) throws SQLException {
         ArrayList<Articulo> articulos = new ArrayList<>();
-        String sql = "SELECT * FROM PRODUCTOS WHERE TIPO='" + tipo +"'";
+        String sql = "SELECT * FROM PRODUCTOS WHERE TIPO='" + tipo + "'";
         try {
             //1º)
             motorSql.conectar();
 
             System.out.println(sql);
             ResultSet rs = motorSql.consultar(sql);
-
-//            while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
-//                Articulo articulo = new Articulo(
-//                        rs.getString("ID"), //String del usuario no del producto que es autonum
-//                        rs.getString("MARCA"),
-//                        rs.getString("ESTADO"),
-//                        rs.getString("FECHA"),
-//                        rs.getString("DESCRIPCION"),
-//                        rs.getString("NOMBRE"),
-//                        rs.getString("IMAGEN"),
-//                        rs.getString("PRECIO")
-//                );
 
             while (rs.next()) {
                 Articulo articulo = new Articulo(
@@ -126,17 +120,6 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         }
         return articulos;
     }
-
-
-
-    /*
-    public static void main(String[] args) {
-
-        ProductoDAO productoDAO = new ProductoDAO();
-
-        ArrayList lstProductos = productoDAO.findAll(null);
-        System.out.println(lstProductos.toString());
-    }*/
 
     @Override
     public int add(Articulo entity) throws SQLException {
@@ -164,17 +147,14 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         if (resp > 0) {
             System.out.println("Articulo insertado con exito.");
         }
-            return resp;
+        return resp;
     }
+
 
     @Override
     public int delete(Integer e) {
         return 0;
     }
 
-    @Override
-    public int update(Articulo entity) {
-        return 0;
-    }
-}
 
+}

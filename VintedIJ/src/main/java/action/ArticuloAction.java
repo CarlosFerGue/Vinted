@@ -23,10 +23,21 @@ public class ArticuloAction implements IAction {
                 cadDestino = findByFilter(request, response);
                 break;
             case "DAR_ALTA": //Subes tus productos
-                upload(request, response);
+                darAlta(request, response);
+                break;
+            case "PUNTUAR":
+                puntuar(request, response);
                 break;
         }
         return cadDestino;
+    }
+
+    private int puntuar(HttpServletRequest request, HttpServletResponse response){
+        ArticuloDAO articuloDAO = new ArticuloDAO();
+
+        String valoracion = request.getParameter("VALORACION");
+
+        return articuloDAO.update(articulo);
     }
 
     private String findAll(HttpServletRequest request, HttpServletResponse response) throws SQLException {
@@ -44,7 +55,7 @@ public class ArticuloAction implements IAction {
 
 
     //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=53&PRECIO=12&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN
-    private int upload(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private int darAlta(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String idUsuario = request.getParameter("ID");
 
         if (idUsuario == null) {
@@ -62,6 +73,7 @@ public class ArticuloAction implements IAction {
         String fecha = request.getParameter("FECHA");
         String estado = request.getParameter("ESTADO");
         String valoracion = request.getParameter("VALORACION");
+
         Articulo articulo = new Articulo(idUsuarioInt, marca,
         precio, imagen, nombre, descripcion, fecha, estado, valoracion);
         ArticuloDAO ariticuloDAO = new ArticuloDAO();
