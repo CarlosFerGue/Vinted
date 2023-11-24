@@ -88,7 +88,7 @@
             android:text="Añadir artículo" />
 
         <Button
-            android:id="@+id/buscar10Usuarios"
+            android:id="@+id/buscar10UsuariosBoton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Top 10 usuarios con mas ventas" />

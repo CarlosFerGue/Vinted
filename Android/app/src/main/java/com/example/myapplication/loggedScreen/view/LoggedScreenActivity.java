@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     public OnUser10Adapter onUser10Adapter;
     private ArrayList<OnLoadSaleData> lstSales;
     private ArrayList<OnClick10Usuarios> lstUsuarios;
+    private Button buscarUsuarios;
 
     public static LoggedScreenActivity getInstance() {
         return mainActivity;
@@ -47,8 +49,19 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
         initComponents(); //Llama al init components
 
 
+        buscarUsuarios = (Button) findViewById(R.id.buscar10UsuariosBoton);
+        buscarUsuarios.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openListado10Users();
+            }
+        });
+    }
 
-
+    //Te lleva a la pantalla de los 10 usuarios con mas ventas
+    public void openListado10Users(){
+        Intent intent = new Intent(this, Listado10UsersActivity.class);
+        startActivity(intent);
     }
 
     //Funcion para añadir productos
@@ -92,7 +105,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
 
     //Funcion para ver top 10 usuarios
     public void buscar10Users(ArrayList<OnClick10Usuarios> lstUsuarios) {
-        Button buscarUsuarios = findViewById(R.id.buscar10Usuarios);
+//        Button buscarUsuarios = findViewById(R.id.buscar10Usuarios);
 
 
         this.lstUsuarios = lstUsuarios;
