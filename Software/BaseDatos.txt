@@ -179,15 +179,29 @@ CREATE TABLE `usuario` (
   `tfn` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+ALTER TABLE `usuario` ADD COLUMN `numero_ventas` INT;
+
+
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido_1`, `apellido_2`, `email`, `usuario`, `password`, `tfn`) VALUES
-(1, 'Alice', 'Johnson', 'Smith', 'alice.j@example.com', 'alice_j', 'pass123', 2147483647),
-(2, 'Bob', 'Miller', 'Jones', 'bob.m@example.com', 'bob_m', 'secure456', 2147483647),
-(3, 'Alice', 'Johnson', 'Smith', 'alice.j@example.com', 'alice_j', 'pass123', 2147483647),
-(4, 'Bob', 'Miller', 'Jones', 'bob.m@example.com', 'bob_m', 'secure456', 2147483647);
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido_1`, `apellido_2`, `email`, `usuario`, `password`, `tfn`, `numero_ventas`) VALUES
+(1, 'Alice', 'Johnson', 'Smith', 'alice@example.com', 'alice_j', 'password123', 123456789, 5),
+(2, 'Bob', 'Miller', 'Jones', 'bob@example.com', 'bob_m', 'secure456', 987654321, 8),
+(3, 'Charlie', 'Williams', 'Brown', 'charlie@example.com', 'charlie_w', 'pass789', 555555555, 12),
+(4, 'David', 'Davis', 'Anderson', 'david@example.com', 'david_d', 'abcd1234', 111111111, 15),
+(5, 'Eva', 'Smith', 'Taylor', 'eva@example.com', 'eva_s', 'pass5678', 222222222, 3),
+(6, 'Frank', 'Johnson', 'Martin', 'frank@example.com', 'frank_j', 'secure789', 333333333, 7),
+(7, 'Grace', 'Moore', 'Baker', 'grace@example.com', 'grace_m', 'pass3456', 444444444, 10),
+(8, 'Henry', 'White', 'Lee', 'henry@example.com', 'henry_w', 'secure987', 666666666, 6),
+(9, 'Ivy', 'Davis', 'Smith', 'ivy@example.com', 'ivy_d', 'pass1234', 777777777, 9),
+(10, 'Jack', 'Moore', 'Hall', 'jack@example.com', 'jack_m', 'abcd5678', 888888888, 4),
+(11, 'Laura', 'Martinez', 'Gomez', 'laura@example.com', 'laura_m', 'secure123', 555555555, 20),
+(12, 'Michael', 'Brown', 'Miller', 'michael@example.com', 'michael_b', 'pass2345', 666666666, 18),
+(13, 'Natalie', 'Clark', 'Moore', 'natalie@example.com', 'natalie_c', 'secure567', 777777777, 15),
+(14, 'Oliver', 'Taylor', 'Davis', 'oliver@example.com', 'oliver_t', 'pass6789', 888888888, 12),
+(15, 'Penelope', 'Wilson', 'Smith', 'penelope@example.com', 'penelope_w', 'abcd7890', 999999999, 10);
 
 -- --------------------------------------------------------
 

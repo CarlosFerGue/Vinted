@@ -97,8 +97,10 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
 
     public ArrayList<Usuario> find10(Usuario entity) throws SQLException {
         ArrayList<Usuario> usuarios = new ArrayList<>();
-        String sql = "SELECT * FROM usuario";
-
+        String sql = "SELECT *\n" +
+                "FROM usuario\n" +
+                "ORDER BY numero_ventas DESC\n" +
+                "LIMIT 10;\n";
         try {
             motorSql.conectar();
 

@@ -1,6 +1,5 @@
 package com.example.myapplication.loggedScreen;
 
-import com.example.myapplication.top10Users.data.OnClick10UsuariosData;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 
 import java.util.ArrayList;

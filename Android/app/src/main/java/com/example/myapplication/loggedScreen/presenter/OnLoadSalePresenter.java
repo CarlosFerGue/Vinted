@@ -16,6 +16,7 @@ public class OnLoadSalePresenter implements ContractLoggedScreen.Presenter, Cont
         this.view = view;
         model = new OnLoadSaleModel(this);
     }
+
     @Override
     public void LoadOnSale(int userId) {
         model.loadOnSaleAPI(userId, this);

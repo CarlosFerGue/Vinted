@@ -19,10 +19,10 @@ import com.example.myapplication.beans.Producto;
 import com.example.myapplication.loggedScreen.ContractLoggedScreen;
 import com.example.myapplication.loggedScreen.adapter.OnSaleDataAdapter;
 import com.example.myapplication.top10Users.adapter.OnUser10Adapter;
-import com.example.myapplication.top10Users.data.OnClick10UsuariosData;
+import com.example.myapplication.top10Users.data.OnUser10Data;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.loggedScreen.presenter.OnLoadSalePresenter;
-import com.example.myapplication.top10Users.view.Listado10UsersActivity;
+import com.example.myapplication.top10Users.view.User10Activity;
 
 import java.util.ArrayList;
 
@@ -33,7 +33,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     public OnSaleDataAdapter onSaleDataAdapter;
     public OnUser10Adapter onUser10Adapter;
     private ArrayList<OnLoadSaleData> lstSales;
-    private ArrayList<OnClick10UsuariosData> lstUsuarios;
+    private ArrayList<OnUser10Data> lstUsuarios;
     private Button buscarUsuarios;
 
     public static LoggedScreenActivity getInstance() {
@@ -59,7 +59,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
 
     //Te lleva a la pantalla de los 10 usuarios con mas ventas
     public void openListado10Users(){
-        Intent intent = new Intent(this, Listado10UsersActivity.class);
+        Intent intent = new Intent(this, User10Activity.class);
         startActivity(intent);
     }
 
@@ -103,7 +103,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     }
 
     //Funcion para ver top 10 usuarios
-    public void buscar10Users(ArrayList<OnClick10UsuariosData> lstUsuarios) {
+    public void buscar10Users(ArrayList<OnUser10Data> lstUsuarios) {
 //        Button buscarUsuarios = findViewById(R.id.buscar10Usuarios);
 
 

@@ -10,15 +10,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.top10Users.data.OnClick10UsuariosData;
+import com.example.myapplication.top10Users.data.OnUser10Data;
 
 import java.util.ArrayList;
 
 public class OnUser10Adapter extends RecyclerView.Adapter<OnUser10Adapter.ViewHolder> {
-    private ArrayList<OnClick10UsuariosData> lstUsers;
+    private ArrayList<OnUser10Data> lstUsers;
     private LayoutInflater inflater;
 
-    public OnUser10Adapter(Context context, ArrayList<OnClick10UsuariosData> lstUsers){
+    public OnUser10Adapter(Context context, ArrayList<OnUser10Data> lstUsers){
         this.lstUsers = lstUsers;
         this.inflater = LayoutInflater.from(context);
     }
@@ -33,7 +33,7 @@ public class OnUser10Adapter extends RecyclerView.Adapter<OnUser10Adapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        OnClick10UsuariosData usuario = lstUsers.get(position);
+        OnUser10Data usuario = lstUsers.get(position);
         //Rellenamos con los datos la carta
         holder.userName.setText(lstUsers.get(position).getNombre());
         holder.userUser.setText(lstUsers.get(position).getUser());

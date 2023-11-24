@@ -1,20 +1,20 @@
 package com.example.myapplication.top10Users.data;
 
-public class OnClick10UsuariosData {
+public class OnUser10Data {
 
     private int id;
     private String nombre, email, contrasena, apellido1, apellido2, user;
 
-    public OnClick10UsuariosData(String email, String contrasena) {
+    public OnUser10Data(String email, String contrasena) {
         this.email = email;
         this.contrasena = contrasena;
     }
 
-    public OnClick10UsuariosData() {
+    public OnUser10Data() {
 
     }
 
-    public OnClick10UsuariosData(int id, String nombre, String email, String contrasena, String apellido1, String apellido2, String user) {
+    public OnUser10Data(int id, String nombre, String email, String contrasena, String apellido1, String apellido2, String user) {
         this.id = id;
         this.nombre = nombre;
         this.email = email;

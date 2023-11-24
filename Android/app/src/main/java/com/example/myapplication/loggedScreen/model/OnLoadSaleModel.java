@@ -57,8 +57,5 @@ public class OnLoadSaleModel implements ContractLoggedScreen.Model{
                 Log.e("Response error", "Cuerpo del error: " + t.getMessage());
             }
         });
-
     }
-
-
 }

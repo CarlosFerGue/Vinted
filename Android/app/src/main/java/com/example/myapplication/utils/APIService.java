@@ -1,7 +1,7 @@
 package com.example.myapplication.utils;
 
 import com.example.myapplication.addProduct.data.AddProductData;
-import com.example.myapplication.top10Users.data.OnClick10UsuariosData;
+import com.example.myapplication.top10Users.data.OnUser10Data;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.login.data.MyLoginData;
 
@@ -47,7 +47,7 @@ public interface APIService {
 
     //  Busacr a los 10 usuarios con mas ventas
     @GET("Controller")
-    Call<ArrayList<OnClick10UsuariosData>> get10Users(@Query("ACTION") String action);
+    Call<ArrayList<OnUser10Data>> get10Users(@Query("ACTION") String action);
 }
 
 
