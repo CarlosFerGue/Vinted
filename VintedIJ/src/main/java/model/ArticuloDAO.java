@@ -112,7 +112,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
                     + entity.getNombre() + "', '"
                     + entity.getDescripcion() + "', '"
                     + entity.getFecha() + "', '"
-                    + entity.getEstado() + "', '"
+                    + "Activo" + "', '"
                     + entity.getId_usuario() + "')";
             resp = motorSql.modificar(sql);
             System.out.println(sql);

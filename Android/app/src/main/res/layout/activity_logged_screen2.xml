@@ -20,12 +20,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:ignore="MissingConstraints"
-            android:layout_marginBottom="7dp">
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            >
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:background="@color/azul"
+                android:orientation="vertical"
+                android:padding="28dp"
+                android:gravity="center">
 
                 <TextView
                     android:id="@+id/textView"
@@ -34,16 +39,21 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/poppins_bold"
                     android:text="¡Dar de alta un producto!"
-                    android:textSize="20sp" />
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    />
 
                 <EditText
                     android:id="@+id/addColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
                     android:ems="10"
                     android:hint="Color"
                     android:inputType="text"
-                    android:textSize="20sp" />
+                    android:textColorHint="@color/white"
+                    android:textSize="20sp"
+                    android:drawableEnd="@drawable/color"/>
 
                 <EditText
                     android:id="@+id/addPrice"
@@ -52,7 +62,10 @@
                     android:ems="10"
                     android:hint="Precio"
                     android:inputType="numberDecimal"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp"
+                    android:textColorHint="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:drawableEnd="@drawable/precio"/>
 
                 <EditText
                     android:id="@+id/addName"
@@ -61,16 +74,22 @@
                     android:ems="10"
                     android:hint="Nombre"
                     android:inputType="text"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textColorHint="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:drawableEnd="@drawable/pasword"/>
 
-                <EditText
-                    android:id="@+id/addState"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Estado"
-                    android:inputType="text"
-                    android:textSize="20sp" />
+<!--                <EditText-->
+<!--                    android:id="@+id/addState"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:ems="10"-->
+<!--                    android:hint="Estado"-->
+<!--                    android:inputType="text"-->
+<!--                    android:textSize="20sp"-->
+<!--                    android:textColorHint="@color/white"-->
+<!--                    android:backgroundTint="@color/white"-->
+<!--                    android:drawableEnd="@drawable/pasword"/>-->
 
                 <EditText
                     android:id="@+id/addBrand"
@@ -79,7 +98,10 @@
                     android:ems="10"
                     android:hint="Marca"
                     android:inputType="text"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textColorHint="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:drawableEnd="@drawable/marca"/>
 
                 <EditText
                     android:id="@+id/addDesc"
@@ -88,25 +110,27 @@
                     android:ems="10"
                     android:hint="Descripción"
                     android:inputType="text"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    android:textColorHint="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:drawableEnd="@drawable/descripcion"/>
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/addProductButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Añadir artículo" />
-
-
-            <Button
-                android:id="@+id/buscar10UsuariosBoton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Top 10 usuarios con mas ventas" />
-
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/addProductButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Añadir artículo" />
+
+        <Button
+            android:id="@+id/buscar10UsuariosBoton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Top 10 usuarios con mas ventas" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,7 +140,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/productRecycleView"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="252dp">
 
             </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
