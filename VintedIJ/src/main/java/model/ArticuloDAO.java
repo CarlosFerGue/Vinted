@@ -164,6 +164,42 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         return articulos;
     }
 
+    public ArrayList<Articulo> find10(Articulo entity) throws SQLException {
+        ArrayList<Articulo> articulos = new ArrayList<>();
+        String sql = "SELECT *\n" +
+                "FROM articulos\n" +
+                "ORDER BY valoracion DESC\n" +
+                "LIMIT 10;\n";
+        try {
+            motorSql.conectar();
+
+            System.out.println(sql);
+            ResultSet rs = motorSql.consultar(sql);
+
+            while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
+                Articulo articulo = new Articulo(
+                        rs.getInt("id_producto"),
+                        rs.getString("marca_producto"),
+                        rs.getString("estado"),
+                        rs.getString("fecha_subida_producto"),
+                        rs.getString("descripcion_producto"),
+                        rs.getString("nombre_producto"),
+                        rs.getString("imagen_producto"),
+                        rs.getString("precio_producto"),
+                        rs.getString("valoracion")
+                );
+                articulos.add(articulo);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            motorSql.desconectar();
+        }
+        return articulos;
+    }
+
 
 
     @Override

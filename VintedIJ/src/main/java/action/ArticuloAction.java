@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Articulo;
 import model.ArticuloDAO;
+import model.Usuario;
+import model.UsuarioDAO;
 
 public class ArticuloAction implements IAction {
 
@@ -27,6 +29,9 @@ public class ArticuloAction implements IAction {
                 break;
             case "PUNTUAR":
                 puntuar(request, response);
+                break;
+            case "TOP10":
+                cadDestino = find10(request,response);
                 break;
         }
         return cadDestino;
@@ -83,5 +88,11 @@ public class ArticuloAction implements IAction {
         precio, imagen, nombre, descripcion, fecha, estado, valoracion);
         ArticuloDAO ariticuloDAO = new ArticuloDAO();
         return ariticuloDAO.add(articulo);
+    }
+
+    private String find10(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        ArticuloDAO articuloDAO = new ArticuloDAO();
+        ArrayList<Articulo> articulos = articuloDAO.find10(null);
+        return Articulo.toArrayJSon(articulos);
     }
 }

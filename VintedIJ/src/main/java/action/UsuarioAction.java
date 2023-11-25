@@ -25,14 +25,12 @@ public class UsuarioAction implements IAction {
                 //http://localhost:8080/Controller?ACTION=LOGIN.LOGIN&EMAIL=&PASS=
                 cadDestino = login(request);
                 break;
-//            case "LOGIN_STAFF":
-//                cadDestino = findAllStaff(request, response);
-//                break;
             case "REGISTER":
                 add(request, response);
                 break;
             case"TOP10":
                 cadDestino = find10(request,response);
+                break;
         }
         return cadDestino;
     }
@@ -42,16 +40,6 @@ public class UsuarioAction implements IAction {
         ArrayList<Usuario> usuarios = usuarioDAO.findAll(null);
         return Usuario.toArrayJSon(usuarios);
     }
-
-//    private String login(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-//        UsuarioDAO usuarioDAO = new UsuarioDAO();
-//        String email = request.getParameter("EMAIL");
-//        String pass = request.getParameter("PASS");
-//        Usuario usuario = new Usuario(email,pass);
-//        ArrayList<Usuario> usuarios = usuarioDAO.login(usuario);
-//        System.out.println(usuarios);
-//        return Usuario.toArrayJSon(usuarios);
-//    }
 
     public String login(HttpServletRequest req) throws SQLException {
         String json = "";
