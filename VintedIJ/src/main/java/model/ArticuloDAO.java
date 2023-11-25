@@ -47,12 +47,11 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
     }
 
 
-    public ArrayList<Articulo> estado(Articulo entity) throws SQLException {
+    public ArrayList<Articulo> estado(String estado) throws SQLException {
         ArrayList<Articulo> articulos = new ArrayList<>();
-        String sql = "SELECT * FROM articulos WHERE estado ='"+  +"';";
+        String sql = "SELECT * FROM articulos WHERE estado ='"+ estado +"';";
 
         try {
-            //1º)
             motorSql.conectar();
             System.out.println(sql);
             ResultSet rs = motorSql.consultar(sql);
@@ -134,8 +133,8 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
     public ArrayList<Articulo> filterType(String id_usuario) throws SQLException {
         ArrayList<Articulo> articulos = new ArrayList<>();
         String sql = "SELECT * FROM articulos WHERE id_usuario='" + id_usuario + "'";
+
         try {
-            //1º)
             motorSql.conectar();
 
             System.out.println(sql);

@@ -44,7 +44,7 @@ public class ArticuloAction implements IAction {
         String estado = request.getParameter("ESTADO");
 
         ArticuloDAO articuloDAO = new ArticuloDAO();
-        ArrayList<Articulo> articulos = articuloDAO.estado(null);
+        ArrayList<Articulo> articulos = articuloDAO.estado(estado);
         return Articulo.toArrayJSon(articulos);
     }
 
