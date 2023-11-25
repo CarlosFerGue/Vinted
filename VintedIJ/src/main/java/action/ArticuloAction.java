@@ -33,8 +33,19 @@ public class ArticuloAction implements IAction {
             case "TOP10":
                 cadDestino = find10(request,response);
                 break;
+            case "ESTADO":
+                cadDestino = estado(request, response);
+                break;
         }
         return cadDestino;
+    }
+
+    private String estado(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String estado = request.getParameter("ESTADO");
+
+        ArticuloDAO articuloDAO = new ArticuloDAO();
+        ArrayList<Articulo> articulos = articuloDAO.estado(null);
+        return Articulo.toArrayJSon(articulos);
     }
 
     private int puntuar(HttpServletRequest request, HttpServletResponse response) throws SQLException {
