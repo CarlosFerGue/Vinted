@@ -19,7 +19,7 @@ public class Articulo {
         this.valoracion = valoracion;
     }
 
-    public Articulo(int id_producto, int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado, String valoracion) {
+    public Articulo(int id_usuario, int id_producto,  String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado, String valoracion) {
         this.id_producto = id_producto;
         this.id_usuario = id_usuario;
         this.marca = marca;

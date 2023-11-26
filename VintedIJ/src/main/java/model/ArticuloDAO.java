@@ -11,19 +11,21 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         motorSql = new MotorSQL();
     }
 
-    @Override
-    public ArrayList<Articulo> findAll(Articulo entity) throws SQLException {
+
+    public ArrayList<Articulo> findAllProductos(String id_usuario) throws SQLException {
         ArrayList<Articulo> articulos = new ArrayList<>();
-        String sql = "SELECT * FROM articulos";
+        String sql = "SELECT * FROM articulos WHERE id_usuario <> '" + id_usuario + "'";
+        int id_usuarioInt = Integer.parseInt(id_usuario);
 
         try {
-            //1º)
             motorSql.conectar();
+
             System.out.println(sql);
             ResultSet rs = motorSql.consultar(sql);
 
             while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
                 Articulo articulo = new Articulo(
+                        id_usuarioInt,
                         rs.getInt("id_producto"),
                         rs.getString("marca_producto"),
                         rs.getString("estado"),
@@ -98,6 +100,11 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
             System.out.println("Valoracion actualizada con exito.");
         }
         return resp;
+    }
+
+    @Override
+    public ArrayList<Articulo> findAll(Articulo entity) throws SQLException {
+        return null;
     }
 
     @Override

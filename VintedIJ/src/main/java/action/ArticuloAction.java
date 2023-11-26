@@ -18,7 +18,7 @@ public class ArticuloAction implements IAction {
         String action = (String) request.getParameter("ACTION");
         String[] arrayAction = action.split("\\.");
         switch (arrayAction[1]) {
-            case "FIND_ALL":
+            case "FIND_ALL": //Este es un findall en el que no te salen los productos de ti mismo.
                 cadDestino = findAll(request, response);
                 break;
             case "FILTER_USUARIO": //Los que has subido tu como usuario
@@ -63,7 +63,8 @@ public class ArticuloAction implements IAction {
 
     private String findAll(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ArticuloDAO articuloDAO = new ArticuloDAO();
-        ArrayList<Articulo> articulos = articuloDAO.findAll(null);
+        String id_usuario = request.getParameter("ID");
+        ArrayList<Articulo> articulos = articuloDAO.findAllProductos(id_usuario);
         return Articulo.toArrayJSon(articulos);
     }
 
