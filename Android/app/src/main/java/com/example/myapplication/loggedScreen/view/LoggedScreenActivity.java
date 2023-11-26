@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +26,7 @@ import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.loggedScreen.presenter.OnLoadSalePresenter;
 import com.example.myapplication.top10Users.view.User10Activity;
 
+import java.nio.BufferUnderflowException;
 import java.util.ArrayList;
 
 public class LoggedScreenActivity extends AppCompatActivity implements ContractLoggedScreen.View, ContractAddProduct.View {
@@ -72,7 +74,13 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
 
     //Te lleva a la pantalla de todos los productos
     public void openTodosProductos(){
+        Bundle extras = getIntent().getExtras();
+        int idUsuario = extras.getInt("id");
+
+        Log.d("LoggedScreenActivity", "Id" + idUsuario);
+
         Intent intent = new Intent(this, AllProdActivity.class);
+        intent.putExtra("id", idUsuario);
         startActivity(intent);
     }
 

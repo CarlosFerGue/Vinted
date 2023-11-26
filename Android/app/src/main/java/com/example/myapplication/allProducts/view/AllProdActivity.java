@@ -44,7 +44,25 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
     }
 
     private void initComponents() {
-        presenter.LoadOnAllProd(2);
+        Intent intent = getIntent();
+        int idUsario = intent.getIntExtra("id", -1);
+        System.out.println(idUsario);
+        if (idUsario != -1) {
+            presenter.LoadOnAllProd(idUsario);
+        }else{
+            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
+
+
+
+
+
+
+
+
+//        presenter.LoadOnAllProd(2);
 //        Bundle extras = getIntent().getExtras();
 //        System.out.println("El id que ha cogido es: " + extras.getInt("id"));
 //        presenter.LoadOnAllProd(extras.getInt("id"));
