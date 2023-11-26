@@ -1,8 +1,11 @@
 package com.example.myapplication.allProducts;
 
+import com.example.myapplication.allProducts.data.OnAllProdData;
+
 import java.util.ArrayList;
 
 public interface ContractAllProducts {
+
     public interface View{
         public void succesLoadAllProd(ArrayList<OnAllProdData> lstProd);
 
@@ -10,14 +13,14 @@ public interface ContractAllProducts {
     }
 
     public interface Presenter{
-        public void LoadOnAllProd();
+        public void LoadOnAllProd(int userId);
     }
 
     public interface Model{
-        public void loadAllProdAPI(loadAllProdListener loadAllProdListener);
+        public void loadAllProdAPI(int userId, loadAllProdListener loadAllProdListener);
 
         public interface loadAllProdListener{
-            public void onFinish(ArrayList<OnAllProdData> lstProd);
+            public void onFinished(ArrayList<OnAllProdData> lstProd);
 
             public void onFailure(String err);
         }

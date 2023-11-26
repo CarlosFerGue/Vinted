@@ -5,6 +5,7 @@ import com.example.myapplication.top10Users.data.OnUser10Data;
 import java.util.ArrayList;
 
 public interface Contract10Usuarios {
+
     public interface View {
         public void successLoad10Usuarios(ArrayList<OnUser10Data> lstUsuarios);
 

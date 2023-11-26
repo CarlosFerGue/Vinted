@@ -16,7 +16,8 @@ import retrofit2.Response;
 
 public class OnUser10Model implements Contract10Usuarios.Model {
     private OnUser10Presenter presenter;
-    public OnUser10Model(OnUser10Presenter presenter){
+
+    public OnUser10Model(OnUser10Presenter presenter) {
         this.presenter = presenter;
     }
 
@@ -33,12 +34,12 @@ public class OnUser10Model implements Contract10Usuarios.Model {
                     System.out.println("La peticion ha tenido exito, el resultado es: " + response.body());
                     ArrayList<OnUser10Data> lst10Users = response.body();
                     System.out.println(response.body());
-                    for (OnUser10Data user: lst10Users){
+                    for (OnUser10Data user : lst10Users) {
                         System.out.println(user.toString());
                     }
                     System.out.println("Has entrado en el onFinish de TOP10");
                     loadOn10UserListener.onFinished(lst10Users);
-                }else {
+                } else {
                     System.out.println("Hubo un error en la carga del TOP10 mami");
                 }
 

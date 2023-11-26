@@ -5,6 +5,7 @@ import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import java.util.ArrayList;
 
 public interface ContractLoggedScreen {
+
     public interface View {
         public void successLoadOnSale(ArrayList<OnLoadSaleData> lstSales);
 

@@ -1,6 +1,7 @@
 package com.example.myapplication.utils;
 
 import com.example.myapplication.addProduct.data.AddProductData;
+import com.example.myapplication.allProducts.data.OnAllProdData;
 import com.example.myapplication.top10Users.data.OnUser10Data;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.login.data.MyLoginData;
@@ -30,6 +31,9 @@ public interface APIService {
 
     @GET("Controller")
     Call<ArrayList<OnLoadSaleData>> getMySales(@Query("ACTION") String action, @Query("ID") Integer userId);
+
+    @GET("Controller")
+    Call<ArrayList<OnAllProdData>> getAllProducts(@Query("ACTION") String action, @Query("ID") Integer userId);
 
     //    Añadir productos
     @GET("Controller")
