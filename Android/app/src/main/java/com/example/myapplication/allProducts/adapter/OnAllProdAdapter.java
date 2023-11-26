@@ -1,5 +1,6 @@
 package com.example.myapplication.allProducts.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,11 @@ import java.util.ArrayList;
 public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.ViewHolder> {
     private ArrayList<OnAllProdData> lstProd;
     private LayoutInflater inflater;
+
+    public OnAllProdAdapter(Context context, ArrayList<OnAllProdData> lstProd){
+        this.lstProd= lstProd;
+        this.inflater = LayoutInflater.from(context);
+    }
 
 
     @NonNull
