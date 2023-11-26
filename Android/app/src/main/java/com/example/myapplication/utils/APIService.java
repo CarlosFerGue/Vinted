@@ -2,9 +2,11 @@ package com.example.myapplication.utils;
 
 import com.example.myapplication.addProduct.data.AddProductData;
 import com.example.myapplication.allProducts.data.OnAllProdData;
+import com.example.myapplication.beans.Producto;
 import com.example.myapplication.top10Users.data.OnUser10Data;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.login.data.MyLoginData;
+import com.example.myapplication.updateRating.data.UpdateRateData;
 
 import java.util.ArrayList;
 
@@ -32,6 +34,7 @@ public interface APIService {
     @GET("Controller")
     Call<ArrayList<OnLoadSaleData>> getMySales(@Query("ACTION") String action, @Query("ID") Integer userId);
 
+    // Conseguir todos los productos
     @GET("Controller")
     Call<ArrayList<OnAllProdData>> getAllProducts(@Query("ACTION") String action, @Query("ID") Integer userId);
 
@@ -52,6 +55,11 @@ public interface APIService {
     //  Busacr a los 10 usuarios con mas ventas
     @GET("Controller")
     Call<ArrayList<OnUser10Data>> get10Users(@Query("ACTION") String action);
+
+    // Actualizar rating
+    @GET("Controller")
+    Call<UpdateRateData> getUpdateRating(@Query("ACTION") String action, @Query("ID") Integer productId,
+                                                    @Query("VALORACION") String valoracion);
 }
 
 

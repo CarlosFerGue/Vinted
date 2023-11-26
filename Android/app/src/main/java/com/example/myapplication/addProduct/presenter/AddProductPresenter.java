@@ -13,9 +13,9 @@ public class AddProductPresenter implements ContractAddProduct.Presenter, Contra
         this.view = view;
         model = new AddProductModel(this);
     }
+
     @Override
     public void onFinishedAddProduct(AddProductData addProductData) {
-
 
     }
 
