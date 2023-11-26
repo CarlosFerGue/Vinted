@@ -21,6 +21,9 @@
             android:name=".top10Users.view.User10Activity"
             android:exported="false" />
         <activity
+            android:name=".rate10.view.Rate10Activity"
+            android:exported="false" />
+        <activity
             android:name=".loggedScreen.view.LoggedScreenActivity"
             android:exported="false" />
         <activity

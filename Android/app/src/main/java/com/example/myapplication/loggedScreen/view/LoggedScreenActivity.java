@@ -20,6 +20,7 @@ import com.example.myapplication.allProducts.view.AllProdActivity;
 import com.example.myapplication.beans.Producto;
 import com.example.myapplication.loggedScreen.ContractLoggedScreen;
 import com.example.myapplication.loggedScreen.adapter.OnSaleDataAdapter;
+import com.example.myapplication.rate10.view.Rate10Activity;
 import com.example.myapplication.top10Users.adapter.OnUser10Adapter;
 import com.example.myapplication.top10Users.data.OnUser10Data;
 import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
@@ -69,7 +70,22 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
             }
         });
 
+        //De aqui para abajo esta el buscar el top 10 productos mas valorados
+        buscarProductos = (Button) findViewById(R.id.buscar10ProductosBoton);
+        buscarProductos.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openTop10Rate();
+            }
+        });
 
+
+    }
+
+    //Te lleva a la pantalla de todos los productos
+    public void openTop10Rate(){
+        Intent intent = new Intent(this, Rate10Activity.class);
+        startActivity(intent);
     }
 
     //Te lleva a la pantalla de todos los productos

@@ -56,18 +56,6 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
 
 
-
-
-
-
-
-
-//        presenter.LoadOnAllProd(2);
-//        Bundle extras = getIntent().getExtras();
-//        System.out.println("El id que ha cogido es: " + extras.getInt("id"));
-//        presenter.LoadOnAllProd(extras.getInt("id"));
-
-
 //        Button button = findViewById(R.id.botonValoracion);
 //        button.setOnClickListener(new View.OnClickListener() {
 //            @Override
