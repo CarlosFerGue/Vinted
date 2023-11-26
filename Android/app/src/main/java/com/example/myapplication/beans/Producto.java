@@ -108,9 +108,12 @@ public class Producto {
 
     private int id_producto, id_usuario;
 
-    private String marca, precio, imagen, nombre, descripcion, fecha, estado;
+    private String marca, precio, imagen, nombre, descripcion, fecha, estado, valoracion;
 
-
+    public Producto(int id_producto, String valoracion) {
+        this.id_producto = id_producto;
+        this.valoracion = valoracion;
+    }
 
     public Producto(int id_producto, int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado) {
         this.id_producto = id_producto;
@@ -207,5 +210,11 @@ public class Producto {
         this.estado = estado;
     }
 
+    public String getValoracion() {
+        return valoracion;
+    }
 
+    public void setValoracion(String valoracion) {
+        this.valoracion = valoracion;
+    }
 }
