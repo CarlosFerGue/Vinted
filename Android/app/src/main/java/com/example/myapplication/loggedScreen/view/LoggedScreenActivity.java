@@ -15,6 +15,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.addProduct.ContractAddProduct;
 import com.example.myapplication.addProduct.data.AddProductData;
 import com.example.myapplication.addProduct.presenter.AddProductPresenter;
+import com.example.myapplication.allProducts.view.AllProdActivity;
 import com.example.myapplication.beans.Producto;
 import com.example.myapplication.loggedScreen.ContractLoggedScreen;
 import com.example.myapplication.loggedScreen.adapter.OnSaleDataAdapter;
@@ -35,6 +36,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     public OnSaleDataAdapter onSaleDataAdapter;
     private ArrayList<OnLoadSaleData> lstSales;
     private Button buscarUsuarios;
+    private Button buscarProductos;
 
     public static LoggedScreenActivity getInstance() {
         return mainActivity;
@@ -55,10 +57,24 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
                 openListado10Users();
             }
         });
+
+        //De aqui para abajo esta el buscar todos los productos
+        buscarProductos = (Button) findViewById(R.id.buscarTodoProductosBoton);
+        buscarProductos.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openTodosProductos();
+            }
+        });
+
+
     }
 
-
-
+    //Te lleva a la pantalla de todos los productos
+    public void openTodosProductos(){
+        Intent intent = new Intent(this, AllProdActivity.class);
+        startActivity(intent);
+    }
 
 
     //Te lleva a la pantalla de los 10 usuarios con mas ventas
@@ -123,7 +139,6 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
 
     @Override
     public void onSuccessAddProduct(AddProductData addProductData) {
-
         String mensaje = "Producto añadido correctamente";
         Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_SHORT).show();
     }
