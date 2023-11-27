@@ -58,13 +58,12 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
         holder.addRateEditText.getText();
 
 
-
         holder.productButton.setOnClickListener(e -> {
 
             String addRateStr = holder.addRateEditText.getText().toString().trim();
-//            Producto producto = new Producto(lstProd.get(position).getId_producto(),
-//                    addRateStr);
-            Producto producto = new Producto(2,"4");
+            Producto producto = new Producto(lstProd.get(position).getId_producto(),
+                    addRateStr);
+
             System.out.println(addRateStr);
             System.out.println(producto);
             presenter.updateRating(producto);
