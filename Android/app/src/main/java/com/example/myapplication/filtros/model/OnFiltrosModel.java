@@ -15,7 +15,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class OnFiltrosModel implements ContractFiltros.Model {
-    private OnFiltrosModel presenter;
+    private OnFiltrosPresenter presenter;
 
     public OnFiltrosModel(OnFiltrosPresenter presenter) {
         this.presenter = presenter;

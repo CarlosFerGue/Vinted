@@ -13,7 +13,7 @@ public interface ContractFiltros {
     }
 
     public interface Presenter{
-        public void LoadFiltros(int userId);
+        public void LoadFiltros(int userId, String estado);
     }
 
     public interface Model{
