@@ -23,7 +23,6 @@ public class Producto {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha = fecha;
-        this.estado = estado;
     }
 
     public Producto(int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado) {
@@ -34,7 +33,6 @@ public class Producto {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.fecha = fecha;
-        this.estado = estado;
     }
 
     public int getId_producto() {

@@ -36,6 +36,9 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         return mainActivity;
     }
 
+    private Button activo;
+    private Button noActivo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +58,21 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
             finish();
         }
 
+        activo = (Button) findViewById(R.id.botonActivos);
+        activo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openActivos();
+            }
+        });
+    }
 
 
+    public void openActivos(){
+        Bundle extras = getIntent().getExtras();
+        int idUsuario = extras.getInt("id");
+
+        Intent intent = new Intent(this, )
     }
 
 

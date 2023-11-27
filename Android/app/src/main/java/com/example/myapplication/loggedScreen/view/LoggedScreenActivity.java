@@ -123,7 +123,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
                 EditText addBrand = findViewById(R.id.addBrand); //Marca
                 EditText addPrice = findViewById(R.id.addPrice); //Precio
                 EditText addDesc = findViewById(R.id.addDesc); //Descripcion
-                EditText addState = findViewById(R.id.addState); //Estado
+//                EditText addState = findViewById(R.id.addState); //Estado
                 EditText addColor = findViewById(R.id.addColor); //Color
 
                 //Almacenamos los valores en variables , las variables las llamamos add porque tal
@@ -133,13 +133,13 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
                 String addNombreStr = String.valueOf(addName.getText());
                 String addDescripcionStr = String.valueOf(addDesc.getText());
                 String addFechaStr = String.valueOf(addBrand.getText());
-                String addEstadoStr = String.valueOf(addState.getText());
+//                String addEstadoStr = String.valueOf(addState.getText());
                 int addIdtStr = extras.getInt("id"); //Id usuario
                 System.out.println(addIdtStr);
 
                 Producto producto = new Producto(addIdtStr, addMarcaStr, addPrecioStr,
                         addImageStr, addNombreStr, addDescripcionStr, addFechaStr,
-                        addEstadoStr);
+                        "Active");
                 addProductPresenter.addProduct(producto);
 
             }
