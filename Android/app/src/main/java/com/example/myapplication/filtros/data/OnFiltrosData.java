@@ -1,41 +1,42 @@
-package com.example.myapplication.beans;
+package com.example.myapplication.filtros.data;
 
-public class Producto {
-
+public class OnFiltrosData {
+    // ATRIBUTOS
     private int id_producto, id_usuario;
 
     private String marca, precio, imagen, nombre, descripcion, fecha, estado, valoracion;
 
-    public Producto(int id_producto, String valoracion) {
-        this.id_producto = id_producto;
+
+    // CONSTRUCTOR
+    public OnFiltrosData() {
+    }
+
+    public OnFiltrosData(int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado, String valoracion) {
+        this.id_usuario = id_usuario;
+        this.marca = marca;
+        this.precio = precio;
+        this.imagen = imagen;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.estado = estado;
         this.valoracion = valoracion;
     }
 
-    public Producto() {
+    @Override
+    public String toString() {
+        return "OnFiltrosData{" +
+                "id=" + id_usuario +
+                ", marca='" + marca + '\'' +
+                ", precio=" + precio +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", imagen='" + imagen + '\'' +
+                ", estado='" + estado + '\'' +
+                ", valoracion='" + valoracion + '\'' +
+                '}';
     }
 
-    public Producto(int id_producto, int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado) {
-        this.id_producto = id_producto;
-        this.id_usuario = id_usuario;
-        this.marca = marca;
-        this.precio = precio;
-        this.imagen = imagen;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fecha = fecha;
-        this.estado = estado;
-    }
-
-    public Producto(int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado) {
-        this.id_usuario = id_usuario;
-        this.marca = marca;
-        this.precio = precio;
-        this.imagen = imagen;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        this.fecha = fecha;
-        this.estado = estado;
-    }
 
     public int getId_producto() {
         return id_producto;
@@ -89,6 +90,14 @@ public class Producto {
         return descripcion;
     }
 
+    public String getValoracion() {
+        return valoracion;
+    }
+
+    public void setValoracion(String valoracion) {
+        this.valoracion = valoracion;
+    }
+
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
@@ -107,29 +116,5 @@ public class Producto {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public String getValoracion() {
-        return valoracion;
-    }
-
-    public void setValoracion(String valoracion) {
-        this.valoracion = valoracion;
-    }
-
-    @Override
-    public String toString() {
-        return "Producto{" +
-                "id_producto=" + id_producto +
-                ", id_usuario=" + id_usuario +
-                ", marca='" + marca + '\'' +
-                ", precio='" + precio + '\'' +
-                ", imagen='" + imagen + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", fecha='" + fecha + '\'' +
-                ", estado='" + estado + '\'' +
-                ", valoracion='" + valoracion + '\'' +
-                '}';
     }
 }

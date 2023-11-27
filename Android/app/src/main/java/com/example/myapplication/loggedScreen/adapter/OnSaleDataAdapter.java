@@ -64,9 +64,9 @@ public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.Vi
             super(itemView);
             productName = itemView.findViewById(R.id.productDesc);
             productBrand = itemView.findViewById(R.id.productBrand);
-            productPrice = itemView.findViewById(R.id.productPrice);
+            productPrice = itemView.findViewById(R.id.productState);
             productDesc = itemView.findViewById(R.id.textProductView);
-            productState = itemView.findViewById(R.id.productState);
+            productState = itemView.findViewById(R.id.productPrice);
             productColor = itemView.findViewById(R.id.productColor);
             productRate = itemView.findViewById(R.id.productRate);
 

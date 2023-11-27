@@ -107,7 +107,7 @@
 
             <EditText
                 android:id="@+id/productPrice"
-                android:layout_width="121dp"
+                android:layout_width="79dp"
                 android:layout_height="match_parent"
                 android:background="@drawable/edittext_bg"
                 android:hint="Precio"
@@ -116,15 +116,15 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:layout_width="108dp"
                 android:layout_height="match_parent"
-                android:text="€"
                 android:paddingTop="8dp"
-                android:textSize="20dp"/>
+                android:text="€"
+                android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/productRate"
-                android:layout_width="79dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@drawable/edittext_bg"
                 android:hint="Rate"

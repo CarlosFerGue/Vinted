@@ -47,6 +47,7 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         Intent intent = getIntent();
         int idUsario = intent.getIntExtra("id", -1);
         System.out.println(idUsario);
+
         if (idUsario != -1) {
             presenter.LoadOnAllProd(idUsario);
         }else{
@@ -56,20 +57,6 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
 
 
-//        Button button = findViewById(R.id.botonValoracion);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                EditText rate = findViewById(R.id.productRate);
-//
-//                String editRateStr = String.valueOf(rate.getText());
-//                int addIdStr = extras.getInt("id");
-//                int addIdStr = 1;
-//
-//                Producto producto = new Producto(addIdStr, editRateStr);
-//
-//            }
-//        });
     }
 
 

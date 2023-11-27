@@ -17,7 +17,7 @@
             android:orientation="vertical"
             android:padding="11dp"
             android:gravity="center"
-            android:layout_marginBottom="10dp">
+>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -30,10 +30,34 @@
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/botonActivos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/gris"
+                android:text="Activos" />
+
+            <Button
+                android:id="@+id/botonNoActivos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/gris"
+                android:text="No activos" />
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/productRecycleView"
             android:layout_width="match_parent"
-            android:layout_height="655dp">
+            android:layout_height="match_parent">
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 

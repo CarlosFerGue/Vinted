@@ -62,11 +62,11 @@ public class OnRate10Adapter extends RecyclerView.Adapter<OnRate10Adapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            productName = itemView.findViewById(R.id.textProductView);
+            productName = itemView.findViewById(R.id.productDesc);
             productBrand = itemView.findViewById(R.id.productBrand);
-            productPrice = itemView.findViewById(R.id.productPrice);
-            productDesc = itemView.findViewById(R.id.productDesc);
-            productState = itemView.findViewById(R.id.productState);
+            productPrice = itemView.findViewById(R.id.productState);
+            productDesc = itemView.findViewById(R.id.textProductView);
+            productState = itemView.findViewById(R.id.productPrice);
             productColor = itemView.findViewById(R.id.productColor);
             productRate = itemView.findViewById(R.id.productRate);
 

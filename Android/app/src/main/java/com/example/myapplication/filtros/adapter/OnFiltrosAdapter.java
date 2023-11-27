@@ -1,7 +1,6 @@
-package com.example.myapplication.allProducts.adapter;
+package com.example.myapplication.filtros.adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,42 +12,36 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
-import com.example.myapplication.allProducts.ContractAllProducts;
 import com.example.myapplication.allProducts.data.OnAllProdData;
 import com.example.myapplication.beans.Producto;
+import com.example.myapplication.filtros.data.OnFiltrosData;
+import com.example.myapplication.login.ContractLogin;
 import com.example.myapplication.updateRating.presenter.UpdateRatePresenter;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.ViewHolder> {
-    private ArrayList<OnAllProdData> lstProd;
+public class OnFiltrosAdapter extends RecyclerView.Adapter<OnFiltrosAdapter.ViewHolder> {
+    private ArrayList<OnFiltrosData> lstProd;
     private LayoutInflater inflater;
     private UpdateRatePresenter presenter;
 
-
-    public OnAllProdAdapter(Context context, ArrayList<OnAllProdData> lstProd) {
+    public OnFiltrosAdapter(Context context, ArrayList<OnFiltrosData> lstProd){
         this.lstProd = lstProd;
         this.inflater = LayoutInflater.from(context);
-        this.presenter = presenter;
-//        OnAllProdAdapter adapter = new OnAllProdAdapter(context, lstProd, presenter);
-
     }
 
 
     @NonNull
     @Override
-    public OnAllProdAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public OnFiltrosAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.sale_data_carta, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OnAllProdAdapter.ViewHolder holder, int position) {
-        OnAllProdData prod = lstProd.get(position);
+    public void onBindViewHolder(@NonNull OnFiltrosAdapter.ViewHolder holder, int position) {
+        OnFiltrosData prod = lstProd.get(position);
 
-        //Rellenamos los datos de la carta
         holder.productName.setText(lstProd.get(position).getNombre());
         holder.productBrand.setText(lstProd.get(position).getMarca());
         holder.productPrice.setText(lstProd.get(position).getPrecio());
@@ -57,12 +50,10 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
         holder.productRate.setText(lstProd.get(position).getValoracion());
         holder.addRateEditText.getText();
 
-
-
         holder.productButton.setOnClickListener(e -> {
             System.out.println("Yeeeeesaaa");
             String addRateStr = holder.addRateEditText.getText().toString().trim();
-           Producto producto = new Producto(lstProd.get(position).getId_producto(),
+            Producto producto = new Producto(lstProd.get(position).getId_producto(),
                     addRateStr);
 
 
@@ -83,7 +74,7 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
         return lstProd.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder{
         TextView productName;
         TextView productBrand;
         TextView productPrice;
@@ -93,7 +84,6 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
         TextView productRate;
         Button productButton;
         EditText addRateEditText;
-
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -106,7 +96,6 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
             productRate = itemView.findViewById(R.id.productRate);
             productButton = itemView.findViewById(R.id.botonValoracion);
             addRateEditText = itemView.findViewById(R.id.productRate);
-
         }
     }
 }

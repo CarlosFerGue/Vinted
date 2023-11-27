@@ -25,7 +25,7 @@ public class OnAllProdData {
 
     @Override
     public String toString() {
-        return "OnLoadSaleData{" +
+        return "OnAllProdData{" +
                 "id=" + id_usuario +
                 ", marca='" + marca + '\'' +
                 ", precio=" + precio +

@@ -28,6 +28,7 @@ public class ArticuloAction implements IAction {
                 darAlta(request, response);
                 break;
             case "PUNTUAR":
+                System.out.println("entrando al puntuar");
                 puntuar(request, response);
                 break;
             case "TOP10":
@@ -41,10 +42,19 @@ public class ArticuloAction implements IAction {
     }
 
     private String estado(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String estado2;
+        String idUsuario = request.getParameter("ID");
+        int idInt = Integer.parseInt(idUsuario);
         String estado = request.getParameter("ESTADO");
 
+        if (estado.equals("Active")) {
+             estado2 = "='Active";
+        }else{
+             estado2 = "!='Active";
+        }
+
         ArticuloDAO articuloDAO = new ArticuloDAO();
-        ArrayList<Articulo> articulos = articuloDAO.estado(estado);
+        ArrayList<Articulo> articulos = articuloDAO.estado(estado2, idInt);
         return Articulo.toArrayJSon(articulos);
     }
 
@@ -58,6 +68,7 @@ public class ArticuloAction implements IAction {
 
         Articulo articulo = new Articulo(idInt,valoracion);
         ArticuloDAO ariticuloDAO = new ArticuloDAO();
+        System.out.println(ariticuloDAO.update(articulo));
         return ariticuloDAO.update(articulo);
     }
 

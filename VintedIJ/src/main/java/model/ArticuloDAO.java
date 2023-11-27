@@ -49,9 +49,10 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
     }
 
 
-    public ArrayList<Articulo> estado(String estado) throws SQLException {
+    public ArrayList<Articulo> estado(String estado, int id_usuario) throws SQLException {
         ArrayList<Articulo> articulos = new ArrayList<>();
-        String sql = "SELECT * FROM articulos WHERE estado ='"+ estado +"';";
+        String sql = "SELECT * FROM articulos WHERE estado"+ estado +"' AND id_usuario <> '" + id_usuario + "';";
+
 
         try {
             motorSql.conectar();
