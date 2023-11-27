@@ -17,14 +17,19 @@ import com.example.myapplication.allProducts.adapter.OnAllProdAdapter;
 import com.example.myapplication.allProducts.data.OnAllProdData;
 import com.example.myapplication.allProducts.presenter.OnAllProdPresenter;
 import com.example.myapplication.beans.Producto;
+import com.example.myapplication.filtros.ContractFiltros;
+import com.example.myapplication.filtros.data.OnFiltrosData;
+import com.example.myapplication.filtros.presenter.OnFiltrosPresenter;
 import com.example.myapplication.login.view.ViewLoginActivity;
 import com.google.android.material.button.MaterialButtonToggleGroup;
 
 import java.util.ArrayList;
 
 
-public class AllProdActivity extends AppCompatActivity implements ContractAllProducts.View{
+public class AllProdActivity extends AppCompatActivity implements ContractAllProducts.View, ContractFiltros.View {
     private OnAllProdPresenter presenter = new OnAllProdPresenter(this);
+
+    private OnFiltrosPresenter presenterFiltros = new OnFiltrosPresenter(this);
 
     private static AllProdActivity mainActivity = null;
 
@@ -48,11 +53,11 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
     private void initComponents() {
         Intent intent = getIntent();
-        int idUsario = intent.getIntExtra("id", -1);
-        System.out.println(idUsario);
+        int idUsuario = intent.getIntExtra("id", -1);
+        System.out.println(idUsuario);
 
-        if (idUsario != -1) {
-            presenter.LoadOnAllProd(idUsario);
+        if (idUsuario != -1) {
+            presenter.LoadOnAllProd(idUsuario);
         }else{
             Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
             finish();
@@ -65,6 +70,14 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
                 openActivos();
             }
         });
+
+        noActivo = (Button) findViewById(R.id.botonNoActivos);
+        noActivo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openNoActivos();
+            }
+        });
     }
 
 
@@ -72,7 +85,24 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         Bundle extras = getIntent().getExtras();
         int idUsuario = extras.getInt("id");
 
-        Intent intent = new Intent(this, )
+        if (idUsuario != -1) {
+            presenterFiltros.LoadFiltros(idUsuario, "Active");
+        }else{
+            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+    }
+
+    public void openNoActivos(){
+        Bundle extras = getIntent().getExtras();
+        int idUsuario = extras.getInt("id");
+
+        if (idUsuario != -1) {
+            presenterFiltros.LoadFiltros(idUsuario, "Noactivo");
+        }else{
+            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 
 
@@ -88,5 +118,15 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
     @Override
     public void failureLoadAllProd(String err) {
         Toast.makeText(AllProdActivity.this, err, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void succesLoadFiltros(ArrayList<OnFiltrosData> lstProd) {
+
+    }
+
+    @Override
+    public void failureLoadFiltros(String err) {
+
     }
 }
