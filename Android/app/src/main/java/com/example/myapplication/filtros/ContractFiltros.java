@@ -17,7 +17,7 @@ public interface ContractFiltros {
     }
 
     public interface Model{
-        public void loadFiltrosAPI(int userId, loadFiltroListener loadFiltroListener);
+        public void loadFiltrosAPI(int userId, loadFiltroListener loadFiltroListener, String estado);
 
         public interface loadFiltroListener{
             public void onFinished(ArrayList<OnFiltrosData> lstProd);
