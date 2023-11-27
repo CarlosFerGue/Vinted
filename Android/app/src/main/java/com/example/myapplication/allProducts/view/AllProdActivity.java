@@ -18,6 +18,7 @@ import com.example.myapplication.allProducts.data.OnAllProdData;
 import com.example.myapplication.allProducts.presenter.OnAllProdPresenter;
 import com.example.myapplication.beans.Producto;
 import com.example.myapplication.filtros.ContractFiltros;
+import com.example.myapplication.filtros.adapter.OnFiltrosAdapter;
 import com.example.myapplication.filtros.data.OnFiltrosData;
 import com.example.myapplication.filtros.presenter.OnFiltrosPresenter;
 import com.example.myapplication.login.view.ViewLoginActivity;
@@ -36,8 +37,9 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
     public OnAllProdAdapter onAllProdAdapter;
 
     private ArrayList<OnAllProdData> lstProd;
+    private ArrayList<OnFiltrosData> lstProdFiltros;
 
-    public static AllProdActivity getInstance(){
+    public static AllProdActivity getInstance() {
         return mainActivity;
     }
 
@@ -58,8 +60,8 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
         if (idUsuario != -1) {
             presenter.LoadOnAllProd(idUsuario);
-        }else{
-            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "No se proporciono id", Toast.LENGTH_SHORT).show();
             finish();
         }
 
@@ -67,7 +69,8 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         activo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openActivos();
+                presenterFiltros.LoadFiltros(idUsuario, "Active");
+
             }
         });
 
@@ -75,35 +78,49 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         noActivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNoActivos();
+                presenterFiltros.LoadFiltros(idUsuario, "NoActive");
             }
         });
     }
 
+    @Override
+    public void succesLoadFiltros(ArrayList<OnFiltrosData> lstProdFiltros) {
+        this.lstProdFiltros = lstProdFiltros;
+        RecyclerView recyclerView = findViewById(R.id.productRecycleView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-    public void openActivos(){
-        Bundle extras = getIntent().getExtras();
-        int idUsuario = extras.getInt("id");
-
-        if (idUsuario != -1) {
-            presenterFiltros.LoadFiltros(idUsuario, "Active");
-        }else{
-            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
-            finish();
-        }
+        OnFiltrosAdapter onFiltrosAdapter = new OnFiltrosAdapter(this,lstProdFiltros);
+        recyclerView.setAdapter(onFiltrosAdapter);
+//
+//        onAllProdAdapter = new OnAllProdAdapter(this, lstProdFiltros);
+//        recyclerView.setAdapter(onAllProdAdapter);
     }
 
-    public void openNoActivos(){
-        Bundle extras = getIntent().getExtras();
-        int idUsuario = extras.getInt("id");
-
-        if (idUsuario != -1) {
-            presenterFiltros.LoadFiltros(idUsuario, "Noactivo");
-        }else{
-            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
-            finish();
-        }
-    }
+//    public void openActivos(ArrayList<OnAllProdData> lstProd){
+//        Bundle extras = getIntent().getExtras();
+//        int idUsuario = extras.getInt("id");
+//
+//        if (idUsuario != -1) {
+//
+//            presenterFiltros.LoadFiltros(idUsuario, "Active");
+//        }else{
+//            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
+//            finish();
+//        }
+//    }
+//
+//    public void openNoActivos(ArrayList<OnAllProdData> lstProd){
+//        Bundle extras = getIntent().getExtras();
+//        int idUsuario = extras.getInt("id");
+//
+//        if (idUsuario != -1) {
+//            presenterFiltros.LoadFiltros(idUsuario, "Noactivo");
+//
+//        }else{
+//            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
+//            finish();
+//        }
+//    }
 
 
     @Override
@@ -113,6 +130,7 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         onAllProdAdapter = new OnAllProdAdapter(this, lstProd);
         recyclerView.setAdapter(onAllProdAdapter);
+
     }
 
     @Override
@@ -120,13 +138,9 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         Toast.makeText(AllProdActivity.this, err, Toast.LENGTH_SHORT).show();
     }
 
-    @Override
-    public void succesLoadFiltros(ArrayList<OnFiltrosData> lstProd) {
-
-    }
 
     @Override
     public void failureLoadFiltros(String err) {
-
+        Toast.makeText(AllProdActivity.this, err, Toast.LENGTH_SHORT).show();
     }
 }
