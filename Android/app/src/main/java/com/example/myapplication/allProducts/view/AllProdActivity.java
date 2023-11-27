@@ -89,38 +89,9 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         RecyclerView recyclerView = findViewById(R.id.productRecycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        OnFiltrosAdapter onFiltrosAdapter = new OnFiltrosAdapter(this,lstProdFiltros);
+        OnFiltrosAdapter onFiltrosAdapter = new OnFiltrosAdapter(this, lstProdFiltros);
         recyclerView.setAdapter(onFiltrosAdapter);
-//
-//        onAllProdAdapter = new OnAllProdAdapter(this, lstProdFiltros);
-//        recyclerView.setAdapter(onAllProdAdapter);
     }
-
-//    public void openActivos(ArrayList<OnAllProdData> lstProd){
-//        Bundle extras = getIntent().getExtras();
-//        int idUsuario = extras.getInt("id");
-//
-//        if (idUsuario != -1) {
-//
-//            presenterFiltros.LoadFiltros(idUsuario, "Active");
-//        }else{
-//            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
-//            finish();
-//        }
-//    }
-//
-//    public void openNoActivos(ArrayList<OnAllProdData> lstProd){
-//        Bundle extras = getIntent().getExtras();
-//        int idUsuario = extras.getInt("id");
-//
-//        if (idUsuario != -1) {
-//            presenterFiltros.LoadFiltros(idUsuario, "Noactivo");
-//
-//        }else{
-//            Toast.makeText(this,"No se proporciono id", Toast.LENGTH_SHORT).show();
-//            finish();
-//        }
-//    }
 
 
     @Override
