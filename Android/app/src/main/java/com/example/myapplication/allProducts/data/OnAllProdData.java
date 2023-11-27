@@ -29,8 +29,8 @@ public class OnAllProdData {
                 "id=" + id_usuario +
                 ", marca='" + marca + '\'' +
                 ", precio=" + precio +
-                ", descripcion='" + descripcion + '\'' +
                 ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
                 ", imagen='" + imagen + '\'' +
                 ", estado='" + estado + '\'' +
                 ", valoracion='" + valoracion + '\'' +

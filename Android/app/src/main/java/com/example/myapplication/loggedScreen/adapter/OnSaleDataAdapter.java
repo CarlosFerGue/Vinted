@@ -27,7 +27,7 @@ public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.Vi
     @NonNull
     @Override
     public OnSaleDataAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.sale_data_carta, parent, false);
+        View view = inflater.inflate(R.layout.sale_data_carta_user, parent, false);
         return new ViewHolder(view);
     }
 
@@ -62,13 +62,15 @@ public class OnSaleDataAdapter extends RecyclerView.Adapter<OnSaleDataAdapter.Vi
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            productName = itemView.findViewById(R.id.textProductView);
+            productName = itemView.findViewById(R.id.productDesc);
             productBrand = itemView.findViewById(R.id.productBrand);
             productPrice = itemView.findViewById(R.id.productPrice);
-            productDesc = itemView.findViewById(R.id.productDesc);
+            productDesc = itemView.findViewById(R.id.textProductView);
             productState = itemView.findViewById(R.id.productState);
             productColor = itemView.findViewById(R.id.productColor);
             productRate = itemView.findViewById(R.id.productRate);
+
+
 
 
         }

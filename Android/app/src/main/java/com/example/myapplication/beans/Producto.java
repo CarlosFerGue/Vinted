@@ -217,4 +217,20 @@ public class Producto {
     public void setValoracion(String valoracion) {
         this.valoracion = valoracion;
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "id_producto=" + id_producto +
+                ", id_usuario=" + id_usuario +
+                ", marca='" + marca + '\'' +
+                ", precio='" + precio + '\'' +
+                ", imagen='" + imagen + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", estado='" + estado + '\'' +
+                ", valoracion='" + valoracion + '\'' +
+                '}';
+    }
 }
