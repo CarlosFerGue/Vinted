@@ -21,7 +21,7 @@ public class UpdateRateModel implements ContractUpdateRating.Model {
     public void updateRatingAPI(Producto producto, UpdateRatingListener UpdateRatingListener) {
 
         APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/").create(APIService.class);
-        System.out.println("Voy a hacer la call desde el update Rating nigga");
+        System.out.println("Voy a hacer la call desde el update Rating");
 
         Call<UpdateRateData> call = apiService.getUpdateRating("PRODUCTOS.PUNTUAR",
                 producto.getId_producto(),

@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.R;
 import com.example.myapplication.allProducts.ContractAllProducts;
 import com.example.myapplication.allProducts.data.OnAllProdData;
+import com.example.myapplication.allProducts.view.AllProdActivity;
 import com.example.myapplication.beans.Producto;
+import com.example.myapplication.updateRating.ContractUpdateRating;
 import com.example.myapplication.updateRating.presenter.UpdateRatePresenter;
 
 import org.w3c.dom.Text;
@@ -25,15 +27,12 @@ import java.util.ArrayList;
 public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.ViewHolder> {
     private ArrayList<OnAllProdData> lstProd;
     private LayoutInflater inflater;
-    private UpdateRatePresenter presenter;
+
 
 
     public OnAllProdAdapter(Context context, ArrayList<OnAllProdData> lstProd) {
         this.lstProd = lstProd;
         this.inflater = LayoutInflater.from(context);
-        this.presenter = presenter;
-//        OnAllProdAdapter adapter = new OnAllProdAdapter(context, lstProd, presenter);
-
     }
 
 
@@ -46,6 +45,7 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull OnAllProdAdapter.ViewHolder holder, int position) {
+
         OnAllProdData prod = lstProd.get(position);
 
         //Rellenamos los datos de la carta
@@ -60,7 +60,7 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
 
 
         holder.productButton.setOnClickListener(e -> {
-            System.out.println("Yeeeeesaaa");
+            System.out.println("Yeeeeesaaa All prod");
             String addRateStr = holder.addRateEditText.getText().toString().trim();
            Producto producto = new Producto(lstProd.get(position).getId_producto(),
                     addRateStr);
@@ -69,11 +69,10 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
 
             System.out.println(addRateStr);
             System.out.println(producto);
-            if (presenter != null) {
-                presenter.updateRating(producto);
-            } else {
-                System.out.println("Presenter esta mas null");
-            }
+
+            UpdateRatePresenter presenter = new UpdateRatePresenter();
+            presenter.updateRating(producto);
+
         });
 
     }
@@ -82,6 +81,8 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
     public int getItemCount() {
         return lstProd.size();
     }
+
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView productName;

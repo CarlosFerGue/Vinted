@@ -16,13 +16,10 @@ import com.example.myapplication.allProducts.ContractAllProducts;
 import com.example.myapplication.allProducts.adapter.OnAllProdAdapter;
 import com.example.myapplication.allProducts.data.OnAllProdData;
 import com.example.myapplication.allProducts.presenter.OnAllProdPresenter;
-import com.example.myapplication.beans.Producto;
 import com.example.myapplication.filtros.ContractFiltros;
 import com.example.myapplication.filtros.adapter.OnFiltrosAdapter;
 import com.example.myapplication.filtros.data.OnFiltrosData;
 import com.example.myapplication.filtros.presenter.OnFiltrosPresenter;
-import com.example.myapplication.login.view.ViewLoginActivity;
-import com.google.android.material.button.MaterialButtonToggleGroup;
 
 import java.util.ArrayList;
 
@@ -64,6 +61,10 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
             Toast.makeText(this, "No se proporciono id", Toast.LENGTH_SHORT).show();
             finish();
         }
+
+
+
+
 
         activo = (Button) findViewById(R.id.botonActivos);
         activo.setOnClickListener(new View.OnClickListener() {

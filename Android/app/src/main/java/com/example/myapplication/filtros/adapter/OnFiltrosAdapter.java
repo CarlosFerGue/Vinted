@@ -23,11 +23,11 @@ import java.util.ArrayList;
 public class OnFiltrosAdapter extends RecyclerView.Adapter<OnFiltrosAdapter.ViewHolder> {
     private ArrayList<OnFiltrosData> lstProd;
     private LayoutInflater inflater;
-    private UpdateRatePresenter presenter;
 
     public OnFiltrosAdapter(Context context, ArrayList<OnFiltrosData> lstProd){
         this.lstProd = lstProd;
         this.inflater = LayoutInflater.from(context);
+
     }
 
 
@@ -51,20 +51,20 @@ public class OnFiltrosAdapter extends RecyclerView.Adapter<OnFiltrosAdapter.View
         holder.addRateEditText.getText();
 
         holder.productButton.setOnClickListener(e -> {
-            System.out.println("Yeeeeesaaa");
+            System.out.println("Yeeeeesaaa Adapter");
             String addRateStr = holder.addRateEditText.getText().toString().trim();
             Producto producto = new Producto(lstProd.get(position).getId_producto(),
                     addRateStr);
 
-
+            System.out.println(addRateStr);
+            System.out.println(producto);
 
             System.out.println(addRateStr);
             System.out.println(producto);
-            if (presenter != null) {
-                presenter.updateRating(producto);
-            } else {
-                System.out.println("Presenter esta mas null");
-            }
+
+            UpdateRatePresenter presenter = new UpdateRatePresenter();
+            presenter.updateRating(producto);
+
         });
 
     }

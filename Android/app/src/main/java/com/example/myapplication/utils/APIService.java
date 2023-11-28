@@ -58,7 +58,7 @@ public interface APIService {
     @GET("Controller")
     Call<ArrayList<OnUser10Data>> get10Users(@Query("ACTION") String action);
 
-    //  Busacr a los 10 productos con mas resenna
+    //  Busacar a los 10 productos con mas resenna
     @GET("Controller")
     Call<ArrayList<OnRate10Data>> get10Rates(@Query("ACTION") String action);
 

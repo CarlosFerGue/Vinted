@@ -9,7 +9,7 @@ public class UpdateRatePresenter implements ContractUpdateRating.Presenter, Cont
     ContractUpdateRating.View view;
     ContractUpdateRating.Model model;
 
-    public UpdateRatePresenter(ContractUpdateRating.View view) {
+    public UpdateRatePresenter() {
         this.view = view;
         model = new UpdateRateModel(this);
     }
@@ -26,7 +26,6 @@ public class UpdateRatePresenter implements ContractUpdateRating.Presenter, Cont
 
     @Override
     public void updateRating(Producto producto) {
-        System.out.println("Love and sex");
         model.updateRatingAPI(producto, this);
 
     }
