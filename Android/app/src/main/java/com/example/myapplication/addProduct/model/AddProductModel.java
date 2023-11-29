@@ -28,14 +28,22 @@ public class AddProductModel implements ContractAddProduct.Model{
         APIService apiService = RetrofitCliente.getClient("http://10.0.2.2:8080/").create(APIService.class);
         System.out.println("Voy a hacer la call desde productos dar alta");
         Call<AddProductData> call = apiService.getMySales("PRODUCTOS.DAR_ALTA",
+//                producto.getId_usuario(),
+//                producto.getMarca(),
+//                producto.getPrecio(),
+//                producto.getDescripcion(),
+//                producto.getNombre(),
+//                producto.getImagen(),
+//                producto.getEstado(),
+//                producto.getFecha()
                 producto.getId_usuario(),
-                producto.getMarca(),
+                producto.getColor(),
                 producto.getPrecio(),
-                producto.getDescripcion(),
                 producto.getNombre(),
-                producto.getImagen(),
-                producto.getEstado(),
-                producto.getFecha());
+                producto.getMarca(),
+                producto.getDescripcion(),
+                producto.getEstado()
+        );
 
         call.enqueue(new Callback<AddProductData>() {
             @Override

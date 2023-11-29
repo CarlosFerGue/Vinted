@@ -7,8 +7,17 @@ import java.util.ArrayList;
 public class Articulo {
     private int id_producto, id_usuario;
 
-    private String marca, precio, imagen, nombre, descripcion, fecha, estado, valoracion;
+    private String marca, precio, imagen, nombre, descripcion, fecha, estado, valoracion, color;
 
+    public Articulo(int id_usuario, String marca, String precio, String nombre, String descripcion, String estado, String color) {
+        this.id_usuario = id_usuario;
+        this.marca = marca;
+        this.precio = precio;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.color = color;
+    }
 
     public Articulo(String estado) {
         this.estado = estado;

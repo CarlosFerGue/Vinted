@@ -35,7 +35,7 @@ public class OnLoadSaleModel implements ContractLoggedScreen.Model {
             @Override
             public void onResponse(Call<ArrayList<OnLoadSaleData>> call, Response<ArrayList<OnLoadSaleData>> response) {
                 if (response.isSuccessful()) {
-                    System.out.println("La peticion ha ido bien, el resultado del body es esto: " + response.body());
+                    System.out.println("La peticion ha ido bien, el resultado del filter es esto: " + response.body());
                     ArrayList<OnLoadSaleData> lstSales = response.body();
                     System.out.println(response.body());
 

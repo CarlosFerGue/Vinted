@@ -119,27 +119,48 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
             @Override
             public void onClick(View v) {
                 //Obtenemos las variables del front
-                EditText addName = findViewById(R.id.addName); //Nombre
-                EditText addBrand = findViewById(R.id.addBrand); //Marca
-                EditText addPrice = findViewById(R.id.addPrice); //Precio
-                EditText addDesc = findViewById(R.id.addDesc); //Descripcion
-//                EditText addState = findViewById(R.id.addState); //Estado
-                EditText addColor = findViewById(R.id.addColor); //Color
+//                EditText addName = findViewById(R.id.addName); //Nombre
+//                EditText addBrand = findViewById(R.id.addBrand); //Marca
+//                EditText addPrice = findViewById(R.id.addPrice); //Precio
+//                EditText addDesc = findViewById(R.id.addDesc); //Descripcion
+////                EditText addState = findViewById(R.id.addState); //Estado
+//                EditText addColor = findViewById(R.id.addColor); //Color
+//
+//                //Almacenamos los valores en variables , las variables las llamamos add porque tal
+//                String addMarcaStr = String.valueOf(addBrand.getText());
+//                String addPrecioStr = String.valueOf(addPrice.getText());
+//                String addImageStr = String.valueOf(addBrand.getText()); //Las que pone add brand es porque no estan aun en el front
+//                String addNombreStr = String.valueOf(addName.getText());
+//                String addDescripcionStr = String.valueOf(addDesc.getText());
+//                String addFechaStr = String.valueOf(addBrand.getText());
+////                String addEstadoStr = String.valueOf(addState.getText());
+//                int addIdtStr = extras.getInt("id"); //Id usuario
+//                System.out.println(addIdtStr);
+//
+//                Producto producto = new Producto(addIdtStr, addMarcaStr, addPrecioStr,
+//                        addImageStr, addNombreStr, addDescripcionStr, addFechaStr,
+//                        "Active");
+//                addProductPresenter.addProduct(producto);
+//
+                Intent intent = getIntent();
+                int idUsuario = intent.getIntExtra("id", -1);
 
-                //Almacenamos los valores en variables , las variables las llamamos add porque tal
-                String addMarcaStr = String.valueOf(addBrand.getText());
-                String addPrecioStr = String.valueOf(addPrice.getText());
-                String addImageStr = String.valueOf(addBrand.getText()); //Las que pone add brand es porque no estan aun en el front
-                String addNombreStr = String.valueOf(addName.getText());
-                String addDescripcionStr = String.valueOf(addDesc.getText());
-                String addFechaStr = String.valueOf(addBrand.getText());
-//                String addEstadoStr = String.valueOf(addState.getText());
-                int addIdtStr = extras.getInt("id"); //Id usuario
-                System.out.println(addIdtStr);
+                EditText addColor = findViewById(R.id.addColor);
+                EditText addPrice = findViewById(R.id.addPrice);
+                EditText addName = findViewById(R.id.addName);
+                EditText addBrand = findViewById(R.id.addBrand);
+                EditText addDesc = findViewById(R.id.addDesc);
 
-                Producto producto = new Producto(addIdtStr, addMarcaStr, addPrecioStr,
-                        addImageStr, addNombreStr, addDescripcionStr, addFechaStr,
-                        "Active");
+                String addColorStr = String.valueOf(addColor.getText());
+                String addPriceStr = String.valueOf(addPrice.getText());
+                String addNameStr = String.valueOf(addName.getText());
+                String addBrandStr = String.valueOf(addBrand.getText());
+                String addDescStr = String.valueOf(addDesc.getText());
+                int addIdUserInt = idUsuario;
+
+                Producto producto = new Producto(addIdUserInt, addColorStr, addPriceStr,
+                        addNameStr, addBrandStr, addDescStr, "Active");
+
                 addProductPresenter.addProduct(producto);
 
             }
