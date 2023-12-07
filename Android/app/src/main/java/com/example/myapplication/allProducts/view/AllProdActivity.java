@@ -16,6 +16,10 @@ import com.example.myapplication.allProducts.ContractAllProducts;
 import com.example.myapplication.allProducts.adapter.OnAllProdAdapter;
 import com.example.myapplication.allProducts.data.OnAllProdData;
 import com.example.myapplication.allProducts.presenter.OnAllProdPresenter;
+import com.example.myapplication.filtradoPalabras.ContractPalabra;
+import com.example.myapplication.filtradoPalabras.adapter.OnPalabraAdapter;
+import com.example.myapplication.filtradoPalabras.data.OnPalabraData;
+import com.example.myapplication.filtradoPalabras.presenter.OnPalabraPresenter;
 import com.example.myapplication.filtros.ContractFiltros;
 import com.example.myapplication.filtros.adapter.OnFiltrosAdapter;
 import com.example.myapplication.filtros.data.OnFiltrosData;
@@ -24,10 +28,12 @@ import com.example.myapplication.filtros.presenter.OnFiltrosPresenter;
 import java.util.ArrayList;
 
 
-public class AllProdActivity extends AppCompatActivity implements ContractAllProducts.View, ContractFiltros.View {
+public class AllProdActivity extends AppCompatActivity implements ContractAllProducts.View, ContractFiltros.View, ContractPalabra.View {
     private OnAllProdPresenter presenter = new OnAllProdPresenter(this);
 
     private OnFiltrosPresenter presenterFiltros = new OnFiltrosPresenter(this);
+
+    private OnPalabraPresenter presenterPalabras = new OnPalabraPresenter(this);
 
     private static AllProdActivity mainActivity = null;
 
@@ -35,6 +41,7 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
     private ArrayList<OnAllProdData> lstProd;
     private ArrayList<OnFiltrosData> lstProdFiltros;
+    private ArrayList<OnPalabraData> lstProdPalabras;
 
     public static AllProdActivity getInstance() {
         return mainActivity;
@@ -42,11 +49,13 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
     private Button activo;
     private Button noActivo;
+    private Button buscador;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listado_allprod);
+        setContentView(R.layout.activity_listado_allprod2);
         initComponents();
     }
 
@@ -82,6 +91,19 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
                 presenterFiltros.LoadFiltros(idUsuario, "NoActive");
             }
         });
+
+        buscador = (Button) findViewById(R.id.buscadorBoton);
+        EditText buscardorTexto = (EditText) findViewById(R.id.buscardorTexto);
+        System.out.println(buscardorTexto);
+
+        buscador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String palabraBuscada = buscardorTexto.getText().toString();
+                presenterPalabras.LoadPalabra(idUsuario, palabraBuscada);
+            }
+        });
+
     }
 
     @Override
@@ -92,6 +114,16 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
         OnFiltrosAdapter onFiltrosAdapter = new OnFiltrosAdapter(this, lstProdFiltros);
         recyclerView.setAdapter(onFiltrosAdapter);
+    }
+
+    @Override
+    public void succesLoadPalabra(ArrayList<OnPalabraData> lstProdPalabras) {
+        this.lstProdPalabras = lstProdPalabras;
+        RecyclerView recyclerView = findViewById(R.id.productRecycleView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        OnPalabraAdapter onPalabraAdapter = new OnPalabraAdapter(this, lstProdPalabras);
+        recyclerView.setAdapter(onPalabraAdapter);
     }
 
 
@@ -105,6 +137,8 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
     }
 
+
+
     @Override
     public void failureLoadAllProd(String err) {
         Toast.makeText(AllProdActivity.this, err, Toast.LENGTH_SHORT).show();
@@ -113,6 +147,13 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
     @Override
     public void failureLoadFiltros(String err) {
+        Toast.makeText(AllProdActivity.this, err, Toast.LENGTH_SHORT).show();
+    }
+
+
+
+    @Override
+    public void failureLoadPalabra(String err) {
         Toast.makeText(AllProdActivity.this, err, Toast.LENGTH_SHORT).show();
     }
 }
