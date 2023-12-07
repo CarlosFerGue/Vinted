@@ -3,6 +3,7 @@ package com.example.myapplication.utils;
 import com.example.myapplication.addProduct.data.AddProductData;
 import com.example.myapplication.allProducts.data.OnAllProdData;
 import com.example.myapplication.beans.Producto;
+import com.example.myapplication.filtradoPalabras.data.OnPalabraData;
 import com.example.myapplication.filtros.data.OnFiltrosData;
 import com.example.myapplication.rate10.data.OnRate10Data;
 import com.example.myapplication.top10Users.data.OnUser10Data;
@@ -70,6 +71,13 @@ public interface APIService {
     Call<ArrayList<OnFiltrosData>> getFiltros(@Query("ACTION")String action,
                                               @Query("ID") Integer userId,
                                               @Query("ESTADO")String estado);
+
+    // Palabra
+    @GET("Controller")
+    Call<ArrayList<OnPalabraData>> getPalabra(@Query("ACTION")String action,
+                                              @Query("ID") Integer userId,
+                                              @Query("PALABRA")String palabra);
+
 }
 
 
