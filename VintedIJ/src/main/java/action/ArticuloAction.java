@@ -32,13 +32,27 @@ public class ArticuloAction implements IAction {
                 puntuar(request, response);
                 break;
             case "TOP10":
-                cadDestino = find10(request,response);
+                cadDestino = find10(request, response);
                 break;
             case "ESTADO":
                 cadDestino = estado(request, response);
                 break;
+            case "PALABRA":
+                cadDestino = palabra(request, response);
+                break;
+
         }
         return cadDestino;
+    }
+
+    private String palabra(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String idUsuario = request.getParameter("ID");
+        int idInt = Integer.parseInt(idUsuario);
+        String palabra = request.getParameter("PALABRA");
+
+        ArticuloDAO articuloDAO = new ArticuloDAO();
+        ArrayList<Articulo> articulos = articuloDAO.palabra(palabra, idInt);
+        return Articulo.toArrayJSon(articulos);
     }
 
     private String estado(HttpServletRequest request, HttpServletResponse response) throws SQLException {
@@ -48,9 +62,9 @@ public class ArticuloAction implements IAction {
         String estado = request.getParameter("ESTADO");
 
         if (estado.equals("Active")) {
-             estado2 = "='Active";
-        }else{
-             estado2 = "!='Active";
+            estado2 = "='Active";
+        } else {
+            estado2 = "!='Active";
         }
 
         ArticuloDAO articuloDAO = new ArticuloDAO();
@@ -66,7 +80,7 @@ public class ArticuloAction implements IAction {
         String valoracion = request.getParameter("VALORACION");
 
 
-        Articulo articulo = new Articulo(idInt,valoracion);
+        Articulo articulo = new Articulo(idInt, valoracion);
         ArticuloDAO ariticuloDAO = new ArticuloDAO();
         System.out.println(ariticuloDAO.update(articulo));
         return ariticuloDAO.update(articulo);
