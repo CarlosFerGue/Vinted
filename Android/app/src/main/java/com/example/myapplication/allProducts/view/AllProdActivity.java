@@ -55,7 +55,7 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listado_allprod);
+        setContentView(R.layout.activity_listado_allprod2);
         initComponents();
     }
 
@@ -92,17 +92,17 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
             }
         });
 
-//        buscador = (Button) findViewById(R.id.buscadorBoton);
-//        EditText buscardorTexto = (EditText) findViewById(R.id.buscardorTexto);
-//        System.out.println(buscardorTexto);
-//
-//        buscador.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                String palabraBuscada = buscardorTexto.getText().toString();
-//                presenterPalabras.LoadPalabra(idUsuario, palabraBuscada);
-//            }
-//        });
+     buscador = (Button) findViewById(R.id.buscadorBoton);
+     EditText buscardorTexto = (EditText) findViewById(R.id.buscardorTexto);
+     System.out.println(buscardorTexto);
+
+     buscador.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             String palabraBuscada = buscardorTexto.getText().toString();
+             presenterPalabras.LoadPalabra(idUsuario, palabraBuscada);
+         }
+     });
 
     }
 

@@ -261,6 +261,12 @@ ALTER TABLE `articulos`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_usuario` (`id_usuario`);
 
+-- Alterar la tabla `articulos` para agregar el campo `id_usuario_comprado`
+ALTER TABLE `articulos`
+ADD COLUMN `id_usuario_comprado` int(11) DEFAULT NULL,
+ADD CONSTRAINT `fk_id_usuario_comprado` FOREIGN KEY (`id_usuario_comprado`) REFERENCES `usuario` (`id_usuario`);
+
+
 --
 -- Indices de la tabla `categoria`
 --

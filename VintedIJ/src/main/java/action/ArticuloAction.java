@@ -40,6 +40,9 @@ public class ArticuloAction implements IAction {
             case "PALABRA":
                 cadDestino = palabra(request, response);
                 break;
+            case "COMPRAR":
+                cadDestino = palabra(request, response);
+                break;
 
         }
         return cadDestino;

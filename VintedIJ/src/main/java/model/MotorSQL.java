@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class MotorSQL {
 
-    private String url = "jdbc:mysql://localhost:3306/vinted";
+    private String url = "jdbc:mysql://localhost:3306/vinted2";
     private String user = "root";
     private String pass = ""; //1234
 
