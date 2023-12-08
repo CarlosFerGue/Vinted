@@ -28,10 +28,9 @@ public class ArticuloAction implements IAction {
                 darAlta(request, response);
                 break;
             case "PUNTUAR":
-                System.out.println("entrando al puntuar");
                 puntuar(request, response);
                 break;
-            case "TOP10":
+            case "TOP10": //Top 10 productos con mas reseñas
                 cadDestino = find10(request, response);
                 break;
             case "ESTADO":
@@ -41,11 +40,26 @@ public class ArticuloAction implements IAction {
                 cadDestino = palabra(request, response);
                 break;
             case "COMPRAR":
-                cadDestino = palabra(request, response);
+                cadDestino = comprar(request, response);
                 break;
 
         }
         return cadDestino;
+    }
+
+    private int comprar(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        ArticuloDAO articuloDAO = new ArticuloDAO();
+
+        String idArticulo = request.getParameter("ID_ARTICULO");
+        int idInt = Integer.parseInt(idArticulo);
+        String idUsuario = request.getParameter("ID_USUARIO");
+        int idInt = Integer.parseInt(idUsuario);
+
+
+        Articulo articulo = new Articulo(idInt, valoracion);
+        ArticuloDAO ariticuloDAO = new ArticuloDAO();
+        System.out.println(ariticuloDAO.update(articulo));
+        return ariticuloDAO.update(articulo);
     }
 
     private String palabra(HttpServletRequest request, HttpServletResponse response) throws SQLException {

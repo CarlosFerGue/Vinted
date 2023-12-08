@@ -261,11 +261,6 @@ ALTER TABLE `articulos`
   ADD PRIMARY KEY (`id_producto`),
   ADD KEY `id_usuario` (`id_usuario`);
 
--- Alterar la tabla `articulos` para agregar el campo `id_usuario_comprado`
-ALTER TABLE `articulos`
-ADD COLUMN `id_usuario_comprado` int(11) DEFAULT NULL,
-ADD CONSTRAINT `fk_id_usuario_comprado` FOREIGN KEY (`id_usuario_comprado`) REFERENCES `usuario` (`id_usuario`);
-
 
 --
 -- Indices de la tabla `categoria`
@@ -455,6 +450,13 @@ INSERT INTO `articulos` (`marca_producto`, `precio_producto`, `imagen_producto`,
 ('Brand H', '119.99', 'product_h.jpg', 'Product H', 'Description H', '2023-03-28', 'Active', 10, 9),
 ('Brand I', '79.99', 'product_i.jpg', 'Product I', 'Description I', '2023-03-30', 'Active', 11, 8),
 ('Brand J', '149.99', 'product_j.jpg', 'Product J', 'Description J', '2023-04-02', 'Active', 12, 10);
+
+
+-- Alterar la tabla `articulos` para agregar el campo `id_usuario_comprado`
+ALTER TABLE `articulos`
+ADD COLUMN `id_usuario_comprado` int(11) DEFAULT NULL,
+ADD CONSTRAINT `fk_id_usuario_comprado` FOREIGN KEY (`id_usuario_comprado`) REFERENCES `usuario` (`id_usuario`);
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
