@@ -112,6 +112,13 @@ public class ArticuloAction implements IAction {
         return Articulo.toArrayJSon(articulos);
     }
 
+    private String historico(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        ArticuloDAO articuloDAO = new ArticuloDAO();
+        String id_usuario = request.getParameter("ID");
+        ArrayList<Articulo> articulos = articuloDAO.historico(id_usuario);
+        return Articulo.toArrayJSon(articulos);
+    }
+
 
     private String productosUsuario(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ArticuloDAO articuloDAO = new ArticuloDAO();

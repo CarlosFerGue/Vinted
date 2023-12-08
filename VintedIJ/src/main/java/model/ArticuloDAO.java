@@ -48,6 +48,42 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         return articulos;
     }
 
+    public ArrayList<Articulo> historico(String id_usuario) throws SQLException {
+        ArrayList<Articulo> articulos = new ArrayList<>();
+        String sql = "SELECT * FROM articulos WHERE id_usuario_comprado = '" + id_usuario + "'";
+        int id_usuarioInt = Integer.parseInt(id_usuario);
+
+        try {
+            motorSql.conectar();
+
+            System.out.println(sql);
+            ResultSet rs = motorSql.consultar(sql);
+
+            while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DE BASE DE DATOS A UN ARRAYLIST
+                Articulo articulo = new Articulo(
+                        id_usuarioInt,
+                        rs.getInt("id_producto"),
+                        rs.getString("marca_producto"),
+                        rs.getString("estado"),
+                        rs.getString("fecha_subida_producto"),
+                        rs.getString("descripcion_producto"),
+                        rs.getString("nombre_producto"),
+                        rs.getString("imagen_producto"),
+                        rs.getString("precio_producto"),
+                        rs.getString("valoracion")
+                );
+                articulos.add(articulo);
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } finally {
+            motorSql.desconectar();
+        }
+        return articulos;
+    }
+
 
     public ArrayList<Articulo> estado(String estado, int id_usuario) throws SQLException {
         ArrayList<Articulo> articulos = new ArrayList<>();
