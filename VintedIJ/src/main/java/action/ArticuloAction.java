@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Articulo;
 import model.ArticuloDAO;
-import model.Usuario;
-import model.UsuarioDAO;
 
 public class ArticuloAction implements IAction {
 
@@ -22,7 +20,10 @@ public class ArticuloAction implements IAction {
                 cadDestino = findAll(request, response);
                 break;
             case "FILTER_USUARIO": //Los que has subido tu como usuario
-                cadDestino = findByFilter(request, response);
+                cadDestino = productosUsuario(request, response);
+                break;
+            case "HISTORICO": //Los que has comprado tu como usuario
+                cadDestino = historico(request, response);
                 break;
             case "DAR_ALTA": //Subes tus productos
                 darAlta(request, response);
@@ -40,26 +41,27 @@ public class ArticuloAction implements IAction {
                 cadDestino = palabra(request, response);
                 break;
             case "COMPRAR":
-                cadDestino = comprar(request, response);
+                cadDestino = String.valueOf(comprar(request, response));
                 break;
 
         }
         return cadDestino;
     }
 
+
+
     private int comprar(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ArticuloDAO articuloDAO = new ArticuloDAO();
 
         String idArticulo = request.getParameter("ID_ARTICULO");
-        int idInt = Integer.parseInt(idArticulo);
+        int idIntArticulo = Integer.parseInt(idArticulo);
         String idUsuario = request.getParameter("ID_USUARIO");
-        int idInt = Integer.parseInt(idUsuario);
+        int idIntUsuario = Integer.parseInt(idUsuario);
 
 
-        Articulo articulo = new Articulo(idInt, valoracion);
+        Articulo articulo = new Articulo(idIntArticulo, idIntUsuario);
         ArticuloDAO ariticuloDAO = new ArticuloDAO();
-        System.out.println(ariticuloDAO.update(articulo));
-        return ariticuloDAO.update(articulo);
+        return ariticuloDAO.comprar(articulo);
     }
 
     private String palabra(HttpServletRequest request, HttpServletResponse response) throws SQLException {
@@ -110,34 +112,17 @@ public class ArticuloAction implements IAction {
         return Articulo.toArrayJSon(articulos);
     }
 
-    private String findByFilter(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+
+    private String productosUsuario(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ArticuloDAO articuloDAO = new ArticuloDAO();
         String id_usuario = request.getParameter("ID");
-        ArrayList<Articulo> articulos = articuloDAO.filterType(id_usuario);
+        ArrayList<Articulo> articulos = articuloDAO.productosUsuario(id_usuario);
         return Articulo.toArrayJSon(articulos);
     }
 
 
     //http://localhost:8080/Controller?ACTION=PRODUCTOS.DAR_ALTA&NOMBRE=sa&MARCA=se&ID=53&PRECIO=12&IMAGEN=s&DESCRIPCION=sasa&FECHA=23&ESTADO=bIEN
     private int darAlta(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-//        String idUsuario = request.getParameter("ID");
-//
-//        if (idUsuario == null) {
-//            int idUsuarioInt = 1;
-//        }else{
-//            int idUsuarioInt = Integer.parseInt(idUsuario);
-//        }
-//        int idUsuarioInt = 1; //hay que fixear esta mierda
-
-//        String marca = request.getParameter("MARCA");
-//        String precio = request.getParameter("PRECIO");
-//        String imagen = request.getParameter("IMAGEN");
-//        String nombre = request.getParameter("NOMBRE");
-//        String descripcion = request.getParameter("DESCRIPCION");
-//        String fecha = request.getParameter("FECHA");
-//        String estado = request.getParameter("ESTADO");
-//        String valoracion = request.getParameter("VALORACION");
-        System.out.println("Sexy");
         String idUsuario = request.getParameter("ID");
         int idInt = Integer.parseInt(idUsuario);
         String color = request.getParameter("COLOR");

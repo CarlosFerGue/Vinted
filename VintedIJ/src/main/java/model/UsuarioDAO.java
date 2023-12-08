@@ -45,6 +45,7 @@ public class UsuarioDAO implements DAO<Usuario, Integer> {
         return usuarios;
     }
 
+
     public ArrayList<Usuario> login(Usuario entity) throws SQLException {
         ArrayList<Usuario> usuariosArray = new ArrayList<>();
         String sql = "SELECT id_usuario FROM usuario\n" +

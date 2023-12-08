@@ -118,6 +118,29 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
         return articulos;
     }
 
+    //Update del comprador
+    public int comprar(Articulo entity) throws SQLException {
+        int resp = 0;
+        try {
+            motorSql.conectar();
+            String sql = "UPDATE `articulos` SET `estado` = 'NoActive', id_usuario_comprado = '" + entity.getId_comprador() + "' " + "WHERE `id_producto` = '" + entity.getId_producto() + "';";
+            resp = motorSql.modificar(sql);
+            System.out.println(sql);
+
+        } catch (Exception e) {
+
+            System.out.println("No se compro con exito");
+        } finally {
+            motorSql.desconectar();
+        }
+        if (resp > 0) {
+            System.out.println("Compra realizada con exito.");
+        }
+        return resp;
+    }
+
+
+    //Update de la valoracion
     @Override
     public int update(Articulo entity) throws SQLException {
         int resp = 0;
@@ -173,7 +196,7 @@ public class ArticuloDAO implements DAO<Articulo, Integer> {
 
 
 
-    public ArrayList<Articulo> filterType(String id_usuario) throws SQLException {
+    public ArrayList<Articulo> productosUsuario(String id_usuario) throws SQLException {
         ArrayList<Articulo> articulos = new ArrayList<>();
         String sql = "SELECT * FROM articulos WHERE id_usuario='" + id_usuario + "'";
 

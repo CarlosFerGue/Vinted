@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 import java.util.ArrayList;
 
 public class Articulo {
-    private int id_producto, id_usuario;
+    private int id_producto, id_usuario, id_comprador;
 
     private String marca, precio, imagen, nombre, descripcion, fecha, estado, valoracion, color;
 
@@ -17,6 +17,15 @@ public class Articulo {
         this.descripcion = descripcion;
         this.estado = estado;
         this.color = color;
+    }
+
+    public Articulo(int id_comprador) {
+        this.id_comprador = id_comprador;
+    }
+
+    public Articulo(int id_producto, int id_comprador) {
+        this.id_producto = id_producto;
+        this.id_comprador = id_comprador;
     }
 
     public Articulo(String estado) {
@@ -91,6 +100,22 @@ public class Articulo {
 
     public void setImagen(String imagen) {
         this.imagen = imagen;
+    }
+
+    public int getId_comprador() {
+        return id_comprador;
+    }
+
+    public void setId_comprador(int id_comprador) {
+        this.id_comprador = id_comprador;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public String getNombre() {
