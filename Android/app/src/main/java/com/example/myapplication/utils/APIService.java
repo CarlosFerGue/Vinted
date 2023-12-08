@@ -64,8 +64,21 @@ public interface APIService {
 
     // Actualizar rating
     @GET("Controller")
-    Call<UpdateRateData> getUpdateRating(@Query("ACTION") String action, @Query("ID") Integer productId,
-                                                    @Query("VALORACION") String valoracion);
+    Call<UpdateRateData> getUpdateRating(@Query("ACTION") String action,
+                                         @Query("ID") Integer productId,
+                                         @Query("VALORACION") String valoracion);
+
+    // Comprar
+    @GET("Controller")
+    Call<ComprarData> getCompra(@Query("ACTION") String action,
+                                         @Query("ID_ARTICULO") Integer productId,
+                                         @Query("ID_USUARIO") Integer userId);
+
+    // Historico de compras
+    @GET("Controller")
+    Call<ArrayList<OnHistorialData>> getFiltros(@Query("ACTION")String action,
+                                              @Query("ID") Integer userId);
+
     // Filtros
     @GET("Controller")
     Call<ArrayList<OnFiltrosData>> getFiltros(@Query("ACTION")String action,

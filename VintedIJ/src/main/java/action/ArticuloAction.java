@@ -49,7 +49,6 @@ public class ArticuloAction implements IAction {
     }
 
 
-
     private int comprar(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         ArticuloDAO articuloDAO = new ArticuloDAO();
 
@@ -63,6 +62,14 @@ public class ArticuloAction implements IAction {
         ArticuloDAO ariticuloDAO = new ArticuloDAO();
         return ariticuloDAO.comprar(articulo);
     }
+
+    private String historico(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        ArticuloDAO articuloDAO = new ArticuloDAO();
+        String id_usuario = request.getParameter("ID");
+        ArrayList<Articulo> articulos = articuloDAO.historico(id_usuario);
+        return Articulo.toArrayJSon(articulos);
+    }
+
 
     private String palabra(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String idUsuario = request.getParameter("ID");
@@ -109,13 +116,6 @@ public class ArticuloAction implements IAction {
         ArticuloDAO articuloDAO = new ArticuloDAO();
         String id_usuario = request.getParameter("ID");
         ArrayList<Articulo> articulos = articuloDAO.findAllProductos(id_usuario);
-        return Articulo.toArrayJSon(articulos);
-    }
-
-    private String historico(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-        ArticuloDAO articuloDAO = new ArticuloDAO();
-        String id_usuario = request.getParameter("ID");
-        ArrayList<Articulo> articulos = articuloDAO.historico(id_usuario);
         return Articulo.toArrayJSon(articulos);
     }
 
