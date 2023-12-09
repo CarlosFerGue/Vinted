@@ -1,15 +1,16 @@
 package com.example.myapplication.utils;
 
-import com.example.myapplication.addProduct.data.AddProductData;
-import com.example.myapplication.allProducts.data.OnAllProdData;
-import com.example.myapplication.beans.Producto;
-import com.example.myapplication.filtradoPalabras.data.OnPalabraData;
-import com.example.myapplication.filtros.data.OnFiltrosData;
-import com.example.myapplication.rate10.data.OnRate10Data;
-import com.example.myapplication.top10Users.data.OnUser10Data;
-import com.example.myapplication.loggedScreen.data.OnLoadSaleData;
-import com.example.myapplication.login.data.MyLoginData;
-import com.example.myapplication.updateRating.data.UpdateRateData;
+import com.example.myapplication.usuario.addProduct.data.AddProductData;
+import com.example.myapplication.articulo.allProducts.data.OnAllProdData;
+import com.example.myapplication.articulo.filtradoPalabras.data.OnPalabraData;
+import com.example.myapplication.articulo.filtros.data.OnFiltrosData;
+import com.example.myapplication.articulo.rate10.data.OnRate10Data;
+import com.example.myapplication.usuario.comprasUsuario.comprar.data.OnComprarData;
+import com.example.myapplication.usuario.comprasUsuario.historicoCompras.data.OnHistoricoData;
+import com.example.myapplication.usuario.top10Users.data.OnUser10Data;
+import com.example.myapplication.usuario.loggedScreen.data.OnLoadSaleData;
+import com.example.myapplication.usuario.login.data.MyLoginData;
+import com.example.myapplication.usuario.updateRating.data.UpdateRateData;
 
 import java.util.ArrayList;
 
@@ -70,14 +71,14 @@ public interface APIService {
 
     // Comprar
     @GET("Controller")
-    Call<ComprarData> getCompra(@Query("ACTION") String action,
-                                         @Query("ID_ARTICULO") Integer productId,
-                                         @Query("ID_USUARIO") Integer userId);
+    Call<OnComprarData> getCompra(@Query("ACTION") String action,
+                                  @Query("ID_ARTICULO") Integer productId,
+                                  @Query("ID_USUARIO") Integer userId);
 
     // Historico de compras
     @GET("Controller")
-    Call<ArrayList<OnHistorialData>> getFiltros(@Query("ACTION")String action,
-                                              @Query("ID") Integer userId);
+    Call<ArrayList<OnHistoricoData>> getFiltros(@Query("ACTION")String action,
+                                                @Query("ID") Integer userId);
 
     // Filtros
     @GET("Controller")
