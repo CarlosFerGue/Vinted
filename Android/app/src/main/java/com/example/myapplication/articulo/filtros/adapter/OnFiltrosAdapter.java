@@ -32,7 +32,7 @@ public class OnFiltrosAdapter extends RecyclerView.Adapter<OnFiltrosAdapter.View
     @NonNull
     @Override
     public OnFiltrosAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.sale_data_carta2, parent, false);
+        View view = inflater.inflate(R.layout.sale_data_carta, parent, false);
         return new ViewHolder(view);
     }
 
@@ -93,6 +93,7 @@ public class OnFiltrosAdapter extends RecyclerView.Adapter<OnFiltrosAdapter.View
             productColor = itemView.findViewById(R.id.productColor);
             productRate = itemView.findViewById(R.id.productRate);
             productButton = itemView.findViewById(R.id.botonValoracion);
+            productButton = itemView.findViewById(R.id.botonComprar);
             addRateEditText = itemView.findViewById(R.id.productRate);
         }
     }

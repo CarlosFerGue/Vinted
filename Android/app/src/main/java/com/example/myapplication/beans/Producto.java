@@ -2,13 +2,18 @@ package com.example.myapplication.beans;
 
 public class Producto {
 
-    private int id_producto, id_usuario;
+    private int id_producto, id_usuario, id_Comprador;
 
     private String marca, precio, imagen, nombre, descripcion, fecha, estado, valoracion, color;
 
     public Producto(int id_producto, String valoracion) {
         this.id_producto = id_producto;
         this.valoracion = valoracion;
+    }
+
+    public Producto(int id_producto, int id_Comprador) {
+        this.id_producto = id_producto;
+        this.id_Comprador = id_Comprador;
     }
 
     public Producto() {
@@ -83,6 +88,14 @@ public class Producto {
 
     public void setPrecio(String precio) {
         this.precio = precio;
+    }
+
+    public int getId_Comprador() {
+        return id_Comprador;
+    }
+
+    public void setId_Comprador(int id_Comprador) {
+        this.id_Comprador = id_Comprador;
     }
 
     public String getImagen() {

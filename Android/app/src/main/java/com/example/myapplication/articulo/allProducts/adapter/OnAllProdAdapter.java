@@ -13,27 +13,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
 import com.example.myapplication.articulo.allProducts.data.OnAllProdData;
+import com.example.myapplication.articulo.allProducts.view.AllProdActivity;
 import com.example.myapplication.beans.Producto;
 import com.example.myapplication.usuario.updateRating.presenter.UpdateRatePresenter;
 
 import java.util.ArrayList;
 
 public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.ViewHolder> {
+    private int idUsuario;
     private ArrayList<OnAllProdData> lstProd;
     private LayoutInflater inflater;
 
 
 
-    public OnAllProdAdapter(Context context, ArrayList<OnAllProdData> lstProd) {
+    public OnAllProdAdapter(Context context, ArrayList<OnAllProdData> lstProd, int idUsuario) {
         this.lstProd = lstProd;
         this.inflater = LayoutInflater.from(context);
+        this.idUsuario = idUsuario;
     }
 
 
     @NonNull
     @Override
     public OnAllProdAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.sale_data_carta2, parent, false);
+        View view = inflater.inflate(R.layout.sale_data_carta, parent, false);
         return new ViewHolder(view);
     }
 
@@ -53,6 +56,7 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
 
 
 
+        //Cambiar puntuacion
         holder.productButton.setOnClickListener(e -> {
             System.out.println("Yeeeeesaaa All prod");
             String addRateStr = holder.addRateEditText.getText().toString().trim();
@@ -68,6 +72,15 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
             presenter.updateRating(producto);
 
         });
+
+
+        //Comprar
+        holder.botonComprar.setOnClickListener(e ->{
+            String idUsuarioString = String.valueOf(idUsuario);
+            Producto producto = new Producto(lstProd.get(position).getId_producto(),
+                    idUsuarioString);
+        });
+
 
     }
 
@@ -87,6 +100,7 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
         TextView productColor;
         TextView productRate;
         Button productButton;
+        Button botonComprar;
         EditText addRateEditText;
 
 
@@ -100,6 +114,7 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
             productColor = itemView.findViewById(R.id.productColor);
             productRate = itemView.findViewById(R.id.productRate);
             productButton = itemView.findViewById(R.id.botonValoracion);
+            productButton = itemView.findViewById(R.id.botonComprar);
             addRateEditText = itemView.findViewById(R.id.productRate);
 
         }

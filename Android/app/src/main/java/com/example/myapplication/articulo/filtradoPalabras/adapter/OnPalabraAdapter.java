@@ -32,7 +32,7 @@ public class OnPalabraAdapter extends RecyclerView.Adapter<OnPalabraAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.sale_data_carta2, parent, false);
+        View view = inflater.inflate(R.layout.sale_data_carta, parent, false);
         return new ViewHolder(view);
     }
 
@@ -65,6 +65,10 @@ public class OnPalabraAdapter extends RecyclerView.Adapter<OnPalabraAdapter.View
 
         });
 
+        holder.productCompra.setOnClickListener(e ->{
+
+        });
+
     }
 
     @Override
@@ -81,6 +85,7 @@ public class OnPalabraAdapter extends RecyclerView.Adapter<OnPalabraAdapter.View
         TextView productColor;
         TextView productRate;
         Button productButton;
+        Button productCompra;
         EditText addRateEditText;
 
         public ViewHolder(@NonNull View itemView) {
@@ -92,6 +97,7 @@ public class OnPalabraAdapter extends RecyclerView.Adapter<OnPalabraAdapter.View
             productState = itemView.findViewById(R.id.productPrice);
             productColor = itemView.findViewById(R.id.productColor);
             productRate = itemView.findViewById(R.id.productRate);
+            productCompra = itemView.findViewById(R.id.botonComprar);
             productButton = itemView.findViewById(R.id.botonValoracion);
             addRateEditText = itemView.findViewById(R.id.productRate);
         }

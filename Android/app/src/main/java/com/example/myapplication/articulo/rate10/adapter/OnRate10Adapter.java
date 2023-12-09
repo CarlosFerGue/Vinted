@@ -27,7 +27,7 @@ public class OnRate10Adapter extends RecyclerView.Adapter<OnRate10Adapter.ViewHo
     @NonNull
     @Override
     public OnRate10Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.sale_data_carta2, parent, false);
+        View view = inflater.inflate(R.layout.sale_data_carta, parent, false);
         return new ViewHolder(view);
     }
 
