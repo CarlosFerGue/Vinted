@@ -43,11 +43,6 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
     private ArrayList<OnFiltrosData> lstProdFiltros;
     private ArrayList<OnPalabraData> lstProdPalabras;
 
-    //Coger el id usuario
-    Intent intent = getIntent();
-    int idUsuario = intent.getIntExtra("id", -1);
-
-
     public static AllProdActivity getInstance() {
         return mainActivity;
     }
@@ -137,7 +132,7 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         this.lstProd = lstProd;
         RecyclerView recyclerView = findViewById(R.id.productRecycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        onAllProdAdapter = new OnAllProdAdapter(this, lstProd, idUsuario);
+        onAllProdAdapter = new OnAllProdAdapter(this, lstProd, 2);
         recyclerView.setAdapter(onAllProdAdapter);
 
     }

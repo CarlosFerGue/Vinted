@@ -29,16 +29,6 @@ public class Producto {
         this.estado = estado;
     }
 
-//    public Producto(int id_producto, int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado) {
-//        this.id_producto = id_producto;
-//        this.id_usuario = id_usuario;
-//        this.marca = marca;
-//        this.precio = precio;
-//        this.imagen = imagen;
-//        this.nombre = nombre;
-//        this.descripcion = descripcion;
-//        this.fecha = fecha;
-//    }
 
     public Producto(int id_usuario, String marca, String precio, String imagen, String nombre, String descripcion, String fecha, String estado) {
         this.id_usuario = id_usuario;

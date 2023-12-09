@@ -15,6 +15,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.articulo.allProducts.data.OnAllProdData;
 import com.example.myapplication.articulo.allProducts.view.AllProdActivity;
 import com.example.myapplication.beans.Producto;
+import com.example.myapplication.usuario.comprasUsuario.comprar.presenter.ComprarPresenter;
 import com.example.myapplication.usuario.updateRating.presenter.UpdateRatePresenter;
 
 import java.util.ArrayList;
@@ -76,9 +77,14 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
 
         //Comprar
         holder.botonComprar.setOnClickListener(e ->{
-            String idUsuarioString = String.valueOf(idUsuario);
             Producto producto = new Producto(lstProd.get(position).getId_producto(),
-                    idUsuarioString);
+                    idUsuario);
+
+            System.out.println("El usuarios es " + idUsuario);
+            System.out.println("El id del producto es " + lstProd.get(position).getId_producto());
+
+            ComprarPresenter presenter = new ComprarPresenter();
+            presenter.Compra(producto);
         });
 
 
@@ -114,7 +120,7 @@ public class OnAllProdAdapter extends RecyclerView.Adapter<OnAllProdAdapter.View
             productColor = itemView.findViewById(R.id.productColor);
             productRate = itemView.findViewById(R.id.productRate);
             productButton = itemView.findViewById(R.id.botonValoracion);
-            productButton = itemView.findViewById(R.id.botonComprar);
+            botonComprar = itemView.findViewById(R.id.botonComprar);
             addRateEditText = itemView.findViewById(R.id.productRate);
 
         }
