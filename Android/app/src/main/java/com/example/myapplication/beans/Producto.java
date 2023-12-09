@@ -149,6 +149,7 @@ public class Producto {
                 ", fecha='" + fecha + '\'' +
                 ", estado='" + estado + '\'' +
                 ", valoracion='" + valoracion + '\'' +
+                ", id_comprador='" + id_Comprador + '\'' +
                 '}';
     }
 }

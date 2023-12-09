@@ -27,5 +27,6 @@ public class ComprarPresenter implements ContractComprar.Presenter, ContractComp
     @Override
     public void Compra(Producto producto) {
         model.CompraAPI(producto, this);
+        System.out.println("El producto es: " + producto);
     }
 }

@@ -23,8 +23,8 @@ public class CompraModel implements ContractComprar.Model {
         System.out.println("Voy a hacer la call desde el comprar");
 
         Call<OnComprarData> call = apiService.getCompra("PRODUCTOS.COMPRAR",
-                producto.getId_usuario(),
-                producto.getId_usuario());
+                producto.getId_producto(),
+                producto.getId_Comprador());
 
         call.enqueue(new Callback<OnComprarData>() {
             @Override
