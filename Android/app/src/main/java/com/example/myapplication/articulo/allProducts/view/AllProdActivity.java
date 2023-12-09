@@ -129,11 +129,10 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
 
     @Override
     public void succesLoadAllProd(ArrayList<OnAllProdData> lstProd) {
-
         this.lstProd = lstProd;
         RecyclerView recyclerView = findViewById(R.id.productRecycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        onAllProdAdapter = new OnAllProdAdapter(this, lstProd, 2);
+        onAllProdAdapter = new OnAllProdAdapter(this, lstProd, 1);
         recyclerView.setAdapter(onAllProdAdapter);
 
     }
