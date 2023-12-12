@@ -18,6 +18,7 @@ import com.example.myapplication.usuario.addProduct.data.AddProductData;
 import com.example.myapplication.usuario.addProduct.presenter.AddProductPresenter;
 import com.example.myapplication.articulo.allProducts.view.AllProdActivity;
 import com.example.myapplication.beans.Producto;
+import com.example.myapplication.usuario.comprasUsuario.historicoCompras.view.HistoricoActivity;
 import com.example.myapplication.usuario.loggedScreen.ContractLoggedScreen;
 import com.example.myapplication.usuario.loggedScreen.adapter.OnSaleDataAdapter;
 import com.example.myapplication.articulo.rate10.view.Rate10Activity;
@@ -37,6 +38,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
     private ArrayList<OnLoadSaleData> lstSales;
     private Button buscarUsuarios;
     private Button buscarProductos;
+    private Button tusCompras;
 
     public static LoggedScreenActivity getInstance() {
         return mainActivity;
@@ -51,42 +53,55 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
 
         //De aqui para abajo es donde empieza el desarrollo del listado de 10 usuarios
         buscarUsuarios = (Button) findViewById(R.id.buscar10UsuariosBoton);
-        buscarUsuarios.setOnClickListener(new View.OnClickListener(){
+        buscarUsuarios.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 openListado10Users();
             }
         });
 
         //De aqui para abajo esta el buscar todos los productos
         buscarProductos = (Button) findViewById(R.id.buscarTodoProductosBoton);
-        buscarProductos.setOnClickListener(new View.OnClickListener(){
+        buscarProductos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 openTodosProductos();
             }
         });
 
         //De aqui para abajo esta el buscar el top 10 productos mas valorados
         buscarProductos = (Button) findViewById(R.id.buscar10ProductosBoton);
-        buscarProductos.setOnClickListener(new View.OnClickListener(){
+        buscarProductos.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 openTop10Rate();
             }
         });
 
-
+        //Boton para ver tus compras
+        tusCompras = (Button) findViewById(R.id.tusCompras);
+        tusCompras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHistorico();
+            }
+        });
     }
 
     //Te lleva a la pantalla de todos los productos
-    public void openTop10Rate(){
+    public void openHistorico() {
+        Intent intent = new Intent(this, HistoricoActivity.class);
+        startActivity(intent);
+    }
+
+    //Te lleva a la pantalla de todos los productos
+    public void openTop10Rate() {
         Intent intent = new Intent(this, Rate10Activity.class);
         startActivity(intent);
     }
 
     //Te lleva a la pantalla de todos los productos
-    public void openTodosProductos(){
+    public void openTodosProductos() {
         Bundle extras = getIntent().getExtras();
         int idUsuario = extras.getInt("id");
 
@@ -99,7 +114,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
 
 
     //Te lleva a la pantalla de los 10 usuarios con mas ventas
-    public void openListado10Users(){
+    public void openListado10Users() {
         Intent intent = new Intent(this, User10Activity.class);
         startActivity(intent);
     }
