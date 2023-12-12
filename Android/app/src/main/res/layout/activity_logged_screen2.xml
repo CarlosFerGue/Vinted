@@ -164,11 +164,25 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/buscarTodoProductosBoton"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Busca productos" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buscarTodoProductosBoton"
+                android:layout_width="213dp"
+                android:layout_height="wrap_content"
+                android:text="Busca productos" />
+
+            <Button
+                android:id="@+id/tusCompras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mostrar mis compras" />
+        </LinearLayout>
+
 
     </LinearLayout>
 
