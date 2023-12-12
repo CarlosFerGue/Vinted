@@ -79,7 +79,7 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
         });
 
         //Boton para ver tus compras
-        tusCompras = (Button) findViewById(R.id.tusCompras);
+        tusCompras = (Button) findViewById(R.id.tussCompras);
         tusCompras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,7 +90,13 @@ public class LoggedScreenActivity extends AppCompatActivity implements ContractL
 
     //Te lleva a la pantalla de todos los productos
     public void openHistorico() {
+        Bundle extras = getIntent().getExtras();
+        int idUsuario = extras.getInt("id");
+
+        Log.d("LoggedScreenActivity", "Id" + idUsuario);
+
         Intent intent = new Intent(this, HistoricoActivity.class);
+        intent.putExtra("id", idUsuario);
         startActivity(intent);
     }
 

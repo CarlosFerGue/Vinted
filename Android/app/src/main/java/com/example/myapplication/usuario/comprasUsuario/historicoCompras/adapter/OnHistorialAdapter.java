@@ -22,7 +22,7 @@ public class OnHistorialAdapter extends RecyclerView.Adapter<OnHistorialAdapter.
     private ArrayList<OnHistorialData> lstProd;
     private LayoutInflater inflater;
 
-    public OnHistorialAdapter(Context context, int idUsuario, ArrayList<OnHistorialData> lstProd) {
+    public OnHistorialAdapter(Context context, ArrayList<OnHistorialData> lstProd, int idUsuario) {
         this.idUsuario = idUsuario;
         this.lstProd = lstProd;
         this.inflater = LayoutInflater.from(context);
@@ -46,7 +46,6 @@ public class OnHistorialAdapter extends RecyclerView.Adapter<OnHistorialAdapter.
         holder.productState.setText(lstProd.get(position).getEstado());
         holder.productDesc.setText(lstProd.get(position).getDescripcion());
         holder.productRate.setText(lstProd.get(position).getValoracion());
-        holder.addRateEditText.getText();
 
 
 
@@ -65,7 +64,6 @@ public class OnHistorialAdapter extends RecyclerView.Adapter<OnHistorialAdapter.
         TextView productState;
         TextView productColor;
         TextView productRate;
-        EditText addRateEditText;
 
 
         public ViewHolder(@NonNull View itemView) {

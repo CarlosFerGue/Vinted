@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.R;
+import com.example.myapplication.articulo.allProducts.adapter.OnAllProdAdapter;
 import com.example.myapplication.usuario.comprasUsuario.historicoCompras.ContractHistorial;
 import com.example.myapplication.usuario.comprasUsuario.historicoCompras.adapter.OnHistorialAdapter;
 import com.example.myapplication.usuario.comprasUsuario.historicoCompras.data.OnHistorialData;
@@ -15,7 +18,7 @@ import com.example.myapplication.usuario.comprasUsuario.historicoCompras.present
 import java.util.ArrayList;
 
 public class HistoricoActivity extends AppCompatActivity implements ContractHistorial.View {
-    private OnHistorialPresenter presenter;
+    private OnHistorialPresenter presenter = new OnHistorialPresenter(this);
 
     private static HistoricoActivity mainActivity = null;
 
@@ -49,7 +52,11 @@ public class HistoricoActivity extends AppCompatActivity implements ContractHist
 
     @Override
     public void succesHistorial(ArrayList<OnHistorialData> lstProd) {
-        
+        this.lstProd = lstProd;
+        RecyclerView recyclerView = findViewById(R.id.productRecycleView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        onHistorialAdapter = new OnHistorialAdapter(this, lstProd, 1);
+        recyclerView.setAdapter(onHistorialAdapter);
     }
 
     @Override

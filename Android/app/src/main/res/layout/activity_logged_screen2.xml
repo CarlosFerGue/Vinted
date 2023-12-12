@@ -176,7 +176,7 @@
                 android:text="Busca productos" />
 
             <Button
-                android:id="@+id/tusCompras"
+                android:id="@+id/tussCompras"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
