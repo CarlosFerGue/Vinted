@@ -40,7 +40,13 @@ public interface APIService {
 
     // Conseguir todos los productos
     @GET("Controller")
-    Call<ArrayList<OnAllProdData>> getAllProducts(@Query("ACTION") String action, @Query("ID") Integer userId);
+    Call<ArrayList<OnAllProdData>> getAllProducts(@Query("ACTION") String action,
+                                                  @Query("ID") Integer userId);
+
+    // Conseguir tus compras
+    @GET("Controller")
+    Call<ArrayList<OnHistorialData>> getHistorial(@Query("ACTION") String action,
+                                                  @Query("ID") Integer userId);
 
     //    Añadir productos
     @GET("Controller")
