@@ -6,7 +6,7 @@ import com.example.myapplication.articulo.filtradoPalabras.data.OnPalabraData;
 import com.example.myapplication.articulo.filtros.data.OnFiltrosData;
 import com.example.myapplication.articulo.rate10.data.OnRate10Data;
 import com.example.myapplication.usuario.comprasUsuario.comprar.data.OnComprarData;
-import com.example.myapplication.usuario.comprasUsuario.historicoCompras.data.OnHistoricoData;
+import com.example.myapplication.usuario.comprasUsuario.historicoCompras.data.OnHistorialData;
 import com.example.myapplication.usuario.top10Users.data.OnUser10Data;
 import com.example.myapplication.usuario.loggedScreen.data.OnLoadSaleData;
 import com.example.myapplication.usuario.login.data.MyLoginData;
@@ -77,7 +77,7 @@ public interface APIService {
 
     // Historico de compras
     @GET("Controller")
-    Call<ArrayList<OnHistoricoData>> getFiltros(@Query("ACTION")String action,
+    Call<ArrayList<OnHistorialData>> getFiltros(@Query("ACTION")String action,
                                                 @Query("ID") Integer userId);
 
     // Filtros
