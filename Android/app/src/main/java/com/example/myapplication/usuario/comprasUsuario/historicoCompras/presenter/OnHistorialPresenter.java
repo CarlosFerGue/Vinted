@@ -1,25 +1,31 @@
 package com.example.myapplication.usuario.comprasUsuario.historicoCompras.presenter;
+import com.example.myapplication.usuario.comprasUsuario.historicoCompras.ContractHistorial;
 import com.example.myapplication.usuario.comprasUsuario.historicoCompras.data.OnHistorialData;
+import com.example.myapplication.usuario.comprasUsuario.historicoCompras.model.OnHistorialModel;
+
 import java.util.ArrayList;
 
-public class OnHistorialPresenter {
-    public interface View{
-        public void succesHistorialProd(ArrayList<OnHistorialData> lstProd);
+public class OnHistorialPresenter implements ContractHistorial.Presenter, ContractHistorial.Model.loadHistorialistener {
+    ContractHistorial.View view;
+    ContractHistorial.Model model;
 
-        public void failureHistorialProd(String err);
+    public OnHistorialPresenter(ContractHistorial.View view) {
+        this.view = view;
+        model = new OnHistorialModel(this);
     }
 
-    public interface Presenter{
-        public void LoadHistorialProd(int userId);
+    @Override
+    public void LoadOnHistorial(int userId) {
+        model.loadHistorialAPI(userId, this);
     }
 
-    public interface Model{
-        public void loadHistorialAPI(int userId, loadHistorialListener loadHistorialListener);
+    @Override
+    public void onFinished(ArrayList<OnHistorialData> lstProd) {
+        view.succesHistorial(lstProd);
+    }
 
-        public interface loadHistorialListener{
-            public void onFinished(ArrayList<OnHistorialData> lstProd);
-
-            public void onFailure(String err);
-        }
+    @Override
+    public void onFailure(String err) {
+        view.failureHistorial(err);
     }
 }
