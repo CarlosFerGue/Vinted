@@ -55,7 +55,7 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_listado_allprod2);
+        setContentView(R.layout.activity_listado_allprod);
         initComponents();
     }
 

@@ -132,7 +132,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="327dp"
+            android:layout_height="269dp"
 
             android:orientation="vertical">
 
@@ -148,50 +148,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:weightSum="4"> <!-- Suma de los pesos, en este caso, el número de botones -->
+>
 
             <Button
                 android:id="@+id/buscar10UsuariosBoton"
-                android:layout_width="0dp"
+                android:layout_width="211dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:drawableEnd="@drawable/user10"
-                android:drawablePadding="8dp"
-                />
+                android:text="Top 10 usuarios con mas ventas" />
 
             <Button
                 android:id="@+id/buscar10ProductosBoton"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:drawableEnd="@drawable/productos10"
-                android:drawablePadding="8dp"
-               />
-
-            <Button
-                android:id="@+id/buscarTodoProductosBoton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:drawableEnd="@drawable/buscar"
-                android:drawablePadding="8dp"
-            />
-
-            <Button
-                android:id="@+id/tussCompras"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:drawableEnd="@drawable/mis_compras"
-                android:drawablePadding="8dp"
-               />
+                android:text="Top 10 productos con mas reseña" />
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buscarTodoProductosBoton"
+                android:layout_width="213dp"
+                android:layout_height="wrap_content"
+                android:text="Busca productos" />
+
+            <Button
+                android:id="@+id/tussCompras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Mostrar mis compras" />
+        </LinearLayout>
 
 
     </LinearLayout>
