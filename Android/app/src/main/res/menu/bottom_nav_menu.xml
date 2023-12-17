@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/buscar10UsuariosBoton"
+        android:title="10 users"
+        android:icon="@drawable/user10"/>
+
+    <item
+        android:id="@+id/buscar10ProductosBoton"
+        android:title="10 productos"
+        android:icon="@drawable/productos10"/>
+
+    <item
+        android:id="@+id/buscarTodoProductosBoton"
+        android:title="Comprar"
+        android:icon="@drawable/buscar" />
+
+    <item
+        android:id="@+id/tussCompras"
+        android:title="Historial"
+        android:icon="@drawable/mis_compras"/>
+</menu>

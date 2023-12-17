@@ -1,200 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".usuario.loggedScreen.view.LoggedScreenActivity"
-
-    >
-
+    tools:context=".usuario.loggedScreen.view.LoggedScreenActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            tools:ignore="MissingConstraints"
-            android:layout_marginBottom="7dp"
+            android:layout_width="300dp"
+            android:layout_height="354dp"
+            android:background="@color/azul"
             android:gravity="center"
-            >
+            android:orientation="vertical"
+            android:padding="20dp">
 
-            <LinearLayout
-                android:layout_width="300dp"
-                android:layout_height="354dp"
-                android:background="@color/azul"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="20dp"
-                >
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="¡Dar de alta un producto!"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:fontFamily="@font/poppins_bold"
-                    android:text="¡Dar de alta un producto!"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    />
+            <EditText
+                android:id="@+id/addColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:drawableEnd="@drawable/color"
+                android:ems="10"
+                android:hint="Color"
+                android:inputType="text"
+                android:textColorHint="@color/white"
+                android:textSize="20sp" />
 
-                <EditText
-                    android:id="@+id/addColor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/color"
-                    android:ems="10"
-                    android:hint="Color"
-                    android:inputType="text"
-                    android:textColorHint="@color/white"
-                    android:textSize="20sp" />
+            <EditText
+                android:id="@+id/addPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:drawableEnd="@drawable/precio"
+                android:ems="10"
+                android:hint="Precio"
+                android:inputType="numberDecimal"
+                android:textColorHint="@color/white"
+                android:textSize="20sp" />
 
-                <EditText
-                    android:id="@+id/addPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/precio"
-                    android:ems="10"
-                    android:hint="Precio"
-                    android:inputType="numberDecimal"
-                    android:textColorHint="@color/white"
-                    android:textSize="20sp" />
+            <EditText
+                android:id="@+id/addName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:drawableEnd="@drawable/pasword"
+                android:ems="10"
+                android:hint="Nombre"
+                android:inputType="text"
+                android:textColorHint="@color/white"
+                android:textSize="20sp" />
 
-                <EditText
-                    android:id="@+id/addName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/pasword"
-                    android:ems="10"
-                    android:hint="Nombre"
-                    android:inputType="text"
-                    android:textColorHint="@color/white"
-                    android:textSize="20sp" />
+            <!--                <EditText-->
+            <!--                    android:id="@+id/addState"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:ems="10"-->
+            <!--                    android:hint="Estado"-->
+            <!--                    android:inputType="text"-->
+            <!--                    android:textSize="20sp"-->
+            <!--                    android:textColorHint="@color/white"-->
+            <!--                    android:backgroundTint="@color/white"-->
+            <!--                    android:drawableEnd="@drawable/pasword"/>-->
 
-                <!--                <EditText-->
-                <!--                    android:id="@+id/addState"-->
-                <!--                    android:layout_width="wrap_content"-->
-                <!--                    android:layout_height="wrap_content"-->
-                <!--                    android:ems="10"-->
-                <!--                    android:hint="Estado"-->
-                <!--                    android:inputType="text"-->
-                <!--                    android:textSize="20sp"-->
-                <!--                    android:textColorHint="@color/white"-->
-                <!--                    android:backgroundTint="@color/white"-->
-                <!--                    android:drawableEnd="@drawable/pasword"/>-->
+            <EditText
+                android:id="@+id/addBrand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:drawableEnd="@drawable/marca"
+                android:ems="10"
+                android:hint="Marca"
+                android:inputType="text"
+                android:textColorHint="@color/white"
+                android:textSize="20sp" />
 
-                <EditText
-                    android:id="@+id/addBrand"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/marca"
-                    android:ems="10"
-                    android:hint="Marca"
-                    android:inputType="text"
-                    android:textColorHint="@color/white"
-                    android:textSize="20sp" />
+            <EditText
+                android:id="@+id/addDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:drawableEnd="@drawable/descripcion"
+                android:ems="10"
+                android:hint="Descripción"
+                android:inputType="text"
+                android:textColorHint="@color/white"
+                android:textSize="20sp" />
 
-                <EditText
-                    android:id="@+id/addDesc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:drawableEnd="@drawable/descripcion"
-                    android:ems="10"
-                    android:hint="Descripción"
-                    android:inputType="text"
-                    android:textColorHint="@color/white"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/addProductButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/white"
-                    android:text="Añadir artículo"
-                    android:textColor="@color/azul" />
-
-            </LinearLayout>
-
+            <Button
+                android:id="@+id/addProductButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/white"
+                android:text="Añadir artículo"
+                android:textColor="@color/azul" />
 
         </LinearLayout>
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productRecycleView"
             android:layout_width="match_parent"
-            android:layout_height="327dp"
-
-            android:orientation="vertical">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/productRecycleView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </androidx.recyclerview.widget.RecyclerView>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="4"> <!-- Suma de los pesos, en este caso, el número de botones -->
-
-            <Button
-                android:id="@+id/buscar10UsuariosBoton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:drawableEnd="@drawable/user10"
-                android:drawablePadding="8dp"
-                />
-
-            <Button
-                android:id="@+id/buscar10ProductosBoton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:drawableEnd="@drawable/productos10"
-                android:drawablePadding="8dp"
-               />
-
-            <Button
-                android:id="@+id/buscarTodoProductosBoton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:drawableEnd="@drawable/buscar"
-                android:drawablePadding="8dp"
-            />
-
-            <Button
-                android:id="@+id/tussCompras"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:drawableEnd="@drawable/mis_compras"
-                android:drawablePadding="8dp"
-               />
-
-        </LinearLayout>
-
+            android:layout_height="296dp" />
 
 
     </LinearLayout>
 
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/azul"
+        app:menu="@menu/bottom_nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

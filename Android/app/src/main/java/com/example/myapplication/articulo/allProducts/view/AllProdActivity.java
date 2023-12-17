@@ -47,6 +47,8 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         return mainActivity;
     }
 
+    private int idUsuario;
+
     private Button activo;
     private Button noActivo;
     private Button buscador;
@@ -57,6 +59,19 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado_allprod);
         initComponents();
+
+
+        /////////
+        Intent intent = getIntent();
+        idUsuario = intent.getIntExtra("id", -1);
+
+        if (idUsuario != -1) {
+            presenter.LoadOnAllProd(idUsuario);
+        } else {
+            Toast.makeText(this, "No se proporcionó ID de usuario", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+
     }
 
     private void initComponents() {
@@ -132,7 +147,7 @@ public class AllProdActivity extends AppCompatActivity implements ContractAllPro
         this.lstProd = lstProd;
         RecyclerView recyclerView = findViewById(R.id.productRecycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        onAllProdAdapter = new OnAllProdAdapter(this, lstProd, 1);
+        onAllProdAdapter = new OnAllProdAdapter(this, lstProd, idUsuario); // Pasar la ID de usuario al adaptador
         recyclerView.setAdapter(onAllProdAdapter);
 
     }
